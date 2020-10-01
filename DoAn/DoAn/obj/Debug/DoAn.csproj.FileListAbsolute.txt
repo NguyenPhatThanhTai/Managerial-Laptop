@@ -1,0 +1,17 @@
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\DoAn.exe.config
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\DoAn.exe
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\DoAn.pdb
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.csprojAssemblyReference.cache
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.Properties.Resources.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.csproj.GenerateResource.cache
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.csproj.CoreCompileInputs.cache
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.exe
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.pdb
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QuanLySuaChua.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.LichSuSuaChua.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QuanLyLinhKien.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.DanhSachChucNang.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.DangNhap.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QuanLyNhanVien.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.ThongTinNhanVien.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.LuongNhanVien.resources
