@@ -52,10 +52,10 @@ namespace DoAn
                 lsvLuong.Items.Add((i + 1).ToString());
                 lsvLuong.Items[i].SubItems.Add(docdulieu[0].ToString());
                 lsvLuong.Items[i].SubItems.Add(docdulieu[1].ToString());
-                lsvLuong.Items[i].SubItems.Add(docdulieu[2].ToString());
-                lsvLuong.Items[i].SubItems.Add(docdulieu[3].ToString());
-                lsvLuong.Items[i].SubItems.Add(docdulieu[4].ToString());
-                lsvLuong.Items[i].SubItems.Add(docdulieu[5].ToString());
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[2].ToString()));
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[3].ToString()));
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[4].ToString()));
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[5].ToString()));
                 i++;
             }
             ketnoi.Close();
@@ -66,8 +66,7 @@ namespace DoAn
             txtHoTen.Text = lsvLuong.SelectedItems[0].SubItems[1].Text;
             txtPhongBan.Text = lsvLuong.SelectedItems[0].SubItems[2].Text;
             txtLuongCoBan.Text = lsvLuong.SelectedItems[0].SubItems[3].Text;
-            txtLuongTheoGio.Text = lsvLuong.SelectedItems[0].SubItems[4].Text;
-            txtTienThuong.Text = lsvLuong.SelectedItems[0].SubItems[5].Text;
+            txtLuongTheoGio.Text = lsvLuong.SelectedItems[0].SubItems[5].Text;
             txtLamNgoaiGio.Text = lsvLuong.SelectedItems[0].SubItems[6].Text;
             if (lsvLuong.SelectedItems[0].SubItems[3].Text == "")
             {
@@ -79,18 +78,25 @@ namespace DoAn
                 int TienCoBan = int.Parse(lsvLuong.SelectedItems[0].SubItems[3].Text);
                 int TienThuong = int.Parse(lsvLuong.SelectedItems[0].SubItems[4].Text);
                 int LamNgoaiGio = int.Parse(lsvLuong.SelectedItems[0].SubItems[5].Text);
-                txtTongLuong.Text = (TienCoBan + TienThuong + LamNgoaiGio).ToString();
+                txtTongLuong.Text = string.Format("VND{0:#,###}", (TienCoBan + TienThuong + LamNgoaiGio).ToString());
             }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            ketnoi.Open();
-            sql = @"UPDATE TableLuongNhanVien set SalaryDefault = N'" + txtLuongCoBan.Text + @"', SalaryPerHours = N'" + txtLuongTheoGio.Text + @"', 
+            if (txtLuongCoBan.Text != "" && txtLuongTheoGio.Text != "" && txtLamNgoaiGio.Text != "" & txtTienThuong.Text != "")
+            {
+                ketnoi.Open();
+                sql = @"UPDATE TableLuongNhanVien set SalaryDefault = N'" + txtLuongCoBan.Text + @"', SalaryPerHours = N'" + txtLuongTheoGio.Text + @"', 
                     Reward = N'" + txtTienThuong.Text + @"', OverTime = N'" + txtLamNgoaiGio.Text + @"' Where (Name = N'" + txtHoTen.Text + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            hienthi();
+                thuchien = new SqlCommand(sql, ketnoi);
+                thuchien.ExecuteNonQuery();
+                hienthi();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin !");
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -127,6 +133,15 @@ namespace DoAn
         private void btnFeresh_Click(object sender, EventArgs e)
         {
             hienthi();
+        }
+
+        private void LuongNhanVien_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn muốn thoát à?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

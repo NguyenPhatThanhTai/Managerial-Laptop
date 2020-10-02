@@ -419,6 +419,7 @@
             this.Name = "QuanLyLinhKien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Linh Kiện";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLyLinhKien_FormClosing);
             this.Load += new System.EventHandler(this.QuanLyLinhKien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

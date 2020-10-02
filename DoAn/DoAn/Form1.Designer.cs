@@ -742,6 +742,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sữa chữa";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLySuaChua_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

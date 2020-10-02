@@ -478,6 +478,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LuongNhanVien";
             this.Text = "LuongNhanVien";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LuongNhanVien_FormClosing);
             this.Load += new System.EventHandler(this.LuongNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

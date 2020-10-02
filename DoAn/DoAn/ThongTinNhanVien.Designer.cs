@@ -54,6 +54,7 @@
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label10 = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtDepartment = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -344,6 +344,11 @@
             // 
             this.columnHeader18.Text = "Mật khẩu";
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Phòng ban";
+            this.columnHeader2.Width = 66;
+            // 
             // columnHeader19
             // 
             this.columnHeader19.Text = "Quyền";
@@ -605,11 +610,6 @@
             this.label11.TabIndex = 49;
             this.label11.Text = "Phòng ban";
             // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Phòng ban";
-            this.columnHeader2.Width = 66;
-            // 
             // txtDepartment
             // 
             this.txtDepartment.FormattingEnabled = true;
@@ -673,6 +673,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThongTinNhanVien";
             this.Text = "ThongTinNhanVien";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThongTinNhanVien_FormClosing);
             this.Load += new System.EventHandler(this.ThongTinNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();

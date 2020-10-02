@@ -157,6 +157,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DanhSachChucNang_FormClosing);
             this.Load += new System.EventHandler(this.DanhSachChucNang_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
