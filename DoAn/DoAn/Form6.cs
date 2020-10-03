@@ -67,5 +67,11 @@ namespace DoAn
                 e.Cancel = true;
             }
         }
+
+        private void TroGiupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TroGiup f = new TroGiup();
+            AddToForm(f);
+        }
     }
 }

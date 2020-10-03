@@ -78,16 +78,23 @@ namespace DoAn
 
         public void deleteUser(string User)
         {
-            ketnoi.Open();
-            sql = @"DELETE FROM TableLuongNhanVien, TableNhanVien where(Name = N'" + User + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            //ketnoi.Close();
-            //ketnoi.Open();
-            //sql = @"DELETE FROM TableLuongNhanVien where(name = N'" + User + @"')";
-            //thuchien = new SqlCommand(sql, ketnoi);
-            //docdulieu = thuchien.ExecuteReader();
-            ketnoi.Close();
+            DialogResult dialog = MessageBox.Show("Bạn có muốn xóa nhân viên " + txtHoTen.Text + " với quyền là " + txtRole.Text + "", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                ketnoi.Open();
+                sql = @"DELETE FROM TableLuongNhanVien where(Name = N'" + User + @"')";
+                thuchien = new SqlCommand(sql, ketnoi);
+                thuchien.ExecuteNonQuery();
+                sql = @"DELETE FROM TableNhanVien where(name = N'" + User + @"')";
+                thuchien = new SqlCommand(sql, ketnoi);
+                docdulieu = thuchien.ExecuteReader();
+                ketnoi.Close();
+            }
+            else
+            {
+                ketnoi.Close();
+                hienthi();
+            }
         }
 
         private void listView4_Click(object sender, EventArgs e)
@@ -96,6 +103,10 @@ namespace DoAn
             txtPassword.Enabled = false;
             btnSua.Enabled = true;
             btnDelete.Enabled = true;
+            if(listView4.SelectedItems[0].SubItems[1].Text == "Nguyễn Phát Thành Tài")
+            {
+                btnDelete.Enabled = false;
+            }
             txtHoTen.Text = listView4.SelectedItems[0].SubItems[1].Text;
             txtGioiTinh.Text = listView4.SelectedItems[0].SubItems[2].Text;
             txtDoB.Text = listView4.SelectedItems[0].SubItems[3].Text;
@@ -115,17 +126,26 @@ namespace DoAn
                 listView4.Items.Clear();
                 if (CheckUser(txtHoTen.Text))
                 {
-                    ketnoi.Close();
-                    ketnoi.Open();
-                    sql = @"Insert into TableNhanVien (Name, Sex, DateOfBirth, Address, PhoneNumber, Account, Password, Department, Role, TimeStart) VALUES(N'" + txtHoTen.Text + @"',N'" + txtGioiTinh.Text + @"',N'"
-                            + txtDoB.Text + @"', N'" + txtDiaChi.Text + @"', N'" + txtSDT.Text + @"', N'" + txtAccount.Text + @"' , N'" + txtPassword.Text + @"' ,  N'" + txtDepartment.Text + @"' , N'" + txtRole.Text + @"',  N'" + time + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    sql = @"Insert into TableLuongNhanVien(Name, Department) VALUES (N'" + txtHoTen.Text + @"', N'" + txtDepartment.Text + @"')";
-                                        thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    ketnoi.Close();
-                    hienthi();
+                    DialogResult dialog = MessageBox.Show("Bạn có muốn thêm nhân viên " + txtHoTen.Text + " với quyền là " + txtRole.Text + "", "Xác nhận", MessageBoxButtons.YesNo);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        ketnoi.Close();
+                        ketnoi.Open();
+                        sql = @"Insert into TableNhanVien (Name, Sex, DateOfBirth, Address, PhoneNumber, Account, Password, Department, Role, TimeStart) VALUES(N'" + txtHoTen.Text + @"',N'" + txtGioiTinh.Text + @"',N'"
+                                + txtDoB.Text + @"', N'" + txtDiaChi.Text + @"', N'" + txtSDT.Text + @"', N'" + txtAccount.Text + @"' , N'" + txtPassword.Text + @"' ,  N'" + txtDepartment.Text + @"' , N'" + txtRole.Text + @"',  N'" + time + @"')";
+                        thuchien = new SqlCommand(sql, ketnoi);
+                        thuchien.ExecuteNonQuery();
+                        sql = @"Insert into TableLuongNhanVien(Name, Department) VALUES (N'" + txtHoTen.Text + @"', N'" + txtDepartment.Text + @"')";
+                        thuchien = new SqlCommand(sql, ketnoi);
+                        thuchien.ExecuteNonQuery();
+                        ketnoi.Close();
+                        hienthi();
+                    }
+                    else
+                    {
+                        ketnoi.Close();
+                        hienthi();
+                    }
                 }
                 else
                 {

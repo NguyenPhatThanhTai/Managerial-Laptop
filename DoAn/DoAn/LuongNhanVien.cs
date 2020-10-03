@@ -68,7 +68,8 @@ namespace DoAn
             txtLuongCoBan.Text = lsvLuong.SelectedItems[0].SubItems[3].Text;
             txtLuongTheoGio.Text = lsvLuong.SelectedItems[0].SubItems[5].Text;
             txtLamNgoaiGio.Text = lsvLuong.SelectedItems[0].SubItems[6].Text;
-            if (lsvLuong.SelectedItems[0].SubItems[3].Text == "")
+            if (lsvLuong.SelectedItems[0].SubItems[3].Text == "" && lsvLuong.SelectedItems[0].SubItems[4].Text == "" && lsvLuong.SelectedItems[0].SubItems[5].Text == "" &&
+                        lsvLuong.SelectedItems[0].SubItems[6].Text == "")
             {
                 MessageBox.Show("Nhân viên này vẫn chưa cài đặt các thông số lương !");
                 txtTongLuong.Text = "";
@@ -78,7 +79,7 @@ namespace DoAn
                 int TienCoBan = int.Parse(lsvLuong.SelectedItems[0].SubItems[3].Text);
                 int TienThuong = int.Parse(lsvLuong.SelectedItems[0].SubItems[4].Text);
                 int LamNgoaiGio = int.Parse(lsvLuong.SelectedItems[0].SubItems[5].Text);
-                txtTongLuong.Text = string.Format("VND{0:#,###}", (TienCoBan + TienThuong + LamNgoaiGio).ToString());
+                txtTongLuong.Text = string.Format("{0:#,###}VND", ((TienCoBan + TienThuong + LamNgoaiGio).ToString()));
             }
         }
 

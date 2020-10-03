@@ -139,7 +139,7 @@ namespace DoAn
         {
             DanhSachChucNang DSCN = new DanhSachChucNang(Role);
             DSCN.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnFind_Click(object sender, EventArgs e)

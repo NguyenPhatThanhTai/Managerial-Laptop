@@ -31,7 +31,7 @@
             this.GboxContain = new System.Windows.Forms.GroupBox();
             this.quayLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinChungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hoaHồngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TroGiupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lươngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
@@ -62,11 +62,12 @@
             this.thôngTinChungToolStripMenuItem.Text = "Thông tin chung";
             this.thôngTinChungToolStripMenuItem.Click += new System.EventHandler(this.thôngTinChungToolStripMenuItem_Click);
             // 
-            // hoaHồngToolStripMenuItem
+            // TroGiupToolStripMenuItem
             // 
-            this.hoaHồngToolStripMenuItem.Name = "hoaHồngToolStripMenuItem";
-            this.hoaHồngToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
-            this.hoaHồngToolStripMenuItem.Text = "Trợ giúp";
+            this.TroGiupToolStripMenuItem.Name = "TroGiupToolStripMenuItem";
+            this.TroGiupToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.TroGiupToolStripMenuItem.Text = "Trợ giúp";
+            this.TroGiupToolStripMenuItem.Click += new System.EventHandler(this.TroGiupToolStripMenuItem_Click);
             // 
             // lươngToolStripMenuItem
             // 
@@ -82,7 +83,7 @@
             this.quayLạiToolStripMenuItem,
             this.thôngTinChungToolStripMenuItem,
             this.lươngToolStripMenuItem,
-            this.hoaHồngToolStripMenuItem});
+            this.TroGiupToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1642, 28);
@@ -115,7 +116,7 @@
         private System.Windows.Forms.GroupBox GboxContain;
         private System.Windows.Forms.ToolStripMenuItem quayLạiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinChungToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hoaHồngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TroGiupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lươngToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
     }

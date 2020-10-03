@@ -25,6 +25,12 @@ namespace DoAn
         SqlDataReader docdulieu;
         int i = 0;
         string name;
+        string Role;
+
+        public LichSuSuaChua(string Role) : this()
+        {
+            this.Role = Role;
+        }
         private void Form2_Load(object sender, EventArgs e)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
