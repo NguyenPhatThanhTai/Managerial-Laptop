@@ -98,6 +98,7 @@
             this.ClientSize = new System.Drawing.Size(1642, 731);
             this.Controls.Add(this.GboxContain);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "QuanLyNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

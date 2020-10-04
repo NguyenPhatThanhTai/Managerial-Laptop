@@ -344,7 +344,7 @@
             // 
             this.pictureBox14.ErrorImage = null;
             this.pictureBox14.Image = global::DoAn.Properties.Resources.fix;
-            this.pictureBox14.Location = new System.Drawing.Point(376, 25);
+            this.pictureBox14.Location = new System.Drawing.Point(389, 27);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(89, 48);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -658,6 +658,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QlySuaChua";
             this.Text = "QlySuaChua";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QlySuaChua_FormClosing);
             this.Load += new System.EventHandler(this.QlySuaChua_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();

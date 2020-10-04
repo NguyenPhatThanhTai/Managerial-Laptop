@@ -143,6 +143,12 @@ namespace DoAn
             {
                 e.Cancel = true;
             }
+            else
+            {
+                DangNhap dangNhap = new DangNhap();
+                dangNhap.Show();
+                this.Hide();
+            }
         }
     }
 }

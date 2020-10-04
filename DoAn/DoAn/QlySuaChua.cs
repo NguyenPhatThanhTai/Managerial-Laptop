@@ -18,6 +18,11 @@ namespace DoAn
             InitializeComponent();
         }
 
+        public QlySuaChua(string Role) : this()
+        {
+            this.Role = Role;
+        }
+
         string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=QuanLySuaChuaLaptop;Integrated Security=True";
         string sql;
         SqlConnection ketnoi;
@@ -195,6 +200,21 @@ namespace DoAn
             txtGhiChu.Text = "";
             txtSoTien.Text = "";
             txtThoiGian.Text = "";
+        }
+
+        private void QlySuaChua_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn muốn thoát à?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                DangNhap dangNhap = new DangNhap();
+                dangNhap.Show();
+                this.Hide();
+            }
         }
     }
 }

@@ -42,7 +42,7 @@ namespace DoAn
 
         private void thôngTinChungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ThongTinNhanVien f = new ThongTinNhanVien();
+            ThongTinNhanVien f = new ThongTinNhanVien(Role);
             AddToForm(f);
         }
 
@@ -55,7 +55,7 @@ namespace DoAn
 
         private void lươngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LuongNhanVien f = new LuongNhanVien();
+            LuongNhanVien f = new LuongNhanVien(Role);
             AddToForm(f);
         }
 
@@ -65,6 +65,12 @@ namespace DoAn
             if (dialog == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+            else
+            {
+                DangNhap dangNhap = new DangNhap();
+                dangNhap.Show();
+                this.Hide();
             }
         }
 

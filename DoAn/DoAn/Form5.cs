@@ -88,7 +88,7 @@ namespace DoAn
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
@@ -98,6 +98,7 @@ namespace DoAn
             {
                 e.Cancel = true;
             }
+            Environment.Exit(1);
         }
     }
 }

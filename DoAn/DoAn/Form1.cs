@@ -37,6 +37,12 @@ namespace DoAn
             {
                 e.Cancel = true;
             }
+            else
+            {
+                DangNhap dangNhap = new DangNhap();
+                dangNhap.Show();
+                this.Hide();
+            }
         }
 
         private void AddToForm(Form f)
@@ -50,7 +56,7 @@ namespace DoAn
 
         private void thôngTinChungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QlySuaChua f = new QlySuaChua();
+            QlySuaChua f = new QlySuaChua(Role);
             AddToForm(f);
         }
 
