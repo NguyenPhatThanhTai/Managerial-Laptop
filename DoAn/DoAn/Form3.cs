@@ -25,12 +25,14 @@ namespace DoAn
         SqlDataReader docdulieu;
         string time = DateTime.Now.ToString();
         string Role;
+        string Name;
         int i = 0;
 
 
-        public QuanLyLinhKien(string Role) : this()
+        public QuanLyLinhKien(string Role, string Name) : this()
         {
             this.Role = Role;
+            this.Name = Name;
         }
         public void hienthi(string nameLK)
         {
@@ -137,7 +139,7 @@ namespace DoAn
 
         private void btnTurnBack_Click(object sender, EventArgs e)
         {
-            DanhSachChucNang DSCN = new DanhSachChucNang(Role);
+            DanhSachChucNang DSCN = new DanhSachChucNang(Role, Name);
             DSCN.Show();
             this.Hide();
         }

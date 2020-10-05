@@ -13,14 +13,16 @@ namespace DoAn
     public partial class DanhSachChucNang : Form
     {
         string Role;
+        string Name;
         public DanhSachChucNang()
         {
             InitializeComponent();
         }
 
-        public DanhSachChucNang(string role) : this()
+        public DanhSachChucNang(string role, string name) : this()
         {
             Role = role;
+            Name = name;
         }
 
         private void DanhSachChucNang_Load(object sender, EventArgs e)
@@ -33,18 +35,19 @@ namespace DoAn
             {
                 btnChucNangQuanLyNV.Enabled = false;
             }
+            HelloNV.Text = "Xin chào " + Name;
         }
 
         private void btnChucNangSuaChua_Click(object sender, EventArgs e)
         {
-            QuanLySuaChua suachua = new QuanLySuaChua(Role);
+            QuanLySuaChua suachua = new QuanLySuaChua(Role, Name);
             suachua.Show();
             this.Hide();
         }
 
         private void btnChucNangLinhKien_Click(object sender, EventArgs e)
         {
-            QuanLyLinhKien linhkien = new QuanLyLinhKien(Role);
+            QuanLyLinhKien linhkien = new QuanLyLinhKien(Role, Name);
             linhkien.Show();
             this.Hide();
         }
@@ -58,7 +61,7 @@ namespace DoAn
 
         private void btnChucNangQuanLyNV_Click(object sender, EventArgs e)
         {
-            QuanLyNhanVien QLNV = new QuanLyNhanVien(Role);
+            QuanLyNhanVien QLNV = new QuanLyNhanVien(Role, Name);
             QLNV.Show();
             this.Hide();
         }

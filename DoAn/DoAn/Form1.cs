@@ -19,10 +19,12 @@ namespace DoAn
         }
 
         string Role;
+        string Name;
 
-        public QuanLySuaChua(string Role) : this()
+        public QuanLySuaChua(string Role, string Name) : this()
         {
             this.Role = Role;
+            this.Name = Name;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -68,7 +70,7 @@ namespace DoAn
 
         private void quayLaijToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DanhSachChucNang DSCN = new DanhSachChucNang(Role);
+            DanhSachChucNang DSCN = new DanhSachChucNang(Role, Name);
             DSCN.Show();
             this.Hide();
         }

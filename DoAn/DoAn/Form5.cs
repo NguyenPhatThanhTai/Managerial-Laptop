@@ -62,6 +62,23 @@ namespace DoAn
             }
         }
 
+        public string GetUserName(string Account)
+        {
+            ketnoi.Close();
+            ketnoi.Open();
+            sql = @"select Name from TableNhanVien where Account = '" + Account + "'";
+            thuchien = new SqlCommand(sql, ketnoi);
+            docdulieu = thuchien.ExecuteReader();
+            if (docdulieu.Read() == true)
+            {
+                return docdulieu[0].ToString();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             ketnoi.Close();
@@ -71,7 +88,7 @@ namespace DoAn
             {
                 if (Login(Account, Password))
                 {
-                    DanhSachChucNang DSCN = new DanhSachChucNang(CheckRole(Account));
+                    DanhSachChucNang DSCN = new DanhSachChucNang(CheckRole(Account), GetUserName(Account));
                     DSCN.Show();
                     this.Hide();
                 }
@@ -98,7 +115,10 @@ namespace DoAn
             {
                 e.Cancel = true;
             }
-            Environment.Exit(1);
+            else
+            {
+                Environment.Exit(1);
+            }
         }
     }
 }

@@ -37,13 +37,14 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnChucNangLinhKien = new System.Windows.Forms.Button();
             this.btnChucNangSuaChua = new System.Windows.Forms.Button();
+            this.HelloNV = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(244, 9);
+            this.label1.Location = new System.Drawing.Point(254, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 32);
             this.label1.TabIndex = 2;
@@ -53,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(206, 86);
+            this.label2.Location = new System.Drawing.Point(192, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(345, 25);
             this.label2.TabIndex = 3;
@@ -63,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(206, 186);
+            this.label3.Location = new System.Drawing.Point(192, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(192, 25);
             this.label3.TabIndex = 4;
@@ -73,7 +74,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(206, 282);
+            this.label4.Location = new System.Drawing.Point(192, 318);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(206, 25);
             this.label4.TabIndex = 7;
@@ -86,7 +87,7 @@
             this.btnChucNangQuanLyNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucNangQuanLyNV.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnChucNangQuanLyNV.Image = ((System.Drawing.Image)(resources.GetObject("btnChucNangQuanLyNV.Image")));
-            this.btnChucNangQuanLyNV.Location = new System.Drawing.Point(96, 256);
+            this.btnChucNangQuanLyNV.Location = new System.Drawing.Point(92, 292);
             this.btnChucNangQuanLyNV.Name = "btnChucNangQuanLyNV";
             this.btnChucNangQuanLyNV.Size = new System.Drawing.Size(92, 82);
             this.btnChucNangQuanLyNV.TabIndex = 6;
@@ -116,7 +117,7 @@
             this.btnChucNangLinhKien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnChucNangLinhKien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucNangLinhKien.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnChucNangLinhKien.Location = new System.Drawing.Point(96, 171);
+            this.btnChucNangLinhKien.Location = new System.Drawing.Point(92, 215);
             this.btnChucNangLinhKien.Name = "btnChucNangLinhKien";
             this.btnChucNangLinhKien.Size = new System.Drawing.Size(88, 61);
             this.btnChucNangLinhKien.TabIndex = 1;
@@ -130,12 +131,21 @@
             this.btnChucNangSuaChua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnChucNangSuaChua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucNangSuaChua.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnChucNangSuaChua.Location = new System.Drawing.Point(96, 68);
+            this.btnChucNangSuaChua.Location = new System.Drawing.Point(92, 114);
             this.btnChucNangSuaChua.Name = "btnChucNangSuaChua";
             this.btnChucNangSuaChua.Size = new System.Drawing.Size(88, 67);
             this.btnChucNangSuaChua.TabIndex = 0;
             this.btnChucNangSuaChua.UseVisualStyleBackColor = false;
             this.btnChucNangSuaChua.Click += new System.EventHandler(this.btnChucNangSuaChua_Click);
+            // 
+            // HelloNV
+            // 
+            this.HelloNV.AutoSize = true;
+            this.HelloNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelloNV.Location = new System.Drawing.Point(0, 9);
+            this.HelloNV.Name = "HelloNV";
+            this.HelloNV.Size = new System.Drawing.Size(0, 20);
+            this.HelloNV.TabIndex = 8;
             // 
             // DanhSachChucNang
             // 
@@ -144,6 +154,7 @@
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.CancelButton = this.btnThoat;
             this.ClientSize = new System.Drawing.Size(800, 391);
+            this.Controls.Add(this.HelloNV);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnChucNangQuanLyNV);
             this.Controls.Add(this.btnThoat);
@@ -174,5 +185,6 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnChucNangQuanLyNV;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label HelloNV;
     }
 }
