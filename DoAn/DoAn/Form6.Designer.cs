@@ -28,25 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GboxContain = new System.Windows.Forms.GroupBox();
             this.quayLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinChungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TroGiupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lươngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.GboxContain = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // GboxContain
-            // 
-            this.GboxContain.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.GboxContain.Location = new System.Drawing.Point(-10, 28);
-            this.GboxContain.Margin = new System.Windows.Forms.Padding(0);
-            this.GboxContain.Name = "GboxContain";
-            this.GboxContain.Padding = new System.Windows.Forms.Padding(0);
-            this.GboxContain.Size = new System.Drawing.Size(1662, 706);
-            this.GboxContain.TabIndex = 12;
-            this.GboxContain.TabStop = false;
             // 
             // quayLạiToolStripMenuItem
             // 
@@ -90,6 +79,13 @@
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // GboxContain
+            // 
+            this.GboxContain.Location = new System.Drawing.Point(0, 27);
+            this.GboxContain.Name = "GboxContain";
+            this.GboxContain.Size = new System.Drawing.Size(1650, 713);
+            this.GboxContain.TabIndex = 19;
+            // 
             // QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -113,12 +109,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox GboxContain;
         private System.Windows.Forms.ToolStripMenuItem quayLạiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinChungToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TroGiupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lươngToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Panel GboxContain;
     }
 }

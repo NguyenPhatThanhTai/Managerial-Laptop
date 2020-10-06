@@ -91,9 +91,9 @@
             this.btnDangNhap.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangNhap.Location = new System.Drawing.Point(369, 304);
+            this.btnDangNhap.Location = new System.Drawing.Point(348, 304);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(102, 33);
+            this.btnDangNhap.Size = new System.Drawing.Size(126, 33);
             this.btnDangNhap.TabIndex = 6;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;

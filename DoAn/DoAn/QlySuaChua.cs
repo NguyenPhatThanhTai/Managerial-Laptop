@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Net.Mail;
+using System.Net;
 
 namespace DoAn
 {
@@ -145,6 +147,26 @@ namespace DoAn
             hienthi();
         }
 
+        public void sendMail(string toEmail)
+        {
+            try
+            {
+                SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
+                mailclient.EnableSsl = true;
+                mailclient.Credentials = new NetworkCredential("herroseven@gmail.com", "@#Taitutoi952000@#");
+
+                MailMessage message = new MailMessage("herroseven@gmail.com", toEmail);
+                message.Subject = "Thông báo từ trạm sửa laptop 12 tiểu hành tinh số 7 thuộc thiên hà số 12 hệ vũ trụ 3";
+                message.Body = "Đã hoàn thành laptop của quý khách, vui lòng đến nhận, trân trọng !";
+                mailclient.Send(message);
+                MessageBox.Show("Mail đã được gửi đi", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error send mail");
+            }
+        }
+
         private void btnHoanTat_Click(object sender, EventArgs e)
         {
             ketnoi.Open();
@@ -157,6 +179,8 @@ namespace DoAn
             deleteUser(txtHoTen.Text);
             ketnoi.Close();
             hienthi();
+            //Gmail when done
+            sendMail(txtEmail.Text);
         }
 
         private void btnLichSu_Click(object sender, EventArgs e)
