@@ -71,6 +71,7 @@ namespace DoAn
             txtThoiGian.Enabled = false;
             btnHoanTat.Enabled = true;
             btnSua.Enabled = true;
+            txtTinhTrang.Enabled = false;
             txtHoTen.Text = listView1.SelectedItems[0].SubItems[1].Text;
             txtEmail.Text = listView1.SelectedItems[0].SubItems[2].Text;
             txtSDT.Text = listView1.SelectedItems[0].SubItems[3].Text;
@@ -154,16 +155,23 @@ namespace DoAn
                 SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
                 mailclient.EnableSsl = true;
                 mailclient.Credentials = new NetworkCredential("herroseven@gmail.com", "@#Taitutoi952000@#");
-
                 MailMessage message = new MailMessage("herroseven@gmail.com", toEmail);
-                message.Subject = "Thông báo từ trạm sửa laptop 12 tiểu hành tinh số 7 thuộc thiên hà số 12 hệ vũ trụ 3";
-                message.Body = "Đã hoàn thành laptop của quý khách, vui lòng đến nhận, trân trọng !";
+                message.Subject = "Thông báo hoàn tất việc sửa laptop !";
+                message.Body = "<h3><b>Trân trọng gửi đến quý khách hàng: </b>"+ txtHoTen.Text +"</h3>" +
+                    "           <h5><b>Số điện thoại</b>: " + txtSDT.Text + "</h5>" +
+                    "           <h5><b>Tên laptop</b>: " + txtTenMay.Text + "</h5>" +
+                    "           <h5><b>Chi tiết sửa</b>: "+ txtChiTiet.Text + "</h5>" +
+                    "           <h5><b>Số tiền</b>: " + String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</h5>" +
+                    "           <h5><strong>Lưu ý: </strong> <i>Khi đến quý khách vui lòng đem đúng số tiền là <b>"+ String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</b> để thanh toán</i><h5> <br>" +
+                    "           <h3><b>Trân trọng thông báo cho quý khách !<b><h3>";
+                message.BodyEncoding = System.Text.Encoding.UTF8;
+                message.IsBodyHtml = true;
                 mailclient.Send(message);
-                MessageBox.Show("Mail đã được gửi đi", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mail hẹn nhận máy đã được gửi đi", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error send mail");
+                MessageBox.Show("Lỗi gửi mail");
             }
         }
 
@@ -171,7 +179,7 @@ namespace DoAn
         {
             ketnoi.Open();
             sql = @"Insert into History (Name, Email, SDT, Kind, DetailFix, Status, Noti, Money, TimeEnd) VALUES(N'" + txtHoTen.Text + @"',N'" + txtEmail.Text + @"',N'"
-                    + txtSDT.Text + @"', N'" + txtTenMay.Text + @"', N'" + txtChiTiet.Text + @"', N'" + txtTinhTrang.Text + @"', N'" + txtGhiChu.Text + @"', N'" + txtSoTien.Text + @"', N'" + time + @"')";
+                    + txtSDT.Text + @"', N'" + txtTenMay.Text + @"', N'" + txtChiTiet.Text + @"', N'" + "Hoàn thành" + @"', N'" + txtGhiChu.Text + @"', N'" + txtSoTien.Text + @"', N'" + time + @"')";
             thuchien = new SqlCommand(sql, ketnoi);
             thuchien.ExecuteNonQuery();
             ketnoi.Close();
