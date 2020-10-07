@@ -44,7 +44,7 @@ namespace DoAn
 
         private void thôngTinChungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QlyThongTinNhanVien f = new QlyThongTinNhanVien(Role);
+            QlyThongTinNhanVien f = new QlyThongTinNhanVien(Role, Name);
             AddToForm(f);
         }
 
@@ -57,7 +57,7 @@ namespace DoAn
 
         private void lươngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QlyLuongNhanVien f = new QlyLuongNhanVien(Role);
+            QlyLuongNhanVien f = new QlyLuongNhanVien(Role, Name);
             AddToForm(f);
         }
 
@@ -79,6 +79,12 @@ namespace DoAn
         private void TroGiupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             QlyTroGiup f = new QlyTroGiup();
+            AddToForm(f);
+        }
+
+        private void tàiKhoảnNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QlyTaiKhoanNhanVien f = new QlyTaiKhoanNhanVien(Role, Name);
             AddToForm(f);
         }
     }

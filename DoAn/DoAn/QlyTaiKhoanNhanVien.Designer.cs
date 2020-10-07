@@ -274,7 +274,7 @@
             // 
             this.pictureBox14.ErrorImage = null;
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(578, 52);
+            this.pictureBox14.Location = new System.Drawing.Point(228, 135);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(105, 76);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

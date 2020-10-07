@@ -24,11 +24,19 @@ namespace DoAn
         SqlCommand thuchien;
         SqlDataReader docdulieu;
         int i = 0;
+        int Role;
+        string Name;
 
         private void QlyTaiKhoanNhanVien_Load(object sender, EventArgs e)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
             hienthi();
+        }
+
+        public QlyTaiKhoanNhanVien(int Role, string Name) : this()
+        {
+            this.Role = Role;
+            this.Name = Name;
         }
 
         public void hienthi()

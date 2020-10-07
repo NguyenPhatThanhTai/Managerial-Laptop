@@ -33,8 +33,8 @@
             this.TroGiupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lươngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.GboxContain = new System.Windows.Forms.Panel();
             this.tàiKhoảnNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GboxContain = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,18 +81,19 @@
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // tàiKhoảnNhânViênToolStripMenuItem
+            // 
+            this.tàiKhoảnNhânViênToolStripMenuItem.Name = "tàiKhoảnNhânViênToolStripMenuItem";
+            this.tàiKhoảnNhânViênToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.tàiKhoảnNhânViênToolStripMenuItem.Text = "Tài khoản nhân viên";
+            this.tàiKhoảnNhânViênToolStripMenuItem.Click += new System.EventHandler(this.tàiKhoảnNhânViênToolStripMenuItem_Click);
+            // 
             // GboxContain
             // 
             this.GboxContain.Location = new System.Drawing.Point(0, 27);
             this.GboxContain.Name = "GboxContain";
             this.GboxContain.Size = new System.Drawing.Size(1650, 713);
             this.GboxContain.TabIndex = 19;
-            // 
-            // tàiKhoảnNhânViênToolStripMenuItem
-            // 
-            this.tàiKhoảnNhânViênToolStripMenuItem.Name = "tàiKhoảnNhânViênToolStripMenuItem";
-            this.tàiKhoảnNhânViênToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.tàiKhoảnNhânViênToolStripMenuItem.Text = "Tài khoản nhân viên";
             // 
             // QuanLyNhanVien
             // 

@@ -18,16 +18,17 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=QuanLySuaChuaLaptop;Integrated Security=True";
+        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
         string sql;
         SqlConnection ketnoi;
         SqlCommand thuchien;
         SqlDataReader docdulieu;
         string time = DateTime.Now.ToString();
         int Role;
+        string name;
         int i = 0;
 
-        public QlyLuongNhanVien(int Role) : this()
+        public QlyLuongNhanVien(int Role, string name) : this()
         {
             this.Role = Role;
         }
@@ -43,7 +44,7 @@ namespace DoAn
             lsvLuong.Items.Clear();
             ketnoi.Close();
             ketnoi.Open();
-            sql = @"Select * from TableLuongNhanVien";
+            sql = @"Select * from Salary_Staff";
             thuchien = new SqlCommand(sql, ketnoi);
             docdulieu = thuchien.ExecuteReader();
             i = 0;
@@ -51,11 +52,10 @@ namespace DoAn
             {
                 lsvLuong.Items.Add((i + 1).ToString());
                 lsvLuong.Items[i].SubItems.Add(docdulieu[0].ToString());
-                lsvLuong.Items[i].SubItems.Add(docdulieu[1].ToString());
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[1].ToString()));   
                 lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[2].ToString()));
                 lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[3].ToString()));
                 lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[4].ToString()));
-                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[5].ToString()));
                 i++;
             }
             ketnoi.Close();
@@ -63,11 +63,11 @@ namespace DoAn
 
         private void lsvLuong_Click(object sender, EventArgs e)
         {
-            txtHoTen.Text = lsvLuong.SelectedItems[0].SubItems[1].Text;
-            txtPhongBan.Text = lsvLuong.SelectedItems[0].SubItems[2].Text;
-            txtLuongCoBan.Text = lsvLuong.SelectedItems[0].SubItems[3].Text;
-            txtLuongTheoGio.Text = lsvLuong.SelectedItems[0].SubItems[5].Text;
-            txtLamNgoaiGio.Text = lsvLuong.SelectedItems[0].SubItems[6].Text;
+            txtMaNV.Text = lsvLuong.SelectedItems[0].SubItems[1].Text;
+            txtLuongCoBan.Text = lsvLuong.SelectedItems[0].SubItems[2].Text;
+            txtLuongTheoGio.Text = lsvLuong.SelectedItems[0].SubItems[3].Text;
+            txtLamNgoaiGio.Text = lsvLuong.SelectedItems[0].SubItems[4].Text;
+            txtTienThuong.Text = lsvLuong.SelectedItems[0].SubItems[5].Text;
             if (lsvLuong.SelectedItems[0].SubItems[3].Text == "" && lsvLuong.SelectedItems[0].SubItems[4].Text == "" && lsvLuong.SelectedItems[0].SubItems[5].Text == "" &&
                         lsvLuong.SelectedItems[0].SubItems[6].Text == "")
             {
@@ -76,34 +76,16 @@ namespace DoAn
             }
             else
             {
-                int TienCoBan = int.Parse(lsvLuong.SelectedItems[0].SubItems[3].Text);
+                int TienCoBan = int.Parse(lsvLuong.SelectedItems[0].SubItems[2].Text);
                 int TienThuong = int.Parse(lsvLuong.SelectedItems[0].SubItems[4].Text);
                 int LamNgoaiGio = int.Parse(lsvLuong.SelectedItems[0].SubItems[5].Text);
                 txtTongLuong.Text = string.Format("{0:#,###}VND", ((TienCoBan + TienThuong + LamNgoaiGio).ToString()));
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            if (txtLuongCoBan.Text != "" && txtLuongTheoGio.Text != "" && txtLamNgoaiGio.Text != "" & txtTienThuong.Text != "")
-            {
-                ketnoi.Open();
-                sql = @"UPDATE TableLuongNhanVien set SalaryDefault = N'" + txtLuongCoBan.Text + @"', SalaryPerHours = N'" + txtLuongTheoGio.Text + @"', 
-                    Reward = N'" + txtTienThuong.Text + @"', OverTime = N'" + txtLamNgoaiGio.Text + @"' Where (Name = N'" + txtHoTen.Text + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                thuchien.ExecuteNonQuery();
-                hienthi();
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin !");
-            }
-        }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtHoTen.Text = "";
-            txtPhongBan.Text = "";
+            txtMaNV.Text = "";
             txtLuongCoBan.Text = "";
             txtLuongTheoGio.Text = "";
             txtTienThuong.Text = "";
@@ -149,6 +131,16 @@ namespace DoAn
                 dangNhap.Show();
                 this.Hide();
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            ketnoi.Open();
+            sql = @"UPDATE Salary_Staff set Staff_Default_Salary = N'" + txtLuongCoBan.Text + @"', Staff_Salary_Per_Hour = N'" + txtLuongTheoGio.Text + @"', Staff_OT = N'" + txtLamNgoaiGio.Text + @"', Staff_Reward = N'" + txtTienThuong.Text + @"' Where (Staff_Id = N'" + txtMaNV.Text + @"')";
+            thuchien = new SqlCommand(sql, ketnoi);
+            thuchien.ExecuteNonQuery();
+            ketnoi.Close();
+            hienthi();
         }
     }
 }

@@ -28,6 +28,7 @@ namespace DoAn
         string Min = DateTime.Now.ToString("mm");
         string sec = DateTime.Now.ToString("ss");
         int Role;
+        string Name;
         string PhongBan;
         string Sex;
         int i = 0;
@@ -38,9 +39,10 @@ namespace DoAn
             hienthi();
         }
 
-        public QlyThongTinNhanVien(int Role) : this()
+        public QlyThongTinNhanVien(int Role, string Name) : this()
         {
             this.Role = Role;
+            this.Name = Name;
         }
 
         public void hienthi()
@@ -128,7 +130,6 @@ namespace DoAn
 
         private void listView4_Click(object sender, EventArgs e)
         {
-            txtHoTen.Enabled = false;
             btnSua.Enabled = true;
             btnDelete.Enabled = true;
             if(listView4.SelectedItems[0].SubItems[2].Text == "Nguyễn Phát Thành Tài")
