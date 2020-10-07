@@ -1,6 +1,6 @@
 ﻿namespace DoAn
 {
-    partial class TroGiup
+    partial class QlyTroGiup
     {
         /// <summary>
         /// Required designer variable.

@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace DoAn
 {
-    public partial class LuongNhanVien : Form
+    public partial class QlyLuongNhanVien : Form
     {
-        public LuongNhanVien()
+        public QlyLuongNhanVien()
         {
             InitializeComponent();
         }
@@ -24,10 +24,10 @@ namespace DoAn
         SqlCommand thuchien;
         SqlDataReader docdulieu;
         string time = DateTime.Now.ToString();
-        string Role;
+        int Role;
         int i = 0;
 
-        public LuongNhanVien(string Role) : this()
+        public QlyLuongNhanVien(int Role) : this()
         {
             this.Role = Role;
         }

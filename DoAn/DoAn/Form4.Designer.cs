@@ -165,7 +165,6 @@
             this.Controls.Add(this.btnChucNangSuaChua);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DanhSachChucNang";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DanhSachChucNang_FormClosing);

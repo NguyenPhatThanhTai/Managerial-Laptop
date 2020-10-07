@@ -30,12 +30,12 @@ namespace DoAn
         SqlCommand thuchien;
         SqlDataReader docdulieu;
         string time = DateTime.Now.ToString();
-        string Role;
+        int Role;
         string Name;
         int i = 0;
 
 
-        public QlyLinhKien(string Role, string Name) : this()
+        public QlyLinhKien(int Role, string Name) : this()
         {
             this.Role = Role;
             this.Name = Name;

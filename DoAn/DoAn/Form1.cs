@@ -18,10 +18,10 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string Role;
+        int Role;
         string Name;
 
-        public QuanLySuaChua(string Role, string Name) : this()
+        public QuanLySuaChua(int Role, string Name) : this()
         {
             this.Role = Role;
             this.Name = Name;
@@ -58,13 +58,13 @@ namespace DoAn
 
         private void thôngTinChungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QlySuaChua f = new QlySuaChua(Role);
+            QlySuaChua f = new QlySuaChua(Role, Name);
             AddToForm(f);
         }
 
         private void lịchSửToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LichSuSuaChua f = new LichSuSuaChua(Role);
+            LichSuSuaChua f = new LichSuSuaChua(Role, Name);
             AddToForm(f);
         }
 

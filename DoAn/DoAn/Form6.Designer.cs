@@ -34,6 +34,7 @@
             this.lươngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.GboxContain = new System.Windows.Forms.Panel();
+            this.tàiKhoảnNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,8 +48,8 @@
             // thôngTinChungToolStripMenuItem
             // 
             this.thôngTinChungToolStripMenuItem.Name = "thôngTinChungToolStripMenuItem";
-            this.thôngTinChungToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
-            this.thôngTinChungToolStripMenuItem.Text = "Thông tin chung";
+            this.thôngTinChungToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.thôngTinChungToolStripMenuItem.Text = "Thông tin nhân viên";
             this.thôngTinChungToolStripMenuItem.Click += new System.EventHandler(this.thôngTinChungToolStripMenuItem_Click);
             // 
             // TroGiupToolStripMenuItem
@@ -71,6 +72,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quayLạiToolStripMenuItem,
             this.thôngTinChungToolStripMenuItem,
+            this.tàiKhoảnNhânViênToolStripMenuItem,
             this.lươngToolStripMenuItem,
             this.TroGiupToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -85,6 +87,12 @@
             this.GboxContain.Name = "GboxContain";
             this.GboxContain.Size = new System.Drawing.Size(1650, 713);
             this.GboxContain.TabIndex = 19;
+            // 
+            // tàiKhoảnNhânViênToolStripMenuItem
+            // 
+            this.tàiKhoảnNhânViênToolStripMenuItem.Name = "tàiKhoảnNhânViênToolStripMenuItem";
+            this.tàiKhoảnNhânViênToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.tàiKhoảnNhânViênToolStripMenuItem.Text = "Tài khoản nhân viên";
             // 
             // QuanLyNhanVien
             // 
@@ -115,5 +123,6 @@
         private System.Windows.Forms.ToolStripMenuItem lươngToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Panel GboxContain;
+        private System.Windows.Forms.ToolStripMenuItem tàiKhoảnNhânViênToolStripMenuItem;
     }
 }

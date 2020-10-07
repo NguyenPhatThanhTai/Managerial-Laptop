@@ -18,10 +18,10 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string Role;
+        int Role;
         string Name;
 
-        public QuanLyLinhKien(string Role, string Name) : this()
+        public QuanLyLinhKien(int Role, string Name) : this()
         {
             this.Role = Role;
             this.Name = Name;

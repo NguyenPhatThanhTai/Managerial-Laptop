@@ -12,14 +12,14 @@ namespace DoAn
 {
     public partial class DanhSachChucNang : Form
     {
-        string Role;
+        int Role;
         string Name;
         public DanhSachChucNang()
         {
             InitializeComponent();
         }
 
-        public DanhSachChucNang(string role, string name) : this()
+        public DanhSachChucNang(int role, string name) : this()
         {
             Role = role;
             Name = name;
@@ -27,7 +27,7 @@ namespace DoAn
 
         private void DanhSachChucNang_Load(object sender, EventArgs e)
         {
-            if (Role == "Admin")
+            if (Role == 1)
             {
                 btnChucNangQuanLyNV.Enabled = true;
             }

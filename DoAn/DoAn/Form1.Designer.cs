@@ -89,8 +89,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuanLySuaChua";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sữa chữa";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLySuaChua_FormClosing);

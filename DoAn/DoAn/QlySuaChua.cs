@@ -20,19 +20,21 @@ namespace DoAn
             InitializeComponent();
         }
 
-        public QlySuaChua(string Role) : this()
-        {
-            this.Role = Role;
-        }
-
         string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=QuanLySuaChuaLaptop;Integrated Security=True";
         string sql;
         SqlConnection ketnoi;
         SqlCommand thuchien;
         SqlDataReader docdulieu;
         string time = DateTime.Now.ToString();
-        string Role;
+        int Role;
+        string Name;
         int i = 0;
+
+        public QlySuaChua(int Role, string Name) : this()
+        {
+            this.Role = Role;
+            this.Name = Name;
+        }
 
         private void QlySuaChua_Load(object sender, EventArgs e)
         {
@@ -115,7 +117,7 @@ namespace DoAn
                     ketnoi.Close();
                     ketnoi.Open();
                     sql = @"Insert into TableSuaChua (Name, Email, SDT, Kind, DetailFix, Status, Noti, Money, TimeStart) VALUES(N'" + txtHoTen.Text + @"',N'" + txtEmail.Text + @"',N'"
-                            + txtSDT.Text + @"', N'" + txtTenMay.Text + @"', N'" + txtChiTiet.Text + @"', N'" + txtTinhTrang.Text + @"', N'" + txtGhiChu.Text + @"', N'" + txtSoTien.Text + @"', N'" + time + @"')";
+                            + txtSDT.Text + @"', N'" + txtTenMay.Text + @"', N'" + txtChiTiet.Text + @"', N'" + "Chưa hoàn thành" + @"', N'" + txtGhiChu.Text + @"', N'" + txtSoTien.Text + @"', N'" + time + @"')";
                     thuchien = new SqlCommand(sql, ketnoi);
                     thuchien.ExecuteNonQuery();
                     ketnoi.Close();
@@ -167,7 +169,7 @@ namespace DoAn
                 message.BodyEncoding = System.Text.Encoding.UTF8;
                 message.IsBodyHtml = true;
                 mailclient.Send(message);
-                MessageBox.Show("Mail hẹn nhận máy đã được gửi đi", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mail hẹn nhận máy đã được gửi đi cho khách hàng: " +txtHoTen.Text+ "", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -223,6 +225,8 @@ namespace DoAn
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            txtHoTen.Enabled = true;
+            txtTinhTrang.Enabled = true;
             txtHoTen.Text = "";
             txtEmail.Text = "";
             txtSDT.Text = "";

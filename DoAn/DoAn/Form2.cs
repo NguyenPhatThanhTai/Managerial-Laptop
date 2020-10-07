@@ -25,11 +25,13 @@ namespace DoAn
         SqlDataReader docdulieu;
         int i = 0;
         string name;
-        string Role;
+        string Name;
+        int Role;
 
-        public LichSuSuaChua(string Role) : this()
+        public LichSuSuaChua(int Role, string Name) : this()
         {
             this.Role = Role;
+            this.Name = Name;
         }
         private void Form2_Load(object sender, EventArgs e)
         {

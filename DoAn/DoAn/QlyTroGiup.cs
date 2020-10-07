@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DoAn
 {
-    public partial class TroGiup : Form
+    public partial class QlyTroGiup : Form
     {
-        public TroGiup()
+        public QlyTroGiup()
         {
             InitializeComponent();
         }

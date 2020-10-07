@@ -90,11 +90,11 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
-    <Compile Include="LuongNhanVien.cs">
+    <Compile Include="QlyLuongNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LuongNhanVien.Designer.cs">
-      <DependentUpon>LuongNhanVien.cs</DependentUpon>
+    <Compile Include="QlyLuongNhanVien.Designer.cs">
+      <DependentUpon>QlyLuongNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,17 +110,23 @@
     <Compile Include="QlySuaChua.Designer.cs">
       <DependentUpon>QlySuaChua.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThongTinNhanVien.cs">
+    <Compile Include="QlyTaiKhoanNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThongTinNhanVien.Designer.cs">
-      <DependentUpon>ThongTinNhanVien.cs</DependentUpon>
+    <Compile Include="QlyTaiKhoanNhanVien.Designer.cs">
+      <DependentUpon>QlyTaiKhoanNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="TroGiup.cs">
+    <Compile Include="QlyThongTinNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TroGiup.Designer.cs">
-      <DependentUpon>TroGiup.cs</DependentUpon>
+    <Compile Include="QlyThongTinNhanVien.Designer.cs">
+      <DependentUpon>QlyThongTinNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QlyTroGiup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QlyTroGiup.Designer.cs">
+      <DependentUpon>QlyTroGiup.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -140,8 +146,8 @@
     <EmbeddedResource Include="Form6.resx">
       <DependentUpon>Form6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LuongNhanVien.resx">
-      <DependentUpon>LuongNhanVien.cs</DependentUpon>
+    <EmbeddedResource Include="QlyLuongNhanVien.resx">
+      <DependentUpon>QlyLuongNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,11 +165,14 @@
     <EmbeddedResource Include="QlySuaChua.resx">
       <DependentUpon>QlySuaChua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongTinNhanVien.resx">
-      <DependentUpon>ThongTinNhanVien.cs</DependentUpon>
+    <EmbeddedResource Include="QlyTaiKhoanNhanVien.resx">
+      <DependentUpon>QlyTaiKhoanNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TroGiup.resx">
-      <DependentUpon>TroGiup.cs</DependentUpon>
+    <EmbeddedResource Include="QlyThongTinNhanVien.resx">
+      <DependentUpon>QlyThongTinNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QlyTroGiup.resx">
+      <DependentUpon>QlyTroGiup.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

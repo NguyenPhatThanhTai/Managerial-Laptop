@@ -18,16 +18,16 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string Role;
+        int Role;
         string Name;
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
-            ThongTinNhanVien f = new ThongTinNhanVien();
+            QlyThongTinNhanVien f = new QlyThongTinNhanVien();
             AddToForm(f);
         }
 
-        public QuanLyNhanVien(string Role, string Name) : this()
+        public QuanLyNhanVien(int Role, string Name) : this()
         {
             this.Role = Role;
             this.Name = Name;
@@ -44,7 +44,7 @@ namespace DoAn
 
         private void thôngTinChungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ThongTinNhanVien f = new ThongTinNhanVien(Role);
+            QlyThongTinNhanVien f = new QlyThongTinNhanVien(Role);
             AddToForm(f);
         }
 
@@ -57,7 +57,7 @@ namespace DoAn
 
         private void lươngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LuongNhanVien f = new LuongNhanVien(Role);
+            QlyLuongNhanVien f = new QlyLuongNhanVien(Role);
             AddToForm(f);
         }
 
@@ -78,7 +78,7 @@ namespace DoAn
 
         private void TroGiupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TroGiup f = new TroGiup();
+            QlyTroGiup f = new QlyTroGiup();
             AddToForm(f);
         }
     }

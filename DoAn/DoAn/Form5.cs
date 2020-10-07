@@ -88,7 +88,7 @@ namespace DoAn
             {
                 if (Login(Account, Password))
                 {
-                    DanhSachChucNang DSCN = new DanhSachChucNang(CheckRole(Account), GetUserName(Account));
+                    DanhSachChucNang DSCN = new DanhSachChucNang(int.Parse(CheckRole(Account)), GetUserName(Account));
                     DSCN.Show();
                     this.Hide();
                 }
