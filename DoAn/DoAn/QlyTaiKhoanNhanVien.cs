@@ -25,7 +25,9 @@ namespace DoAn
         SqlDataReader docdulieu;
         int i = 0;
         int Role;
+        int quyen;
         string Name;
+        string Quyen;
 
         private void QlyTaiKhoanNhanVien_Load(object sender, EventArgs e)
         {
@@ -49,11 +51,19 @@ namespace DoAn
             i = 0;
             while (docdulieu.Read())
             {
+                if(docdulieu[3].ToString() == "1")
+                {
+                    Quyen = "Admin";
+                }
+                else
+                {
+                    Quyen = "Nhân Viên";
+                }
                 lsvAccount.Items.Add((i + 1).ToString());
                 lsvAccount.Items[i].SubItems.Add(docdulieu[0].ToString());
                 lsvAccount.Items[i].SubItems.Add(docdulieu[1].ToString());
                 lsvAccount.Items[i].SubItems.Add(docdulieu[2].ToString());
-                lsvAccount.Items[i].SubItems.Add(docdulieu[3].ToString());
+                lsvAccount.Items[i].SubItems.Add(Quyen);
                 i++;
             }
             ketnoi.Close();
@@ -101,7 +111,15 @@ namespace DoAn
         private void btnSua_Click(object sender, EventArgs e)
         {
             ketnoi.Open();
-            sql = @"UPDATE Account_Staff set Staff_Password = N'" + txtPassword.Text + @"', Staff_Role = N'" + txtRole.Text + @"' Where (Staff_Id = N'" + txtMaNv.Text + @"')";
+            if (txtRole.Text == "Admin")
+            {
+                quyen = 1;
+            }
+            else
+            {
+                quyen = 2;
+            }
+            sql = @"UPDATE Account_Staff set Staff_Password = N'" + txtPassword.Text + @"', Staff_Role = N'" + quyen + @"' Where (Staff_Id = N'" + txtMaNv.Text + @"')";
             thuchien = new SqlCommand(sql, ketnoi);
             thuchien.ExecuteNonQuery();
             ketnoi.Close();
@@ -111,6 +129,8 @@ namespace DoAn
         private void lsvAccount_Click(object sender, EventArgs e)
         {
             btnSua.Enabled = true;
+            txtRole.Enabled = true;
+            txtPassword.Enabled = true;
             txtMaNv.Text = lsvAccount.SelectedItems[0].SubItems[1].Text;
             txtAccount.Text = lsvAccount.SelectedItems[0].SubItems[2].Text;
             txtPassword.Text = lsvAccount.SelectedItems[0].SubItems[3].Text;

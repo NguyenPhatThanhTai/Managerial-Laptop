@@ -116,6 +116,9 @@ namespace DoAn
                 sql = @"DELETE FROM Account_Staff where(Staff_Id = N'" + User + @"')";
                 thuchien = new SqlCommand(sql, ketnoi);
                 thuchien.ExecuteNonQuery();
+                sql = @"DELETE FROM Salary_Staff where(Staff_Id = N'" + User + @"')";
+                thuchien = new SqlCommand(sql, ketnoi);
+                thuchien.ExecuteNonQuery();
                 sql = @"DELETE FROM Inf_Staff where(Staff_Id = N'" + User + @"')";
                 thuchien = new SqlCommand(sql, ketnoi);
                 docdulieu = thuchien.ExecuteReader();

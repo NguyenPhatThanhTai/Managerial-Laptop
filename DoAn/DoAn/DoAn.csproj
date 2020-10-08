@@ -54,41 +54,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Form_QlySuaChua.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form_QlySuaChua.Designer.cs">
+      <DependentUpon>Form_QlySuaChua.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="QlyLichSu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="QlyLichSu.Designer.cs">
+      <DependentUpon>QlyLichSu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Form_QlyLinhKien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Form_QlyLinhKien.Designer.cs">
+      <DependentUpon>Form_QlyLinhKien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="Form_DSachChucNang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="Form_DSachChucNang.Designer.cs">
+      <DependentUpon>Form_DSachChucNang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="Form_DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="Form_DangNhap.Designer.cs">
+      <DependentUpon>Form_DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form6.cs">
+    <Compile Include="Form_QlyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form6.Designer.cs">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <Compile Include="Form_QlyNhanVien.Designer.cs">
+      <DependentUpon>Form_QlyNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="QlyLuongNhanVien.cs">
       <SubType>Form</SubType>
@@ -128,23 +128,23 @@
     <Compile Include="QlyTroGiup.Designer.cs">
       <DependentUpon>QlyTroGiup.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Form_QlySuaChua.resx">
+      <DependentUpon>Form_QlySuaChua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="QlyLichSu.resx">
+      <DependentUpon>QlyLichSu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Form_QlyLinhKien.resx">
+      <DependentUpon>Form_QlyLinhKien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="Form_DSachChucNang.resx">
+      <DependentUpon>Form_DSachChucNang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="Form_DangNhap.resx">
+      <DependentUpon>Form_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <EmbeddedResource Include="Form_QlyNhanVien.resx">
+      <DependentUpon>Form_QlyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QlyLuongNhanVien.resx">
       <DependentUpon>QlyLuongNhanVien.cs</DependentUpon>
