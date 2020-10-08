@@ -158,42 +158,51 @@ namespace DoAn
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (txtHoTen.Text != "" && txtEmail.Text != "" && txtSDT.Text != "" && txtGioiTinh.Text != "" && txtBirth.Text != "" && txtEmail.Text != ""
-                                && txtSDT.Text != "")
+                                && txtSDT.Text != "") 
             {
-                if (txtGioiTinh.Text == "Nam")
+                DialogResult dialog = MessageBox.Show("Xác nhận thêm khách hàng " + txtHoTen.Text + " ?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
                 {
-                    Sex = "1";
-                }
-                else
-                {
-                    Sex = "2";
-                }
-                listView1.Items.Clear();
-                if (CheckUser(txtHoTen.Text))
-                {
-                    ketnoi.Close();
-                    ketnoi.Open();
-                    sql = @"Insert into Inf_Customers (Customer_Id, Customer_Name, Customer_Sex, Customer_Birth, Customer_Email, Customer_Phone, Customer_TimeAdd)
-                                                VALUES(N'KH" + day + "" + Min + "" + sec + "" + @"',N'" + txtHoTen.Text + @"',N'" + Sex + @"', N'"+ txtBirth.Value.ToString("yyyy/MM/dd") + "',N'" + txtEmail.Text + @"',N'"
-                            + txtSDT.Text + @"', N'" + time + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    sql = @"Insert into Inf_Repair (Repair_Id, Customer_Id, Laptop_Name, Laptop_Status, Staff_Id)
+                    if (txtGioiTinh.Text == "Nam")
+                    {
+                        Sex = "1";
+                    }
+                    else
+                    {
+                        Sex = "2";
+                    }
+                    listView1.Items.Clear();
+                    if (CheckUser(txtHoTen.Text))
+                    {
+                        ketnoi.Close();
+                        ketnoi.Open();
+                        sql = @"Insert into Inf_Customers (Customer_Id, Customer_Name, Customer_Sex, Customer_Birth, Customer_Email, Customer_Phone, Customer_TimeAdd)
+                                                VALUES(N'KH" + day + "" + Min + "" + sec + "" + @"',N'" + txtHoTen.Text + @"',N'" + Sex + @"', N'" + txtBirth.Value.ToString("yyyy/MM/dd") + "',N'" + txtEmail.Text + @"',N'"
+                                + txtSDT.Text + @"', N'" + time + @"')";
+                        thuchien = new SqlCommand(sql, ketnoi);
+                        thuchien.ExecuteNonQuery();
+                        sql = @"Insert into Inf_Repair (Repair_Id, Customer_Id, Laptop_Name, Laptop_Status, Staff_Id)
                                                     VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"',N'KH" + day + "" + Min + "" + sec + "" + @"','Chưa biết','Chưa biết', 'NV096784')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    sql = @"Insert into Detail_Inf_Repair (Repair_Id, LK_Id, Repair_Reason, Repair_Note, Repain_Appointment, Repair_Money)
-                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"','LK1', 'Chưa biết', 'Chưa biết', 'Chưa biết', 'Chưa biết')"; 
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    ketnoi.Close();
-                    hienthi();
-                }
-                else
-                {
-                    MessageBox.Show("Đã tồn tại khách hàng này rồi, vui lòng cập nhật hoặc xóa đi !");
-                    ketnoi.Close();
-                    hienthi();
+                        thuchien = new SqlCommand(sql, ketnoi);
+                        thuchien.ExecuteNonQuery();
+                        sql = @"Insert into Detail_Inf_Repair (Repair_Id, LK_Id, Repair_Reason, Repair_Note, Repain_Appointment, Repair_Money)
+                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"','LK"+ i +"', 'Chưa biết', 'Chưa biết', 'Chưa biết', 'Chưa biết')";
+                        thuchien = new SqlCommand(sql, ketnoi);
+                        thuchien.ExecuteNonQuery();
+                        ketnoi.Close();
+                        hienthi();
+                        time = DateTime.Now.ToString();
+                        day = DateTime.Now.ToString("dd");
+                        Min = DateTime.Now.ToString("mm");
+                        sec = DateTime.Now.ToString("ss");
+                        i++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã tồn tại khách hàng này rồi, vui lòng cập nhật hoặc xóa đi !");
+                        ketnoi.Close();
+                        hienthi();
+                    }
                 }
             }
             else
