@@ -54,7 +54,6 @@
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtDoB = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.NumPhone = new System.Windows.Forms.Label();
             this.HoTen = new System.Windows.Forms.Label();
@@ -74,6 +73,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.txtDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
@@ -159,6 +159,7 @@
             this.txtGioiTinh.Name = "txtGioiTinh";
             this.txtGioiTinh.Size = new System.Drawing.Size(216, 24);
             this.txtGioiTinh.TabIndex = 41;
+            this.txtGioiTinh.Text = "Nam";
             // 
             // label13
             // 
@@ -202,41 +203,49 @@
             // Staff_Id
             // 
             this.Staff_Id.Text = "Mã nhân viên";
+            this.Staff_Id.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Staff_Id.Width = 121;
             // 
             // Staff_Name
             // 
             this.Staff_Name.Text = "Họ và Tên";
+            this.Staff_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Staff_Name.Width = 114;
             // 
             // Staff_Sex
             // 
             this.Staff_Sex.Text = "Giới tính";
+            this.Staff_Sex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Staff_Sex.Width = 99;
             // 
             // Staff_Birth
             // 
             this.Staff_Birth.Text = "Sinh nhật";
+            this.Staff_Birth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Staff_Birth.Width = 92;
             // 
             // Staff_Address
             // 
             this.Staff_Address.Text = "Địa chỉ";
+            this.Staff_Address.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Staff_Address.Width = 98;
             // 
             // Staff_Phone
             // 
             this.Staff_Phone.Text = "Số điện thoại";
+            this.Staff_Phone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Staff_Phone.Width = 84;
             // 
             // Staff_Department
             // 
             this.Staff_Department.Text = "Chức vụ";
+            this.Staff_Department.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Staff_Department.Width = 99;
             // 
             // Staff_TimeStart
             // 
             this.Staff_TimeStart.Text = "Thời gian thêm";
+            this.Staff_TimeStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -304,17 +313,9 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Giới tính";
             // 
-            // txtDoB
-            // 
-            this.txtDoB.Location = new System.Drawing.Point(182, 400);
-            this.txtDoB.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDoB.Name = "txtDoB";
-            this.txtDoB.Size = new System.Drawing.Size(216, 22);
-            this.txtDoB.TabIndex = 4;
-            // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(182, 250);
+            this.txtHoTen.Location = new System.Drawing.Point(182, 261);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(4);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(216, 22);
@@ -333,7 +334,7 @@
             // HoTen
             // 
             this.HoTen.AutoSize = true;
-            this.HoTen.Location = new System.Drawing.Point(76, 253);
+            this.HoTen.Location = new System.Drawing.Point(76, 264);
             this.HoTen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HoTen.Name = "HoTen";
             this.HoTen.Size = new System.Drawing.Size(69, 17);
@@ -361,6 +362,7 @@
             this.txtDepartment.Name = "txtDepartment";
             this.txtDepartment.Size = new System.Drawing.Size(216, 24);
             this.txtDepartment.TabIndex = 50;
+            this.txtDepartment.Text = "Quản Lý";
             // 
             // label12
             // 
@@ -450,7 +452,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(47, 253);
+            this.pictureBox5.Location = new System.Drawing.Point(47, 264);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(22, 19);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -530,12 +532,20 @@
             this.pictureBox8.TabIndex = 29;
             this.pictureBox8.TabStop = false;
             // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(182, 398);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(216, 22);
+            this.txtDate.TabIndex = 54;
+            // 
             // QlyThongTinNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1505, 672);
+            this.Controls.Add(this.txtDate);
             this.Controls.Add(this.listView4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.txtMaNv);
@@ -551,7 +561,6 @@
             this.Controls.Add(this.NumPhone);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.txtHoTen);
-            this.Controls.Add(this.txtDoB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtDiaChi);
@@ -617,7 +626,6 @@
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtDoB;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label NumPhone;
         private System.Windows.Forms.Label HoTen;
@@ -636,5 +644,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtMaNv;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DateTimePicker txtDate;
     }
 }

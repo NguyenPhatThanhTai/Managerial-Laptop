@@ -128,6 +128,7 @@ namespace DoAn
 
         private void lsvAccount_Click(object sender, EventArgs e)
         {
+            btnClear.Enabled = true;
             btnSua.Enabled = true;
             txtRole.Enabled = true;
             txtPassword.Enabled = true;
@@ -135,6 +136,25 @@ namespace DoAn
             txtAccount.Text = lsvAccount.SelectedItems[0].SubItems[2].Text;
             txtPassword.Text = lsvAccount.SelectedItems[0].SubItems[3].Text;
             txtRole.Text = lsvAccount.SelectedItems[0].SubItems[4].Text;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearAll(false);
+            hienthi();
+        }
+
+        private void ClearAll(bool Bool)
+        {
+            btnClear.Enabled = Bool;
+            btnSua.Enabled = Bool;
+            txtRole.Enabled = Bool;
+            txtPassword.Enabled = Bool;
+            txtAccount.Enabled = Bool;
+            txtMaNv.Text = "";
+            txtAccount.Text = "";
+            txtPassword.Text = "";
+            txtRole.Text = "";
         }
     }
 }

@@ -33,6 +33,7 @@
             this.thôngTinChungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lịchSửToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GboxContain = new System.Windows.Forms.Panel();
+            this.lịchSửSửaChữaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quayLaijToolStripMenuItem,
             this.thôngTinChungToolStripMenuItem,
-            this.lịchSửToolStripMenuItem});
+            this.lịchSửToolStripMenuItem,
+            this.lịchSửSửaChữaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1618, 28);
@@ -59,15 +61,15 @@
             // thôngTinChungToolStripMenuItem
             // 
             this.thôngTinChungToolStripMenuItem.Name = "thôngTinChungToolStripMenuItem";
-            this.thôngTinChungToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
-            this.thôngTinChungToolStripMenuItem.Text = "Thông tin chung";
+            this.thôngTinChungToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
+            this.thôngTinChungToolStripMenuItem.Text = "Thông tin khách hàng";
             this.thôngTinChungToolStripMenuItem.Click += new System.EventHandler(this.thôngTinChungToolStripMenuItem_Click);
             // 
             // lịchSửToolStripMenuItem
             // 
             this.lịchSửToolStripMenuItem.Name = "lịchSửToolStripMenuItem";
-            this.lịchSửToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
-            this.lịchSửToolStripMenuItem.Text = "Lịch sử";
+            this.lịchSửToolStripMenuItem.Size = new System.Drawing.Size(149, 24);
+            this.lịchSửToolStripMenuItem.Text = "Thông tin sửa chữa";
             this.lịchSửToolStripMenuItem.Click += new System.EventHandler(this.lịchSửToolStripMenuItem_Click);
             // 
             // GboxContain
@@ -76,6 +78,12 @@
             this.GboxContain.Name = "GboxContain";
             this.GboxContain.Size = new System.Drawing.Size(1618, 617);
             this.GboxContain.TabIndex = 1;
+            // 
+            // lịchSửSửaChữaToolStripMenuItem
+            // 
+            this.lịchSửSửaChữaToolStripMenuItem.Name = "lịchSửSửaChữaToolStripMenuItem";
+            this.lịchSửSửaChữaToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.lịchSửSửaChữaToolStripMenuItem.Text = "Lịch sử sửa chữa";
             // 
             // QuanLySuaChua
             // 
@@ -107,6 +115,7 @@
         private System.Windows.Forms.ToolStripMenuItem thôngTinChungToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lịchSửToolStripMenuItem;
         private System.Windows.Forms.Panel GboxContain;
+        private System.Windows.Forms.ToolStripMenuItem lịchSửSửaChữaToolStripMenuItem;
     }
 }
 

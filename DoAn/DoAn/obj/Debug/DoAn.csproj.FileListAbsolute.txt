@@ -54,9 +54,9 @@ D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\es\DevExpress.Pdf.v20.1.Core.resource
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\ja\DevExpress.Pdf.v20.1.Core.resources.dll
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\ru\DevExpress.Pdf.v20.1.Core.resources.dll
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.csproj.CopyComplete
-D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlySuaChua.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyLinhKien.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyTaiKhoanNhanVien.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyThongTinNhanVien.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyTroGiup.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyLuongNhanVien.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyThongTinKhachHang.resources

@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QlyLuongNhanVien));
             this.label1 = new System.Windows.Forms.Label();
             this.lsvLuong = new System.Windows.Forms.ListView();
+            this.Staff_STT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Staff_Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Staff_DFsalary = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Staff_SalaryPerHour = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Staff_OT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Staff_Reward = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtLuongTheoGio = new System.Windows.Forms.TextBox();
             this.txtTienThuong = new System.Windows.Forms.TextBox();
@@ -57,12 +63,6 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Staff_STT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Staff_Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Staff_DFsalary = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Staff_SalaryPerHour = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Staff_OT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Staff_Reward = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -101,6 +101,30 @@
             this.lsvLuong.View = System.Windows.Forms.View.Details;
             this.lsvLuong.Click += new System.EventHandler(this.lsvLuong_Click);
             // 
+            // Staff_STT
+            // 
+            this.Staff_STT.Text = "STT";
+            // 
+            // Staff_Id
+            // 
+            this.Staff_Id.Text = "Mã nhân viên";
+            // 
+            // Staff_DFsalary
+            // 
+            this.Staff_DFsalary.Text = "Lương cơ bản";
+            // 
+            // Staff_SalaryPerHour
+            // 
+            this.Staff_SalaryPerHour.Text = "Lương theo giờ";
+            // 
+            // Staff_OT
+            // 
+            this.Staff_OT.Text = "Làm ngoài giờ";
+            // 
+            // Staff_Reward
+            // 
+            this.Staff_Reward.Text = "Tiền thưởng";
+            // 
             // txtMaNV
             // 
             this.txtMaNV.Enabled = false;
@@ -111,6 +135,7 @@
             // 
             // txtLuongTheoGio
             // 
+            this.txtLuongTheoGio.Enabled = false;
             this.txtLuongTheoGio.Location = new System.Drawing.Point(190, 339);
             this.txtLuongTheoGio.Name = "txtLuongTheoGio";
             this.txtLuongTheoGio.Size = new System.Drawing.Size(208, 22);
@@ -118,6 +143,7 @@
             // 
             // txtTienThuong
             // 
+            this.txtTienThuong.Enabled = false;
             this.txtTienThuong.Location = new System.Drawing.Point(190, 453);
             this.txtTienThuong.Name = "txtTienThuong";
             this.txtTienThuong.Size = new System.Drawing.Size(208, 22);
@@ -125,6 +151,7 @@
             // 
             // txtLamNgoaiGio
             // 
+            this.txtLamNgoaiGio.Enabled = false;
             this.txtLamNgoaiGio.Location = new System.Drawing.Point(190, 397);
             this.txtLamNgoaiGio.Name = "txtLamNgoaiGio";
             this.txtLamNgoaiGio.Size = new System.Drawing.Size(208, 22);
@@ -132,6 +159,7 @@
             // 
             // txtTongLuong
             // 
+            this.txtTongLuong.Enabled = false;
             this.txtTongLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTongLuong.ForeColor = System.Drawing.Color.Red;
             this.txtTongLuong.Location = new System.Drawing.Point(179, 569);
@@ -250,6 +278,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.InactiveCaption;
@@ -277,6 +306,7 @@
             // 
             this.btnClear.BackColor = System.Drawing.Color.Transparent;
             this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClear.Enabled = false;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.SystemColors.InactiveCaption;
@@ -311,6 +341,7 @@
             // 
             // txtLuongCoBan
             // 
+            this.txtLuongCoBan.Enabled = false;
             this.txtLuongCoBan.Location = new System.Drawing.Point(190, 279);
             this.txtLuongCoBan.Name = "txtLuongCoBan";
             this.txtLuongCoBan.Size = new System.Drawing.Size(208, 22);
@@ -359,30 +390,6 @@
             this.label10.Size = new System.Drawing.Size(66, 17);
             this.label10.TabIndex = 62;
             this.label10.Text = "Tìm Kiếm";
-            // 
-            // Staff_STT
-            // 
-            this.Staff_STT.Text = "STT";
-            // 
-            // Staff_Id
-            // 
-            this.Staff_Id.Text = "Mã nhân viên";
-            // 
-            // Staff_DFsalary
-            // 
-            this.Staff_DFsalary.Text = "Lương cơ bản";
-            // 
-            // Staff_SalaryPerHour
-            // 
-            this.Staff_SalaryPerHour.Text = "Lương theo giờ";
-            // 
-            // Staff_OT
-            // 
-            this.Staff_OT.Text = "Làm ngoài giờ";
-            // 
-            // Staff_Reward
-            // 
-            this.Staff_Reward.Text = "Tiền thưởng";
             // 
             // QlyLuongNhanVien
             // 

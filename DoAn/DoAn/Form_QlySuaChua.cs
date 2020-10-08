@@ -28,7 +28,7 @@ namespace DoAn
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            QlySuaChua f = new QlySuaChua();
+            QlyThongTinKhachHang f = new QlyThongTinKhachHang();
             AddToForm(f);
         }
 
@@ -58,7 +58,7 @@ namespace DoAn
 
         private void thôngTinChungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QlySuaChua f = new QlySuaChua(Role, Name);
+            QlyThongTinKhachHang f = new QlyThongTinKhachHang(Role, Name);
             AddToForm(f);
         }
 

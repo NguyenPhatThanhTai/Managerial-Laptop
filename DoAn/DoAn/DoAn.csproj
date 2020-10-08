@@ -104,11 +104,11 @@
     <Compile Include="QlyLinhKien.Designer.cs">
       <DependentUpon>QlyLinhKien.cs</DependentUpon>
     </Compile>
-    <Compile Include="QlySuaChua.cs">
+    <Compile Include="QlyThongTinKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QlySuaChua.Designer.cs">
-      <DependentUpon>QlySuaChua.cs</DependentUpon>
+    <Compile Include="QlyThongTinKhachHang.Designer.cs">
+      <DependentUpon>QlyThongTinKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="QlyTaiKhoanNhanVien.cs">
       <SubType>Form</SubType>
@@ -162,8 +162,8 @@
     <EmbeddedResource Include="QlyLinhKien.resx">
       <DependentUpon>QlyLinhKien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QlySuaChua.resx">
-      <DependentUpon>QlySuaChua.cs</DependentUpon>
+    <EmbeddedResource Include="QlyThongTinKhachHang.resx">
+      <DependentUpon>QlyThongTinKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QlyTaiKhoanNhanVien.resx">
       <DependentUpon>QlyTaiKhoanNhanVien.cs</DependentUpon>

@@ -63,6 +63,7 @@ namespace DoAn
 
         private void lsvLuong_Click(object sender, EventArgs e)
         {
+            ClearAll(true);
             txtMaNV.Text = lsvLuong.SelectedItems[0].SubItems[1].Text;
             txtLuongCoBan.Text = lsvLuong.SelectedItems[0].SubItems[2].Text;
             txtLuongTheoGio.Text = lsvLuong.SelectedItems[0].SubItems[3].Text;
@@ -85,6 +86,7 @@ namespace DoAn
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            ClearAll(false);
             txtMaNV.Text = "";
             txtLuongCoBan.Text = "";
             txtLuongTheoGio.Text = "";
@@ -141,6 +143,16 @@ namespace DoAn
             thuchien.ExecuteNonQuery();
             ketnoi.Close();
             hienthi();
+        }
+
+        private void ClearAll(bool Bool)
+        {
+            btnUpdate.Enabled = Bool;
+            btnClear.Enabled = Bool;
+            txtLuongCoBan.Enabled = Bool;
+            txtLuongTheoGio.Enabled = Bool;
+            txtTienThuong.Enabled = Bool;
+            txtLamNgoaiGio.Enabled = Bool;
         }
     }
 }
