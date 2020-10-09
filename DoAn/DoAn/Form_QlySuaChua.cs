@@ -64,7 +64,7 @@ namespace DoAn
 
         private void lịchSửToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LichSuSuaChua f = new LichSuSuaChua(Role, Name);
+            Qly_SuaChua f = new Qly_SuaChua(Role, Name);
             AddToForm(f);
         }
 

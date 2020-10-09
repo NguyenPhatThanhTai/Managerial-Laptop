@@ -182,11 +182,11 @@ namespace DoAn
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         sql = @"Insert into Inf_Repair (Repair_Id, Customer_Id, Laptop_Name, Laptop_Status, Staff_Id)
-                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"',N'KH" + day + "" + Min + "" + sec + "" + @"','Chưa biết','Chưa biết', 'NV096784')";
+                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"',N'KH" + day + "" + Min + "" + sec + "" + @"', N'Chưa biết', N'Chưa biết', 'NV096784')";
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
-                        sql = @"Insert into Detail_Inf_Repair (Repair_Id, LK_Id, Repair_Reason, Repair_Note, Repain_Appointment, Repair_Money)
-                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"','LK"+ i +"', 'Chưa biết', 'Chưa biết', 'Chưa biết', 'Chưa biết')";
+                        sql = @"Insert into Detail_Inf_Repair (Repair_Id, LK_Id, Repair_Reason, Repair_Note, Repair_Appointment, Repair_Money)
+                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"','LK"+ i +"', N'Chưa biết', N'Chưa biết', '09/05/2000', N'Chưa biết')";
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         ketnoi.Close();

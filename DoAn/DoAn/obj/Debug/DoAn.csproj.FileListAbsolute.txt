@@ -8,7 +8,6 @@ D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.csproj.CoreCompileInputs.cache
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.exe
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.pdb
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QuanLySuaChua.resources
-D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.LichSuSuaChua.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QuanLyLinhKien.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.DanhSachChucNang.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.DangNhap.resources
@@ -60,3 +59,4 @@ D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyThongTinNhanVien.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyTroGiup.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyLuongNhanVien.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyThongTinKhachHang.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.Qly_SuaChua.resources

@@ -60,11 +60,11 @@
     <Compile Include="Form_QlySuaChua.Designer.cs">
       <DependentUpon>Form_QlySuaChua.cs</DependentUpon>
     </Compile>
-    <Compile Include="QlyLichSu.cs">
+    <Compile Include="QlySuaChua.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QlyLichSu.Designer.cs">
-      <DependentUpon>QlyLichSu.cs</DependentUpon>
+    <Compile Include="QlySuaChua.Designer.cs">
+      <DependentUpon>QlySuaChua.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_QlyLinhKien.cs">
       <SubType>Form</SubType>
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="Form_QlySuaChua.resx">
       <DependentUpon>Form_QlySuaChua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QlyLichSu.resx">
-      <DependentUpon>QlyLichSu.cs</DependentUpon>
+    <EmbeddedResource Include="QlySuaChua.resx">
+      <DependentUpon>QlySuaChua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_QlyLinhKien.resx">
       <DependentUpon>Form_QlyLinhKien.cs</DependentUpon>
