@@ -60,3 +60,4 @@ D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyTroGiup.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyLuongNhanVien.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyThongTinKhachHang.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.Qly_SuaChua.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyLichSuSuaChua.resources

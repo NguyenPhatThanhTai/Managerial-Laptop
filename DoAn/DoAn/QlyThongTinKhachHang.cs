@@ -83,39 +83,21 @@ namespace DoAn
 
         private void listView1_Click(object sender, EventArgs e)
         {
+            listView1.Enabled = false;
             if(txtMaKhachHang.Text != "")
             {
-                    DialogResult dialog = MessageBox.Show("Bạn có muốn dọn sạch các dữ liệu hiện tại trên ô nhập không", "Xác nhận", MessageBoxButtons.YesNo);
-                    if (dialog == DialogResult.Yes)
-                    {
-                        txtMaKhachHang.Enabled = false;
-                        txtThoiGian.Enabled = false;
-                        btnSua.Enabled = true;
-                        btnDelete.Enabled = true;
-                        btnThem.Enabled = false;
-                        txtMaKhachHang.Text = listView1.SelectedItems[0].SubItems[1].Text;
-                        txtHoTen.Text = listView1.SelectedItems[0].SubItems[2].Text;
-                        txtGioiTinh.Text = listView1.SelectedItems[0].SubItems[3].Text;
-                        txtBirth.Text = listView1.SelectedItems[0].SubItems[4].Text;
-                        txtEmail.Text = listView1.SelectedItems[0].SubItems[5].Text;
-                        txtSDT.Text = listView1.SelectedItems[0].SubItems[6].Text;
-                        txtThoiGian.Text = listView1.SelectedItems[0].SubItems[7].Text;
-                }
-                else
-                {
-                    txtMaKhachHang.Enabled = false;
-                    txtThoiGian.Enabled = false;
-                    btnSua.Enabled = true;
-                    btnDelete.Enabled = true;
-                    btnThem.Enabled = false;
-                    txtMaKhachHang.Text = listView1.SelectedItems[0].SubItems[1].Text;
-                    txtHoTen.Text = listView1.SelectedItems[0].SubItems[2].Text;
-                    txtGioiTinh.Text = listView1.SelectedItems[0].SubItems[3].Text;
-                    txtBirth.Text = listView1.SelectedItems[0].SubItems[4].Text;
-                    txtEmail.Text = listView1.SelectedItems[0].SubItems[5].Text;
-                    txtSDT.Text = listView1.SelectedItems[0].SubItems[6].Text;
-                    txtThoiGian.Text = listView1.SelectedItems[0].SubItems[7].Text;
-                }
+                txtMaKhachHang.Enabled = false;
+                txtThoiGian.Enabled = false;
+                btnSua.Enabled = true;
+                btnDelete.Enabled = true;
+                btnThem.Enabled = false;
+                txtMaKhachHang.Text = listView1.SelectedItems[0].SubItems[1].Text;
+                txtHoTen.Text = listView1.SelectedItems[0].SubItems[2].Text;
+                txtGioiTinh.Text = listView1.SelectedItems[0].SubItems[3].Text;
+                txtBirth.Text = listView1.SelectedItems[0].SubItems[4].Text;
+                txtEmail.Text = listView1.SelectedItems[0].SubItems[5].Text;
+                txtSDT.Text = listView1.SelectedItems[0].SubItems[6].Text;
+                txtThoiGian.Text = listView1.SelectedItems[0].SubItems[7].Text;
             }
             else
             {
@@ -182,11 +164,11 @@ namespace DoAn
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         sql = @"Insert into Inf_Repair (Repair_Id, Customer_Id, Laptop_Name, Laptop_Status, Staff_Id)
-                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"',N'KH" + day + "" + Min + "" + sec + "" + @"', N'Chưa biết', N'Chưa biết', 'NV096784')";
+                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"',N'KH" + day + "" + Min + "" + sec + "" + @"', N'Chưa biết', N'Chưa biết', N'Chưa biết')";
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
-                        sql = @"Insert into Detail_Inf_Repair (Repair_Id, LK_Id, Repair_Reason, Repair_Note, Repair_Appointment, Repair_Money)
-                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"','LK"+ i +"', N'Chưa biết', N'Chưa biết', '09/05/2000', N'Chưa biết')";
+                        sql = @"Insert into Detail_Inf_Repair (Repair_Id, Repair_Reason, Repair_Note, Repair_Appointment, Repair_Money)
+                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"', N'Chưa biết', N'Chưa biết', '09/05/2000', 0)";
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         ketnoi.Close();
@@ -262,6 +244,7 @@ namespace DoAn
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            listView1.Enabled = true;
             btnSua.Enabled = false;
             btnDelete.Enabled = false;
             btnThem.Enabled = true;
@@ -290,6 +273,7 @@ namespace DoAn
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            listView1.Enabled = true;
             DialogResult dialog = MessageBox.Show("Bạn có muốn xóa khách hàng " + txtHoTen.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {

@@ -74,5 +74,11 @@ namespace DoAn
             DSCN.Show();
             this.Hide();
         }
+
+        private void lịchSửSửaChữaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QlyLichSuSuaChua f = new QlyLichSuSuaChua();
+            AddToForm(f);
+        }
     }
 }

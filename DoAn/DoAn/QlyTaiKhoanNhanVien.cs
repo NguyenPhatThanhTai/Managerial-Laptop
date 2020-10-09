@@ -128,6 +128,7 @@ namespace DoAn
 
         private void lsvAccount_Click(object sender, EventArgs e)
         {
+            lsvAccount.Enabled = false;
             btnClear.Enabled = true;
             btnSua.Enabled = true;
             txtRole.Enabled = true;
@@ -140,6 +141,7 @@ namespace DoAn
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            lsvAccount.Enabled = true;
             ClearAll(false);
             hienthi();
         }

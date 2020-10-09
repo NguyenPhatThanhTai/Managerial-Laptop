@@ -24,8 +24,8 @@ namespace DoAn
         SqlCommand thuchien;
         SqlDataReader docdulieu;
         int i = 0;
-        string name;
         string Name;
+        string time = DateTime.Now.ToString("yyyy/MM/dd");
         int Role;
 
         public Qly_SuaChua(int Role, string Name) : this()
@@ -84,16 +84,6 @@ namespace DoAn
             txtSoTien.Text = listView2.SelectedItems[0].SubItems[9].Text;
         }
 
-        private void Delete_Click(object sender, EventArgs e)
-        {
-            ketnoi.Open();
-            string sql = @"Delete from History where (name = N'" + name.ToString() + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-            ketnoi.Close();
-            hienthi();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             QuanLySuaChua QLSC = new QuanLySuaChua();
@@ -120,7 +110,7 @@ namespace DoAn
         {
             ketnoi.Open();
             sql = @"UPDATE Inf_Repair set Laptop_Name = N'" + txtTenMay.Text + @"', Laptop_Status = N'" + txtTinhTrang.Text + @"', 
-                    Staff_Id = '" + txtNVTN.Text + "'Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
+                    Staff_Id = '" + txtNVTN.Text + @"' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
             thuchien = new SqlCommand(sql, ketnoi);
             thuchien.ExecuteNonQuery();
             sql = @"UPDATE Detail_Inf_Repair set Repair_Reason = N'" + txtCanSua.Text + @"', Repair_Note = N'" + txtHenSua.Text + @"', 
@@ -133,10 +123,36 @@ namespace DoAn
 
         private void btnNhanDon_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Xác nhận nhận đơn này?", "Xác nhận", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
+            if(listView2.SelectedItems[0].SubItems[5].Text == Name)
             {
                 Enable();
+                listView2.Enabled = false;
+                MessageBox.Show("Đã tiếp tục đơn !");
+            }
+            else
+            {
+                if (listView2.SelectedItems[0].SubItems[5].Text != "Chưa biết")
+                {
+                    MessageBox.Show("Đơn này đã có nhân viên " + listView2.SelectedItems[0].SubItems[5].Text + " nhận rồi, vui lòng chọn đơn khác");
+                    hienthi();
+                }
+                else
+                {
+                    DialogResult dialog = MessageBox.Show("Xác nhận nhận đơn này?", "Xác nhận", MessageBoxButtons.YesNo);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        btnNhanDon.Enabled = false;
+                        Enable();
+                        listView2.Enabled = false;
+                        ketnoi.Open();
+                        sql = @"UPDATE Inf_Repair set Staff_Id = N'" + Name + @"' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
+                        thuchien = new SqlCommand(sql, ketnoi);
+                        thuchien.ExecuteNonQuery();
+                        ketnoi.Close();
+                        hienthi();
+                        txtNVTN.Text = Name;
+                    }
+                }
             }
         }
 
@@ -163,7 +179,7 @@ namespace DoAn
             {
                 string Id = (txtMaSuaChua.Text).Substring(2);
                 ketnoi.Open();
-                sql = @"Insert into Inf_LichSu (Customer_Id) VALUES(N'KH" + Id + @"')";
+                sql = @"Insert into Inf_LichSu (Customer_Id, Repair_Time_End) VALUES(N'KH" + Id + @"', N'" + time + @"')";
                 thuchien = new SqlCommand(sql, ketnoi);
                 thuchien.ExecuteNonQuery();
                 docdulieu.Close();
@@ -208,7 +224,9 @@ namespace DoAn
                     }
                     ketnoi.Close();
                     hienthi();
-                }
+                    btnNhanDon.Enabled = true;
+                    listView2.Enabled = true;
+            }
         }
 
         /*public void sendMail(string toEmail)

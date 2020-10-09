@@ -32,8 +32,8 @@
             this.quayLaijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinChungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lịchSửToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GboxContain = new System.Windows.Forms.Panel();
             this.lịchSửSửaChữaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GboxContain = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,18 +72,19 @@
             this.lịchSửToolStripMenuItem.Text = "Thông tin sửa chữa";
             this.lịchSửToolStripMenuItem.Click += new System.EventHandler(this.lịchSửToolStripMenuItem_Click);
             // 
+            // lịchSửSửaChữaToolStripMenuItem
+            // 
+            this.lịchSửSửaChữaToolStripMenuItem.Name = "lịchSửSửaChữaToolStripMenuItem";
+            this.lịchSửSửaChữaToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
+            this.lịchSửSửaChữaToolStripMenuItem.Text = "Lịch sử sửa chữa";
+            this.lịchSửSửaChữaToolStripMenuItem.Click += new System.EventHandler(this.lịchSửSửaChữaToolStripMenuItem_Click);
+            // 
             // GboxContain
             // 
             this.GboxContain.Location = new System.Drawing.Point(0, 32);
             this.GboxContain.Name = "GboxContain";
             this.GboxContain.Size = new System.Drawing.Size(1618, 617);
             this.GboxContain.TabIndex = 1;
-            // 
-            // lịchSửSửaChữaToolStripMenuItem
-            // 
-            this.lịchSửSửaChữaToolStripMenuItem.Name = "lịchSửSửaChữaToolStripMenuItem";
-            this.lịchSửSửaChữaToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
-            this.lịchSửSửaChữaToolStripMenuItem.Text = "Lịch sử sửa chữa";
             // 
             // QuanLySuaChua
             // 

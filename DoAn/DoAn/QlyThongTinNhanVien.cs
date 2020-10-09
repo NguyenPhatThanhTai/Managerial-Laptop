@@ -109,7 +109,7 @@ namespace DoAn
 
         public void deleteUser(string User)
         {
-            DialogResult dialog = MessageBox.Show("Bạn có muốn xóa nhân viên " + txtHoTen.Text + " ở phòng ban:" + txtDepartment + " không !", "Xác nhận", MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Bạn có muốn xóa nhân viên " + txtHoTen.Text + " ở phòng ban:" + txtDepartment.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 ketnoi.Open();
@@ -134,42 +134,20 @@ namespace DoAn
 
         private void listView4_Click(object sender, EventArgs e)
         {
-            if(txtMaNv.Text != "")
+            listView4.Enabled = false;
+            btnSua.Enabled = true;
+            btnDelete.Enabled = true;
+            if (listView4.SelectedItems[0].SubItems[2].Text == "Nguyễn Phát Thành Tài")
             {
-                DialogResult dialog = MessageBox.Show("Bạn có muốn dọn sạch các dữ liệu hiện tại trên ô nhập không", "Xác nhận", MessageBoxButtons.YesNo);
-                if(dialog == DialogResult.Yes)
-                {
-                    btnSua.Enabled = true;
-                    btnDelete.Enabled = true;
-                    if (listView4.SelectedItems[0].SubItems[2].Text == "Nguyễn Phát Thành Tài")
-                    {
-                        btnDelete.Enabled = false;
-                    }
-                    txtMaNv.Text = listView4.SelectedItems[0].SubItems[1].Text;
-                    txtHoTen.Text = listView4.SelectedItems[0].SubItems[2].Text;
-                    txtGioiTinh.Text = listView4.SelectedItems[0].SubItems[3].Text;
-                    txtDate.Text = listView4.SelectedItems[0].SubItems[4].Text;
-                    txtDiaChi.Text = listView4.SelectedItems[0].SubItems[5].Text;
-                    txtSDT.Text = listView4.SelectedItems[0].SubItems[6].Text;
-                    txtDepartment.Text = listView4.SelectedItems[0].SubItems[7].Text;
-                }
+                btnDelete.Enabled = false;
             }
-            else
-            {
-                btnSua.Enabled = true;
-                btnDelete.Enabled = true;
-                if (listView4.SelectedItems[0].SubItems[2].Text == "Nguyễn Phát Thành Tài")
-                {
-                    btnDelete.Enabled = false;
-                }
-                txtMaNv.Text = listView4.SelectedItems[0].SubItems[1].Text;
-                txtHoTen.Text = listView4.SelectedItems[0].SubItems[2].Text;
-                txtGioiTinh.Text = listView4.SelectedItems[0].SubItems[3].Text;
-                txtDate.Text = listView4.SelectedItems[0].SubItems[4].Text;
-                txtDiaChi.Text = listView4.SelectedItems[0].SubItems[5].Text;
-                txtSDT.Text = listView4.SelectedItems[0].SubItems[6].Text;
-                txtDepartment.Text = listView4.SelectedItems[0].SubItems[7].Text;
-            }
+            txtMaNv.Text = listView4.SelectedItems[0].SubItems[1].Text;
+            txtHoTen.Text = listView4.SelectedItems[0].SubItems[2].Text;
+            txtGioiTinh.Text = listView4.SelectedItems[0].SubItems[3].Text;
+            txtDate.Text = listView4.SelectedItems[0].SubItems[4].Text;
+            txtDiaChi.Text = listView4.SelectedItems[0].SubItems[5].Text;
+            txtSDT.Text = listView4.SelectedItems[0].SubItems[6].Text;
+            txtDepartment.Text = listView4.SelectedItems[0].SubItems[7].Text;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -179,7 +157,7 @@ namespace DoAn
                 listView4.Items.Clear();
                 if (CheckUser(txtHoTen.Text))
                 {
-                    DialogResult dialog = MessageBox.Show("Bạn có muốn thêm nhân viên: " + txtHoTen.Text + " ở phòng ban:"+ txtDepartment +"  không !", "Xác nhận", MessageBoxButtons.YesNo);
+                    DialogResult dialog = MessageBox.Show("Bạn có muốn thêm nhân viên: " + txtHoTen.Text + " ở phòng ban: "+ txtDepartment.Text +"  không !", "Xác nhận", MessageBoxButtons.YesNo);
                     if (dialog == DialogResult.Yes)
                     {
                         if(txtGioiTinh.Text == "Nam")
@@ -208,7 +186,7 @@ namespace DoAn
                                 + Sex + @"', N'" + txtDate.Value.ToString("yyyy/MM/dd") + @"', N'" + txtDiaChi.Text + @"', N'" + txtSDT.Text + @"' , N'" + PhongBan + @"' ,  N'" + time + @"')";
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
-                        sql = @"Insert into Account_Staff(Staff_Id, Staff_Account, Staff_Password, Staff_Role) VALUES (N'NV" + day + "" + Min + "" + sec + "" + @"', N'" + day + "" + Min + "" + sec + "" + @"', 1, 2)";
+                        sql = @"Insert into Account_Staff(Staff_Id, Staff_Account, Staff_Password, Staff_Role) VALUES (N'NV" + day + "" + Min + "" + sec + "" + @"', N'NV" + day + "" + Min + "" + sec + "" + @"', 1, N'" + PhongBan + @"')";
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         sql = @"Insert into Salary_Staff(Staff_Id, Staff_Default_Salary, Staff_Salary_Per_Hour, Staff_OT, Staff_Reward) VALUES (N'NV" + day + "" + Min + "" + sec + "" + @"',0, 0, 0, 0)";
@@ -216,6 +194,10 @@ namespace DoAn
                         thuchien.ExecuteNonQuery();
                         ketnoi.Close();
                         hienthi();
+                        time = DateTime.Now.ToString("ddd/MM/yyyy");
+                        day = DateTime.Now.ToString("dd");
+                        Min = DateTime.Now.ToString("mm");
+                        sec = DateTime.Now.ToString("ss");
                     }
                     else
                     {
@@ -295,6 +277,7 @@ namespace DoAn
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            listView4.Enabled = true;
             clear();
         }
 
@@ -303,7 +286,6 @@ namespace DoAn
             btnDelete.Enabled = false;
             btnSua.Enabled = false;
             txtHoTen.Enabled = true;
-            btnClear.Enabled = false;
             txtMaNv.Text = "";
             txtHoTen.Text = "";
             txtGioiTinh.Text = "Nam";
@@ -316,6 +298,7 @@ namespace DoAn
         private void btnDelete_Click(object sender, EventArgs e)
         {
             deleteUser(txtMaNv.Text);
+            listView4.Enabled = true;
             hienthi();
         }
 

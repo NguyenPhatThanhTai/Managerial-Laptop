@@ -18,7 +18,7 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=QuanLySuaChuaLaptop;Integrated Security=True";
+        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
         string sql;
         SqlConnection ketnoi;
         SqlCommand thuchien;
@@ -32,7 +32,7 @@ namespace DoAn
         public Boolean Login(string Account, string password)
         {
             ketnoi.Open();
-            sql = @"select * from TableNhanVien where Account = '"+Account+"' and Password = '"+password+"'";
+            sql = @"select * from Account_Staff where Staff_Account = '"+Account+"' and Staff_Password = '"+password+"'";
             thuchien = new SqlCommand(sql, ketnoi);
             docdulieu = thuchien.ExecuteReader();
             if (docdulieu.Read() == true)
@@ -49,7 +49,7 @@ namespace DoAn
         {
             ketnoi.Close();
             ketnoi.Open();
-            sql = @"select Role from TableNhanVien where Account = '" + Account + "'";
+            sql = @"select Staff_Role from Account_Staff where Staff_Id = '" + Account + "'";
             thuchien = new SqlCommand(sql, ketnoi);
             docdulieu = thuchien.ExecuteReader();
             if (docdulieu.Read() == true)
@@ -66,7 +66,7 @@ namespace DoAn
         {
             ketnoi.Close();
             ketnoi.Open();
-            sql = @"select Name from TableNhanVien where Account = '" + Account + "'";
+            sql = @"select Staff_Name from Inf_Staff where Staff_Id = '" + Account + "'";
             thuchien = new SqlCommand(sql, ketnoi);
             docdulieu = thuchien.ExecuteReader();
             if (docdulieu.Read() == true)

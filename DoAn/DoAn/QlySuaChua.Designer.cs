@@ -280,7 +280,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DoAn.Properties.Resources.fix;
-            this.pictureBox2.Location = new System.Drawing.Point(378, 24);
+            this.pictureBox2.Location = new System.Drawing.Point(416, 24);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 66);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -400,9 +400,9 @@
             this.label9.Location = new System.Drawing.Point(56, 356);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(113, 17);
+            this.label9.Size = new System.Drawing.Size(90, 17);
             this.label9.TabIndex = 60;
-            this.label9.Text = "Mã NV tiếp nhận";
+            this.label9.Text = "NV tiếp nhận";
             // 
             // txtDateHen
             // 
@@ -474,13 +474,16 @@
             // 
             // btnNhanDon
             // 
+            this.btnNhanDon.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnNhanDon.Enabled = false;
-            this.btnNhanDon.Location = new System.Drawing.Point(475, 172);
+            this.btnNhanDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhanDon.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnNhanDon.Location = new System.Drawing.Point(462, 172);
             this.btnNhanDon.Name = "btnNhanDon";
-            this.btnNhanDon.Size = new System.Drawing.Size(106, 39);
+            this.btnNhanDon.Size = new System.Drawing.Size(132, 39);
             this.btnNhanDon.TabIndex = 68;
-            this.btnNhanDon.Text = "Nhận đơn";
-            this.btnNhanDon.UseVisualStyleBackColor = true;
+            this.btnNhanDon.Text = "Nhận đơn này";
+            this.btnNhanDon.UseVisualStyleBackColor = false;
             this.btnNhanDon.Click += new System.EventHandler(this.btnNhanDon_Click);
             // 
             // label11
