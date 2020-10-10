@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Net.Mail;
+using System.Net;
 
 namespace DoAn
 {
@@ -146,6 +148,7 @@ namespace DoAn
                         listView2.Enabled = false;
                         ketnoi.Open();
                         sql = @"UPDATE Inf_Repair set Staff_Id = N'" + Name + @"' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
+                        MessageBox.Show(Name);
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         ketnoi.Close();
@@ -188,6 +191,7 @@ namespace DoAn
                     docdulieu = thuchien.ExecuteReader();
                     while (docdulieu.Read())
                     {
+                    sendMail(docdulieu[1].ToString(), docdulieu[4].ToString(), docdulieu[5].ToString());
                     sql = @"UPDATE Inf_LichSu set Customer_Name = N'" + docdulieu[1].ToString() + @"', Customer_Sex = N'" + docdulieu[2].ToString() + @"', Customer_Birth = N'" + docdulieu[3].ToString() + @"', 
                                 Customer_Email = '" + docdulieu[4].ToString() + @"', Customer_Phone = N'" + docdulieu[5].ToString() + @"', Customer_TimeAdd = N'" + docdulieu[6].ToString() + @"'
                                         Where (Customer_Id = N'KH" + Id + @"')";
@@ -229,47 +233,31 @@ namespace DoAn
             }
         }
 
-        /*public void sendMail(string toEmail)
-{
-    try
-    {
-        SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
-        mailclient.EnableSsl = true;
-        mailclient.Credentials = new NetworkCredential("herroseven@gmail.com", "@#Taitutoi952000@#");
-        MailMessage message = new MailMessage("herroseven@gmail.com", toEmail);
-        message.Subject = "Thông báo hoàn tất việc sửa laptop !";
-        message.Body = "<h3><b>Trân trọng gửi đến quý khách hàng: </b>"+ txtHoTen.Text +"</h3>" +
-            "           <h5><b>Số điện thoại</b>: " + txtSDT.Text + "</h5>" +
-            "           <h5><b>Tên laptop</b>: " + txtTenMay.Text + "</h5>" +
-            "           <h5><b>Chi tiết sửa</b>: "+ txtChiTiet.Text + "</h5>" +
-            "           <h5><b>Số tiền</b>: " + String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</h5>" +
-            "           <h5><strong>Lưu ý: </strong> <i>Khi đến quý khách vui lòng đem đúng số tiền là <b>"+ String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</b> để thanh toán</i><h5> <br>" +
-            "           <h3><b>Trân trọng thông báo cho quý khách !<b><h3>";
-        message.BodyEncoding = System.Text.Encoding.UTF8;
-        message.IsBodyHtml = true;
-        mailclient.Send(message);
-        MessageBox.Show("Mail hẹn nhận máy đã được gửi đi cho khách hàng: " +txtHoTen.Text+ "", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("Lỗi gửi mail");
-    }
-}*/
-
-        /*private void btnHoanTat_Click(object sender, EventArgs e)
+        public void sendMail(string Name, string Email, string SDT)
         {
-            ketnoi.Open();
-            sql = @"Insert into History (Name, Email, SDT, Kind, DetailFix, Status, Noti, Money, TimeEnd) VALUES(N'" + txtHoTen.Text + @"',N'" + txtEmail.Text + @"',N'"
-                    + txtSDT.Text + @"', N'" + txtTenMay.Text + @"', N'" + txtChiTiet.Text + @"', N'" + "Hoàn thành" + @"', N'" + txtGhiChu.Text + @"', N'" + txtSoTien.Text + @"', N'" + time + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
-            hienthi();
-            deleteUser(txtHoTen.Text);
-            ketnoi.Close();
-            hienthi();
-            //Gmail when done
-            sendMail(txtEmail.Text);
-        }*/
+            try
+            {
+                SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
+                mailclient.EnableSsl = true;
+                mailclient.Credentials = new NetworkCredential("herroseven@gmail.com", "@#Taitutoi952000@#");
+                MailMessage message = new MailMessage("herroseven@gmail.com", Email);
+                message.Subject = "Thông báo hoàn tất việc sửa laptop !";
+                message.Body = "<h3><b>Trân trọng gửi đến quý khách hàng thông báo: </b>"+ Name +"</h3>" +
+                    "           <h5><b>Số điện thoại</b>: " + SDT + "</h5>" +
+                    "           <h5><b>Tên laptop</b>: " + txtTenMay.Text + "</h5>" +
+                    "           <h5><b>Chi tiết sửa</b>: "+ txtCanSua.Text + "</h5>" +
+                    "           <h5><b>Số tiền</b>: " + String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</h5>" +
+                    "           <h5><strong>Lưu ý: </strong> <i>Khi đến quý khách vui lòng đem đúng số tiền là <b>"+ String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</b> để thanh toán</i><h5> <br>" +
+                    "           <h3><b>Trân trọng thông báo cho quý khách !<b><h3>";
+                message.BodyEncoding = System.Text.Encoding.UTF8;
+                message.IsBodyHtml = true;
+                mailclient.Send(message);
+                MessageBox.Show("Mail hẹn nhận máy đã được gửi đi cho khách hàng: " + Name+ "", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi gửi mail");
+            }
+        }
     }
 }

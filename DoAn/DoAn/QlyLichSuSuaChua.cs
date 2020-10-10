@@ -35,7 +35,7 @@ namespace DoAn
 
         private void hienthi()
         {
-            ketnoi.Close();
+            lsvLichSu.Items.Clear();
             ketnoi.Open();
             sql = @"Select * from Inf_LichSu";
             thuchien = new SqlCommand(sql, ketnoi);
@@ -55,6 +55,7 @@ namespace DoAn
                 {
                     Sex = "Khác";
                 }
+
                 lsvLichSu.Items.Add((i + 1).ToString());
                 lsvLichSu.Items[i].SubItems.Add(docdulieu[0].ToString());
                 lsvLichSu.Items[i].SubItems.Add(docdulieu[1].ToString());
@@ -85,12 +86,31 @@ namespace DoAn
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            DialogResult dialog = MessageBox.Show("Bạn muốn xóa à?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                delete(lsvLichSu.SelectedItems[0].SubItems[1].Text);
+                hienthi();
+            }
+            else
+            {
+                btnXoa.Enabled = false;
+                hienthi();
+            }
+        }
+        
+        private void delete(string id)
+        {
             ketnoi.Open();
-            sql = @"DELETE from Inf_LichSu where (Customer_Id =N'"+ id + @"')";
+            sql = @"DELETE from Inf_LichSu where (Customer_Id =N'" + id + @"')";
             thuchien = new SqlCommand(sql, ketnoi);
             thuchien.ExecuteNonQuery();
-            hienthi();
             ketnoi.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            hienthi();
         }
     }
 }
