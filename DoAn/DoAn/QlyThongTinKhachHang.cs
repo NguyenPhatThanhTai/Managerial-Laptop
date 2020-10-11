@@ -273,10 +273,10 @@ namespace DoAn
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            listView1.Enabled = true;
             DialogResult dialog = MessageBox.Show("Bạn có muốn xóa khách hàng " + txtHoTen.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
+                listView1.Enabled = true;
                 string repair = (String)txtMaKhachHang.Text;
                 string repairID = repair.Substring(2);
                 ketnoi.Open();

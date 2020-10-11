@@ -34,6 +34,7 @@
             this.txtAccount = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
+            this.taskbarAssistant1 = new DevExpress.Utils.Taskbar.TaskbarAssistant();
             this.btnThoat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -99,6 +100,10 @@
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
+            // taskbarAssistant1
+            // 
+            this.taskbarAssistant1.ParentControl = this;
+            // 
             // btnThoat
             // 
             this.btnThoat.BackColor = System.Drawing.Color.IndianRed;
@@ -149,6 +154,7 @@
         private System.Windows.Forms.TextBox txtAccount;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnDangNhap;
+        private DevExpress.Utils.Taskbar.TaskbarAssistant taskbarAssistant1;
         private System.Windows.Forms.Button btnThoat;
     }
 }

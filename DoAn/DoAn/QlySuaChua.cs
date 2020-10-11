@@ -38,6 +38,7 @@ namespace DoAn
         private void Form2_Load(object sender, EventArgs e)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
+            Process_QLSC.Hide();
             hienthi();
         }
 
@@ -110,17 +111,26 @@ namespace DoAn
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            ketnoi.Open();
-            sql = @"UPDATE Inf_Repair set Laptop_Name = N'" + txtTenMay.Text + @"', Laptop_Status = N'" + txtTinhTrang.Text + @"', 
-                    Staff_Id = '" + txtNVTN.Text + @"' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            sql = @"UPDATE Detail_Inf_Repair set Repair_Reason = N'" + txtCanSua.Text + @"', Repair_Note = N'" + txtHenSua.Text + @"', 
+            DialogResult dialog = MessageBox.Show("Cập nhật ?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                btnDone.Enabled = true;
+                ketnoi.Open();
+                sql = @"UPDATE Inf_Repair set Laptop_Name = N'" + txtTenMay.Text + @"', Laptop_Status = N'" + txtTinhTrang.Text + @"'
+                    Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
+                thuchien = new SqlCommand(sql, ketnoi);
+                thuchien.ExecuteNonQuery();
+                sql = @"UPDATE Detail_Inf_Repair set Repair_Reason = N'" + txtCanSua.Text + @"', Repair_Note = N'" + txtHenSua.Text + @"', 
                     Repair_Appointment = '" + txtDateHen.Value.ToString("yyyy/MM/dd") + @"', Repair_Money = N'" + txtSoTien.Text + @"' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
-            hienthi();
+                thuchien = new SqlCommand(sql, ketnoi);
+                thuchien.ExecuteNonQuery();
+                ketnoi.Close();
+                hienthi();
+            }
+            else
+            {
+                hienthi();
+            }
         }
 
         private void btnNhanDon_Click(object sender, EventArgs e)
@@ -147,7 +157,7 @@ namespace DoAn
                         Enable();
                         listView2.Enabled = false;
                         ketnoi.Open();
-                        sql = @"UPDATE Inf_Repair set Staff_Id = N'" + Name + @"' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
+                        sql = @"UPDATE Inf_Repair set Staff_Id = N'" + Name + "' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
                         MessageBox.Show(Name);
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
@@ -161,7 +171,6 @@ namespace DoAn
 
         private void Enable()
         {
-            btnDone.Enabled = true;
             btnUpdate.Enabled = true;
             txtCanSua.Enabled = true;
             txtDateHen.Enabled = true;
@@ -180,6 +189,7 @@ namespace DoAn
             }
             else
             {
+                System.Threading.Thread.Sleep(5000);
                 string Id = (txtMaSuaChua.Text).Substring(2);
                 ketnoi.Open();
                 sql = @"Insert into Inf_LichSu (Customer_Id, Repair_Time_End) VALUES(N'KH" + Id + @"', N'" + time + @"')";
@@ -233,17 +243,18 @@ namespace DoAn
             }
         }
 
-        public void sendMail(string Name, string Email, string SDT)
+        public void sendMail(string NameTo, string EmailTo, string SDTTo)
         {
+            Process_QLSC.Show();
             try
             {
                 SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
                 mailclient.EnableSsl = true;
                 mailclient.Credentials = new NetworkCredential("herroseven@gmail.com", "@#Taitutoi952000@#");
-                MailMessage message = new MailMessage("herroseven@gmail.com", Email);
+                MailMessage message = new MailMessage("herroseven@gmail.com", EmailTo);
                 message.Subject = "Thông báo hoàn tất việc sửa laptop !";
-                message.Body = "<h3><b>Trân trọng gửi đến quý khách hàng thông báo: </b>"+ Name +"</h3>" +
-                    "           <h5><b>Số điện thoại</b>: " + SDT + "</h5>" +
+                message.Body = "<h3><b>Trân trọng gửi đến quý khách hàng thông báo: </b>"+ NameTo + "</h3>" +
+                    "           <h5><b>Số điện thoại</b>: " + SDTTo + "</h5>" +
                     "           <h5><b>Tên laptop</b>: " + txtTenMay.Text + "</h5>" +
                     "           <h5><b>Chi tiết sửa</b>: "+ txtCanSua.Text + "</h5>" +
                     "           <h5><b>Số tiền</b>: " + String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</h5>" +

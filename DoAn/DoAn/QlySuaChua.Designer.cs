@@ -73,6 +73,11 @@
             this.btnNhanDon = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
+            this.Process_QLSC = new DevExpress.XtraWaitForm.ProgressPanel();
+            this.btnFeresh = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -111,10 +116,10 @@
             this.listView2.FullRowSelect = true;
             this.listView2.GridLines = true;
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(644, 39);
+            this.listView2.Location = new System.Drawing.Point(644, 117);
             this.listView2.Margin = new System.Windows.Forms.Padding(4);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(829, 552);
+            this.listView2.Size = new System.Drawing.Size(829, 474);
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -513,12 +518,72 @@
             this.btnDone.UseVisualStyleBackColor = false;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
+            // Process_QLSC
+            // 
+            this.Process_QLSC.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.Process_QLSC.Appearance.Options.UseBackColor = true;
+            this.Process_QLSC.Caption = "Đang hoàn tất đơn !";
+            this.Process_QLSC.Description = "Đang tải";
+            this.Process_QLSC.Location = new System.Drawing.Point(644, 24);
+            this.Process_QLSC.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Process_QLSC.Name = "Process_QLSC";
+            this.Process_QLSC.Size = new System.Drawing.Size(248, 82);
+            this.Process_QLSC.TabIndex = 71;
+            this.Process_QLSC.Text = "progressPanel1";
+            // 
+            // btnFeresh
+            // 
+            this.btnFeresh.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnFeresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFeresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFeresh.Location = new System.Drawing.Point(1368, 77);
+            this.btnFeresh.Name = "btnFeresh";
+            this.btnFeresh.Size = new System.Drawing.Size(105, 33);
+            this.btnFeresh.TabIndex = 75;
+            this.btnFeresh.Text = "Làm mới";
+            this.btnFeresh.UseVisualStyleBackColor = false;
+            // 
+            // btnFind
+            // 
+            this.btnFind.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFind.Location = new System.Drawing.Point(1287, 77);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(75, 33);
+            this.btnFind.TabIndex = 74;
+            this.btnFind.Text = "Tìm";
+            this.btnFind.UseVisualStyleBackColor = false;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(1096, 83);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(184, 22);
+            this.txtSearch.TabIndex = 73;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1022, 86);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 17);
+            this.label13.TabIndex = 72;
+            this.label13.Text = "Tìm Kiếm";
+            // 
             // Qly_SuaChua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1486, 624);
+            this.Controls.Add(this.btnFeresh);
+            this.Controls.Add(this.btnFind);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.Process_QLSC);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.btnNhanDon);
@@ -622,5 +687,10 @@
         private System.Windows.Forms.Button btnNhanDon;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnDone;
+        private DevExpress.XtraWaitForm.ProgressPanel Process_QLSC;
+        private System.Windows.Forms.Button btnFeresh;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label13;
     }
 }

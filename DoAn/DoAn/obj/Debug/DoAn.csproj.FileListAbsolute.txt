@@ -61,3 +61,16 @@ D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyLuongNhanVien.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyThongTinKhachHang.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.Qly_SuaChua.resources
 D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.QlyLichSuSuaChua.resources
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\DevExpress.XtraBars.v20.1.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\DevExpress.XtraNavBar.v20.1.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\DevExpress.XtraBars.v20.1.xml
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\DevExpress.XtraNavBar.v20.1.xml
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\de\DevExpress.XtraBars.v20.1.resources.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\es\DevExpress.XtraBars.v20.1.resources.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\ja\DevExpress.XtraBars.v20.1.resources.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\ru\DevExpress.XtraBars.v20.1.resources.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\de\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\es\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\ja\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\bin\Debug\ru\DevExpress.XtraNavBar.v20.1.resources.dll
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.exe.licenses
