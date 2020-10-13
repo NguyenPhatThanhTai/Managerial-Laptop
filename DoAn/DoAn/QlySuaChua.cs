@@ -136,7 +136,7 @@ namespace DoAn
         {
             if(listView2.SelectedItems[0].SubItems[5].Text == Name)
             {
-                Enable();
+                Enable(true);
                 listView2.Enabled = false;
                 MessageBox.Show("Đã tiếp tục đơn !");
             }
@@ -153,11 +153,10 @@ namespace DoAn
                     if (dialog == DialogResult.Yes)
                     {
                         btnNhanDon.Enabled = false;
-                        Enable();
+                        Enable(true);
                         listView2.Enabled = false;
                         ketnoi.Open();
                         sql = @"UPDATE Inf_Repair set Staff_Id = N'" + Name + "' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-                        MessageBox.Show(Name);
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         ketnoi.Close();
@@ -168,19 +167,32 @@ namespace DoAn
             }
         }
 
-        private void Enable()
+        private void Enable(bool a)
         {
-            btnUpdate.Enabled = true;
-            txtCanSua.Enabled = true;
-            txtDateHen.Enabled = true;
-            txtHenSua.Enabled = true;
-            txtSoTien.Enabled = true;
-            txtTenMay.Enabled = true;
-            txtTinhTrang.Enabled = true;
+            btnUpdate.Enabled = a;
+            txtCanSua.Enabled = a;
+            txtDateHen.Enabled = a;
+            txtHenSua.Enabled = a;
+            txtSoTien.Enabled = a;
+            txtTenMay.Enabled = a;
+            txtTinhTrang.Enabled = a;
+        }
+
+        private void Clear()
+        {
+            txtCanSua.Text = "";
+            txtDateHen.Text = "";
+            txtMaSuaChua.Text = "";
+            txtNVTN.Text = "";
+            txtSoTien.Text = "";
+            txtTenMay.Text = "";
+            txtTinhTrang.Text = "";
         }
 
         private void btnDone_Click(object sender, EventArgs e)
         {
+            //Sửa lấy ngay
+            //Hẹn ngày lấy
             DialogResult dialog = MessageBox.Show("Xác nhận hoàn thành đơn này?", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.No)
             {
@@ -188,7 +200,6 @@ namespace DoAn
             }
             else
             {
-                System.Threading.Thread.Sleep(5000);
                 string Id = (txtMaSuaChua.Text).Substring(2);
                 ketnoi.Open();
                 sql = @"Insert into Inf_LichSu (Customer_Id, Repair_Time_End) VALUES(N'KH" + Id + @"', N'" + time + @"')";
@@ -200,7 +211,10 @@ namespace DoAn
                     docdulieu = thuchien.ExecuteReader();
                     while (docdulieu.Read())
                     {
-                    sendMail(docdulieu[1].ToString(), docdulieu[4].ToString(), docdulieu[5].ToString());
+                    if(txtHenSua.Text == "Hẹn ngày lấy")
+                    {
+                        sendMail(docdulieu[1].ToString(), docdulieu[4].ToString(), docdulieu[5].ToString());
+                    }
                     sql = @"UPDATE Inf_LichSu set Customer_Name = N'" + docdulieu[1].ToString() + @"', Customer_Sex = N'" + docdulieu[2].ToString() + @"', Customer_Birth = N'" + docdulieu[3].ToString() + @"', 
                                 Customer_Email = '" + docdulieu[4].ToString() + @"', Customer_Phone = N'" + docdulieu[5].ToString() + @"', Customer_TimeAdd = N'" + docdulieu[6].ToString() + @"'
                                         Where (Customer_Id = N'KH" + Id + @"')";
@@ -237,8 +251,9 @@ namespace DoAn
                     }
                     ketnoi.Close();
                     hienthi();
-                    btnNhanDon.Enabled = true;
                     listView2.Enabled = true;
+                    Enable(false);
+                    Clear();
             }
         }
 

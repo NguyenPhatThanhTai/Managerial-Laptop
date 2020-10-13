@@ -168,7 +168,7 @@ namespace DoAn
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         sql = @"Insert into Detail_Inf_Repair (Repair_Id, Repair_Reason, Repair_Note, Repair_Appointment, Repair_Money)
-                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"', N'Chưa biết', N'Chưa biết', '09/05/2000', 0)";
+                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"', N'Chưa biết', N'Sửa lấy ngay', '09/05/2000', 0)";
                         thuchien = new SqlCommand(sql, ketnoi);
                         thuchien.ExecuteNonQuery();
                         ketnoi.Close();
