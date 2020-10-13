@@ -212,16 +212,16 @@ namespace DoAn
                     while (docdulieu.Read())
                     {
                     if(txtHenSua.Text == "Hẹn ngày lấy")
-                    {
-                        sendMail(docdulieu[1].ToString(), docdulieu[4].ToString(), docdulieu[5].ToString());
-                    }
-                    sql = @"UPDATE Inf_LichSu set Customer_Name = N'" + docdulieu[1].ToString() + @"', Customer_Sex = N'" + docdulieu[2].ToString() + @"', Customer_Birth = N'" + docdulieu[3].ToString() + @"', 
-                                Customer_Email = '" + docdulieu[4].ToString() + @"', Customer_Phone = N'" + docdulieu[5].ToString() + @"', Customer_TimeAdd = N'" + docdulieu[6].ToString() + @"'
-                                        Where (Customer_Id = N'KH" + Id + @"')";
-                        docdulieu.Dispose();
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        docdulieu = thuchien.ExecuteReader();
+                        {
+                            sendMail(docdulieu[1].ToString(), docdulieu[4].ToString(), docdulieu[5].ToString());
+                        }
+                        sql = @"UPDATE Inf_LichSu set Customer_Name = N'" + docdulieu[1].ToString() + @"', Customer_Sex = N'" + docdulieu[2].ToString() + @"', Customer_Birth = N'" + docdulieu[3].ToString() + @"', 
+                                    Customer_Email = '" + docdulieu[4].ToString() + @"', Customer_Phone = N'" + docdulieu[5].ToString() + @"', Customer_TimeAdd = N'" + docdulieu[6].ToString() + @"'
+                                            Where (Customer_Id = N'KH" + Id + @"')";
+                            docdulieu.Dispose();
+                            thuchien = new SqlCommand(sql, ketnoi);
+                            thuchien.ExecuteNonQuery();
+                            docdulieu = thuchien.ExecuteReader();
                     }
                     docdulieu.Close();
                     sql = @"SELECT Repair_Id, Laptop_Name, Laptop_Status, Staff_Id from Inf_Repair Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
@@ -249,6 +249,17 @@ namespace DoAn
                         thuchien.ExecuteNonQuery();
                         docdulieu = thuchien.ExecuteReader();
                     }
+                    ketnoi.Close();
+                    ketnoi.Open();
+                    sql = @"DELETE from Detail_Inf_Repair Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
+                    thuchien = new SqlCommand(sql, ketnoi);
+                    thuchien.ExecuteNonQuery();
+                    sql = @"DELETE from Inf_Repair Where (Customer_Id = N'KH" + Id + @"')";
+                    thuchien = new SqlCommand(sql, ketnoi);
+                    thuchien.ExecuteNonQuery();
+                    sql = @"DELETE from Inf_Customers Where (Customer_Id = N'KH" + Id + @"')";
+                    thuchien = new SqlCommand(sql, ketnoi);
+                    thuchien.ExecuteNonQuery();
                     ketnoi.Close();
                     hienthi();
                     listView2.Enabled = true;
