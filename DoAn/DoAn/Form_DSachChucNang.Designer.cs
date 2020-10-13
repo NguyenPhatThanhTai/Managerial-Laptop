@@ -44,7 +44,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(254, 70);
+            this.label1.Location = new System.Drawing.Point(270, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 32);
             this.label1.TabIndex = 2;
@@ -54,7 +54,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(192, 132);
+            this.label2.Location = new System.Drawing.Point(216, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(345, 25);
             this.label2.TabIndex = 3;
@@ -64,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(192, 230);
+            this.label3.Location = new System.Drawing.Point(216, 223);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(192, 25);
             this.label3.TabIndex = 4;
@@ -74,7 +74,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(192, 318);
+            this.label4.Location = new System.Drawing.Point(216, 311);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(206, 25);
             this.label4.TabIndex = 7;
@@ -87,7 +87,7 @@
             this.btnChucNangQuanLyNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucNangQuanLyNV.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnChucNangQuanLyNV.Image = ((System.Drawing.Image)(resources.GetObject("btnChucNangQuanLyNV.Image")));
-            this.btnChucNangQuanLyNV.Location = new System.Drawing.Point(92, 292);
+            this.btnChucNangQuanLyNV.Location = new System.Drawing.Point(116, 285);
             this.btnChucNangQuanLyNV.Name = "btnChucNangQuanLyNV";
             this.btnChucNangQuanLyNV.Size = new System.Drawing.Size(92, 82);
             this.btnChucNangQuanLyNV.TabIndex = 6;
@@ -103,7 +103,7 @@
             this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnThoat.Location = new System.Drawing.Point(706, 295);
+            this.btnThoat.Location = new System.Drawing.Point(693, 302);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(95, 77);
             this.btnThoat.TabIndex = 5;
@@ -117,7 +117,7 @@
             this.btnChucNangLinhKien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnChucNangLinhKien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucNangLinhKien.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnChucNangLinhKien.Location = new System.Drawing.Point(92, 215);
+            this.btnChucNangLinhKien.Location = new System.Drawing.Point(116, 208);
             this.btnChucNangLinhKien.Name = "btnChucNangLinhKien";
             this.btnChucNangLinhKien.Size = new System.Drawing.Size(88, 61);
             this.btnChucNangLinhKien.TabIndex = 1;
@@ -131,7 +131,7 @@
             this.btnChucNangSuaChua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnChucNangSuaChua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChucNangSuaChua.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnChucNangSuaChua.Location = new System.Drawing.Point(92, 114);
+            this.btnChucNangSuaChua.Location = new System.Drawing.Point(116, 107);
             this.btnChucNangSuaChua.Name = "btnChucNangSuaChua";
             this.btnChucNangSuaChua.Size = new System.Drawing.Size(88, 67);
             this.btnChucNangSuaChua.TabIndex = 0;

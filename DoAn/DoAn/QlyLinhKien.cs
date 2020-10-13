@@ -21,15 +21,19 @@ namespace DoAn
         private void QlyLinhKien_Load(object sender, EventArgs e)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
-            txtLocHang.Text = "Acer";
+            txtLoc.Text = "Acer";
+            hienthi();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=QuanLySuaChuaLaptop;Integrated Security=True";
+        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
         string sql;
         SqlConnection ketnoi;
         SqlCommand thuchien;
         SqlDataReader docdulieu;
-        string time = DateTime.Now.ToString();
+        string time = DateTime.Now.ToString("ddd/MM/yyyy");
+        string day = DateTime.Now.ToString("dd");
+        string Min = DateTime.Now.ToString("mm");
+        string sec = DateTime.Now.ToString("ss");
         int Role;
         string Name;
         int i = 0;
@@ -40,17 +44,12 @@ namespace DoAn
             this.Role = Role;
             this.Name = Name;
         }
-        public void hienthi(string nameLK)
+        public void hienthi()
         {
-            //Lenovo
-            //Acer
-            //Apple
-            //Asus
-            //Msi
-            //Khác
             listView3.Items.Clear();
+            ketnoi.Close();
             ketnoi.Open();
-            sql = @"Select * from " + nameLK + @"LK";
+            sql = @"Select * from Inf_LK";
             thuchien = new SqlCommand(sql, ketnoi);
             docdulieu = thuchien.ExecuteReader();
             i = 0;
@@ -62,32 +61,27 @@ namespace DoAn
                 listView3.Items[i].SubItems.Add(docdulieu[2].ToString());
                 listView3.Items[i].SubItems.Add(docdulieu[3].ToString());
                 listView3.Items[i].SubItems.Add(docdulieu[4].ToString());
+                listView3.Items[i].SubItems.Add(docdulieu[5].ToString());
                 i++;
             }
             ketnoi.Close();
         }
 
-        private void txtLocHang_TextChanged(object sender, EventArgs e)
-        {
-            hienthi(txtLocHang.Text);
-        }
-
         private void listView3_Click(object sender, EventArgs e)
         {
-            txtTenLinhKien.Enabled = false;
-            txtNgayThemLinhKien.Enabled = false;
             btnSua.Enabled = true;
-            txtTenLinhKien.Text = listView3.SelectedItems[0].SubItems[1].Text;
-            txtSoLuong.Text = listView3.SelectedItems[0].SubItems[2].Text;
-            txtNhaSanXuat.Text = listView3.SelectedItems[0].SubItems[3].Text;
-            txtNgayThemLinhKien.Text = listView3.SelectedItems[0].SubItems[4].Text;
-            txtGhiChu.Text = listView3.SelectedItems[0].SubItems[5].Text;
+            btnDelete.Enabled = true;
+            txtTenLinhKien.Text = listView3.SelectedItems[0].SubItems[2].Text;
+            txtSoLuong.Text = listView3.SelectedItems[0].SubItems[3].Text;
+            txtNhaSanXuat.Text = listView3.SelectedItems[0].SubItems[4].Text;
+            txtPrice.Text = listView3.SelectedItems[0].SubItems[5].Text;
         }
 
         public bool CheckLK(string LK, string nameLK)
         {
+            ketnoi.Close();
             ketnoi.Open();
-            sql = @"Select * from " + nameLK + @"LK where (NameLK = N'" + LK + @"')";
+            sql = @"Select * from Inf_LK where (LK_Name = N'" + LK + @"' and LK_Producer = N'"+ nameLK +@"')";
             thuchien = new SqlCommand(sql, ketnoi);
             docdulieu = thuchien.ExecuteReader();
             if (docdulieu.Read())
@@ -99,25 +93,33 @@ namespace DoAn
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtTenLinhKien.Text != "" && txtSoLuong.Text != "" && txtNhaSanXuat.Text != "" && txtGhiChu.Text != "")
+            if (txtTenLinhKien.Text != "" && txtSoLuong.Text != "" && txtNhaSanXuat.Text != "" && txtPrice.Text != "")
             {
-                listView3.Items.Clear();
-                if (CheckLK(txtTenLinhKien.Text, txtNhaSanXuat.Text))
+                DialogResult dialog = MessageBox.Show("Bạn có muốn thêm linh kiện " + txtTenLinhKien.Text + " của nhà sản xuất: " + txtNhaSanXuat.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
                 {
-                    ketnoi.Close();
-                    ketnoi.Open();
-                    sql = @"Insert into " + txtNhaSanXuat.Text + @"LK (NameLK, Number, Producer, TimeStart, Noti) VALUES(N'" + txtTenLinhKien.Text + @"',N'" + txtSoLuong.Text + @"',N'"
-                            + txtNhaSanXuat.Text + @"', N'" + time + @"', N'" + txtGhiChu.Text + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    ketnoi.Close();
-                    hienthi(txtNhaSanXuat.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Đã tồn tại linh kiện này rồi, vui lòng cập nhật !");
-                    ketnoi.Close();
-                    hienthi(txtLocHang.Text);
+                    listView3.Items.Clear();
+                    if (CheckLK(txtTenLinhKien.Text, txtNhaSanXuat.Text))
+                    {
+                        ketnoi.Close();
+                        ketnoi.Open();
+                        sql = @"Insert into Inf_LK (LK_Id, LK_Name, LK_Number, LK_Producer, LK_Price, LK_Time_Add) VALUES(N'LK" + day + "" + Min + "" + sec + @"',N'" + txtTenLinhKien.Text + @"',N'"
+                                + txtSoLuong.Text + @"', N'" + txtNhaSanXuat.Text + @"', N'" + txtPrice.Text + @"', N'" + time + @"')";
+                        thuchien = new SqlCommand(sql, ketnoi);
+                        thuchien.ExecuteNonQuery();
+                        ketnoi.Close();
+                        txtNhaSanXuat.Text = "";
+                        txtTenLinhKien.Text = "";
+                        txtPrice.Text = "";
+                        txtSoLuong.Text = "";
+                        hienthi();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã tồn tại linh kiện " + txtTenLinhKien.Text + " của nhà sản xuất " + txtNhaSanXuat.Text + ", vui lòng chỉnh sửa !");
+                        ketnoi.Close();
+                        hienthi();
+                    }
                 }
             }
             else
@@ -129,12 +131,12 @@ namespace DoAn
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtTenLinhKien.Enabled = true;
+            btnDelete.Enabled = false;
+            btnSua.Enabled = false;
             txtTenLinhKien.Text = "";
             txtSoLuong.Text = "";
             txtNhaSanXuat.Text = "";
-            txtNgayThemLinhKien.Text = "";
-            txtGhiChu.Text = "";
+            txtPrice.Text = "";
         }
 
         private void btnTurnBack_Click(object sender, EventArgs e)
@@ -146,10 +148,9 @@ namespace DoAn
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            hienthi(txtLocHang.Text);
             if (txtSearch.Text == "")
             {
-                hienthi(txtLocHang.Text);
+                hienthi();
             }
             else
             {
@@ -166,7 +167,51 @@ namespace DoAn
 
         private void btnFeresh_Click(object sender, EventArgs e)
         {
-            hienthi(txtLocHang.Text);
+            hienthi();
+        }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            if (txtLoc.Text == "")
+            {
+                MessageBox.Show("Không được để rỗng !");
+            }
+            ketnoi.Close();
+            ketnoi.Open();
+            sql = @"Select * from Inf_LK where (LK_Producer = N'" + txtLoc.Text + @"')";
+            thuchien = new SqlCommand(sql, ketnoi);
+            docdulieu = thuchien.ExecuteReader();
+            i = 0;
+            if (docdulieu.Read())
+            {
+                listView3.Items.Clear();
+                listView3.Items.Add((i + 1).ToString());
+                listView3.Items[i].SubItems.Add(docdulieu[0].ToString());
+                listView3.Items[i].SubItems.Add(docdulieu[1].ToString());
+                listView3.Items[i].SubItems.Add(docdulieu[2].ToString());
+                listView3.Items[i].SubItems.Add(docdulieu[3].ToString());
+                listView3.Items[i].SubItems.Add(docdulieu[4].ToString());
+                listView3.Items[i].SubItems.Add(docdulieu[5].ToString());
+                i++;
+            }
+            else
+            {
+                listView3.Items.Clear();
+                MessageBox.Show("Chưa có linh kiện hoặc sai tên của nhà sản xuất " + txtLoc.Text + " vui lòng kiểm tra lại !");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn có muốn xóa linh kiện " + txtTenLinhKien.Text + " của nhà sản xuất: " + txtNhaSanXuat.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                ketnoi.Open();
+                sql = @"Delete from Inf_LK where (LK_Id = N'" + listView3.SelectedItems[0].SubItems[1].Text + @"')";
+                thuchien = new SqlCommand(sql, ketnoi);
+                docdulieu = thuchien.ExecuteReader();
+            }
+            hienthi();
         }
     }
 }

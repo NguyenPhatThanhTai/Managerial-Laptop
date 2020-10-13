@@ -73,7 +73,6 @@
             this.btnNhanDon = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
-            this.Process_QLSC = new DevExpress.XtraWaitForm.ProgressPanel();
             this.btnFeresh = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -518,19 +517,6 @@
             this.btnDone.UseVisualStyleBackColor = false;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
-            // Process_QLSC
-            // 
-            this.Process_QLSC.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.Process_QLSC.Appearance.Options.UseBackColor = true;
-            this.Process_QLSC.Caption = "Đang hoàn tất đơn !";
-            this.Process_QLSC.Description = "Đang tải";
-            this.Process_QLSC.Location = new System.Drawing.Point(644, 24);
-            this.Process_QLSC.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.Process_QLSC.Name = "Process_QLSC";
-            this.Process_QLSC.Size = new System.Drawing.Size(248, 82);
-            this.Process_QLSC.TabIndex = 71;
-            this.Process_QLSC.Text = "progressPanel1";
-            // 
             // btnFeresh
             // 
             this.btnFeresh.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -583,7 +569,6 @@
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.Process_QLSC);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.btnNhanDon);
@@ -687,7 +672,6 @@
         private System.Windows.Forms.Button btnNhanDon;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnDone;
-        private DevExpress.XtraWaitForm.ProgressPanel Process_QLSC;
         private System.Windows.Forms.Button btnFeresh;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox txtSearch;

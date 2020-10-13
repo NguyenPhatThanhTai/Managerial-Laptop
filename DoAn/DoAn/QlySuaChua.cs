@@ -38,7 +38,6 @@ namespace DoAn
         private void Form2_Load(object sender, EventArgs e)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
-            Process_QLSC.Hide();
             hienthi();
         }
 
@@ -245,7 +244,6 @@ namespace DoAn
 
         public void sendMail(string NameTo, string EmailTo, string SDTTo)
         {
-            Process_QLSC.Show();
             try
             {
                 SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
