@@ -29,7 +29,6 @@ namespace DoAn
         private void DangNhap_Load(object sender, EventArgs e)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
-            Login_Load.Hide();
         }
         public Boolean Login(string Account, string password)
         {
@@ -88,7 +87,6 @@ namespace DoAn
             string Password = txtPassword.Text;
             if(Account != "" && Password != "")
             {
-                Login_Load.Show();
                 if (Login(Account, Password))
                 {
                     DanhSachChucNang DSCN = new DanhSachChucNang(int.Parse(CheckRole(Account)), GetUserName(Account));

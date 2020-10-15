@@ -29,13 +29,13 @@ namespace DoAn
         {
             if (Role == 1)
             {
-                btnChucNangQuanLyNV.Enabled = true;
+                btnChucNangLinhKien.Enabled = true;
             }
             else
             {
-                btnChucNangQuanLyNV.Enabled = false;
+                btnChucNangLinhKien.Enabled = false;
             }
-            HelloNV.Text = "Xin chào " + Name;
+            HelloNV.Text = " - Xin chào " + Name + " - ";
         }
 
         private void btnChucNangSuaChua_Click(object sender, EventArgs e)

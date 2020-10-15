@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Form_QlySuaChua.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +349,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-sound-wave-wave-blue-effect-photography.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beautiful-color-gradients-backgrounds-010-winter-neva.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beautiful-color-gradients-backgrounds-070-aqua-splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beautiful-color-gradients-backgrounds-075-clean-mirror.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beautiful-color-gradients-backgrounds-082-desert-hump.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beautiful-color-gradients-backgrounds-123-night-sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee-of-the-month.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
