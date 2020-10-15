@@ -87,5 +87,10 @@ namespace DoAn
             QlyTaiKhoanNhanVien f = new QlyTaiKhoanNhanVien(Role, Name);
             AddToForm(f);
         }
+
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

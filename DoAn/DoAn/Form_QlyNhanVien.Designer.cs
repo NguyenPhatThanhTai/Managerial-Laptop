@@ -30,6 +30,7 @@
         {
             this.GboxContain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Minimize = new System.Windows.Forms.PictureBox();
             this.btnQuayLai = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -45,6 +46,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.thôngTinChungToolStripMenuItem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -63,6 +65,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::DoAn.Properties.Resources.beautiful_color_gradients_backgrounds_082_desert_hump;
+            this.panel1.Controls.Add(this.Minimize);
             this.panel1.Controls.Add(this.btnQuayLai);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox4);
@@ -81,6 +84,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(311, 740);
             this.panel1.TabIndex = 20;
+            // 
+            // Minimize
+            // 
+            this.Minimize.BackColor = System.Drawing.Color.Transparent;
+            this.Minimize.Image = global::DoAn.Properties.Resources.minimize3;
+            this.Minimize.Location = new System.Drawing.Point(275, 12);
+            this.Minimize.Name = "Minimize";
+            this.Minimize.Size = new System.Drawing.Size(24, 25);
+            this.Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Minimize.TabIndex = 22;
+            this.Minimize.TabStop = false;
+            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
             // btnQuayLai
             // 
@@ -238,7 +253,7 @@
             this.thôngTinChungToolStripMenuItem.Name = "thôngTinChungToolStripMenuItem";
             this.thôngTinChungToolStripMenuItem.Size = new System.Drawing.Size(246, 51);
             this.thôngTinChungToolStripMenuItem.TabIndex = 0;
-            this.thôngTinChungToolStripMenuItem.Text = "Thông  tin nhân viên";
+            this.thôngTinChungToolStripMenuItem.Text = "Thông  tin chung";
             this.thôngTinChungToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.thôngTinChungToolStripMenuItem.UseVisualStyleBackColor = true;
             this.thôngTinChungToolStripMenuItem.Click += new System.EventHandler(this.thôngTinChungToolStripMenuItem_Click);
@@ -258,6 +273,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLyNhanVien_FormClosing);
             this.Load += new System.EventHandler(this.QuanLyNhanVien_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -284,5 +300,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnQuayLai;
+        private System.Windows.Forms.PictureBox Minimize;
     }
 }

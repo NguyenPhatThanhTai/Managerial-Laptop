@@ -29,6 +29,11 @@ namespace DoAn
         private void DangNhap_Load(object sender, EventArgs e)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
+            if (Properties.Settings.Default.userName != string.Empty)
+            {
+                txtAccount.Text = Properties.Settings.Default.userName;
+                txtPassword.Text = Properties.Settings.Default.passUser;
+            }
         }
         public Boolean Login(string Account, string password)
         {
@@ -92,6 +97,12 @@ namespace DoAn
                     DanhSachChucNang DSCN = new DanhSachChucNang(int.Parse(CheckRole(Account)), GetUserName(Account));
                     DSCN.Show();
                     this.Hide();
+                    if (Ckb_SaveMyPass.Checked)
+                    {
+                        Properties.Settings.Default.userName = txtAccount.Text;
+                        Properties.Settings.Default.passUser = txtPassword.Text;
+                        Properties.Settings.Default.Save();
+                    }
                 }
                 else
                 {
@@ -120,6 +131,11 @@ namespace DoAn
             {
                 Environment.Exit(1);
             }
+        }
+
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

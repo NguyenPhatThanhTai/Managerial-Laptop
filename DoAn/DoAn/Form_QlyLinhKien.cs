@@ -38,9 +38,6 @@ namespace DoAn
 
         private void quayLạiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DanhSachChucNang DSCN = new DanhSachChucNang(Role, Name);
-            DSCN.Show();
-            this.Hide();
         }
 
         private void QuanLyLinhKien_FormClosing(object sender, FormClosingEventArgs e)
@@ -58,16 +55,28 @@ namespace DoAn
             }
         }
 
-        private void thôngTinChungToolStripMenuItem_Click(object sender, EventArgs e)
+        private void QuanLyLinhKien_Load(object sender, EventArgs e)
         {
             QlyLinhKien f = new QlyLinhKien(Role, Name);
             AddToForm(f);
         }
 
-        private void QuanLyLinhKien_Load(object sender, EventArgs e)
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+            DanhSachChucNang DSCN = new DanhSachChucNang(Role, Name);
+            DSCN.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             QlyLinhKien f = new QlyLinhKien(Role, Name);
             AddToForm(f);
+        }
+
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

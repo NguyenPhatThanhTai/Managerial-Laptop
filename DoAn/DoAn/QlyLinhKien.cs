@@ -71,6 +71,7 @@ namespace DoAn
         {
             btnSua.Enabled = true;
             btnDelete.Enabled = true;
+            listView3.Enabled = false;
             txtTenLinhKien.Text = listView3.SelectedItems[0].SubItems[2].Text;
             txtSoLuong.Text = listView3.SelectedItems[0].SubItems[3].Text;
             txtNhaSanXuat.Text = listView3.SelectedItems[0].SubItems[4].Text;
@@ -131,6 +132,7 @@ namespace DoAn
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            listView3.Enabled = true;
             btnDelete.Enabled = false;
             btnSua.Enabled = false;
             txtTenLinhKien.Text = "";
@@ -167,6 +169,7 @@ namespace DoAn
 
         private void btnFeresh_Click(object sender, EventArgs e)
         {
+            listView3.Items.Clear();
             hienthi();
         }
 
@@ -198,6 +201,7 @@ namespace DoAn
             {
                 listView3.Items.Clear();
                 MessageBox.Show("Chưa có linh kiện hoặc sai tên của nhà sản xuất " + txtLoc.Text + " vui lòng kiểm tra lại !");
+                hienthi();
             }
         }
 
@@ -210,7 +214,40 @@ namespace DoAn
                 sql = @"Delete from Inf_LK where (LK_Id = N'" + listView3.SelectedItems[0].SubItems[1].Text + @"')";
                 thuchien = new SqlCommand(sql, ketnoi);
                 docdulieu = thuchien.ExecuteReader();
+                listView3.Enabled = true;
+                listView3.Items.Clear();
+                txtNhaSanXuat.Text = "";
+                txtTenLinhKien.Text = "";
+                txtPrice.Text = "";
+                txtSoLuong.Text = "";
             }
+            hienthi();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn có muốn cập nhật không !", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                ketnoi.Open();
+                sql = @"UPDATE Inf_LK set LK_Name = N'" + txtTenLinhKien.Text + @"', LK_Number = N'" + txtSoLuong.Text + @"', 
+                    LK_Producer = N'" + txtNhaSanXuat.Text + "', LK_Price = N'" + txtPrice.Text + @"' Where (LK_Id = N'" + listView3.SelectedItems[0].SubItems[1].Text + @"')";
+                thuchien = new SqlCommand(sql, ketnoi);
+                thuchien.ExecuteNonQuery();
+                ketnoi.Close();
+                txtNhaSanXuat.Text = "";
+                txtTenLinhKien.Text = "";
+                txtPrice.Text = "";
+                txtSoLuong.Text = "";
+                listView3.Items.Clear();
+                listView3.Enabled = true;
+            }
+            hienthi();
+        }
+
+        private void btnFeresh_Click_1(object sender, EventArgs e)
+        {
+            listView3.Items.Clear();
             hienthi();
         }
     }
