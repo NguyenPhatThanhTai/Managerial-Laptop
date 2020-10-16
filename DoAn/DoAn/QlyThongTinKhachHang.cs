@@ -50,7 +50,7 @@ namespace DoAn
         {
             DatabaseConnection dc = new DatabaseConnection();
             listView1.Items.Clear();
-            DataTable dtb = new DataTable();
+            DataTable dtb = dc.Load_KH();
             i = 0;
             foreach (DataRow row in dtb.Rows)
             {
@@ -107,6 +107,7 @@ namespace DoAn
                     if (dc.Check_KH(txtHoTen.Text))
                     {
                         dc.Insert_KH(txtHoTen.Text, txtGioiTinh.Text, txtBirth.Value.ToString("yyyy/MM/dd"), txtEmail.Text, txtSDT.Text);
+                        hienthi();
                         i++;
                     }
                     else
@@ -126,26 +127,23 @@ namespace DoAn
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            btnSua.Enabled = false;
-            btnDelete.Enabled = false;
-            btnThem.Enabled = true;
-            listView1.Items.Clear();
-            ketnoi.Open();
-            if (txtGioiTinh.Text == "Nam")
+            if (txtHoTen.Text != "" && txtEmail.Text != "" && txtSDT.Text != "" && txtGioiTinh.Text != "" && txtBirth.Text != "" && txtEmail.Text != ""
+                    && txtSDT.Text != "")
             {
-                Sex = "1";
+                DatabaseConnection dc = new DatabaseConnection();
+                btnSua.Enabled = false;
+                btnDelete.Enabled = false;
+                btnThem.Enabled = true;
+                listView1.Items.Clear();
+                dc.Update_KH(txtHoTen.Text, txtGioiTinh.Text, txtBirth.Value.ToString("yyyy/MM/dd"), txtEmail.Text, txtSDT.Text, txtMaKhachHang.Text);
+                hienthi();
+                listView1.Enabled = true;
+                clear();
             }
             else
             {
-                Sex = "2";
-            }
-            sql = @"UPDATE Inf_Customers set Customer_Name = N'" + txtHoTen.Text + @"', Customer_Sex = N'" + Sex + @"', 
-                    Customer_Birth = '" + txtBirth.Value.ToString("yyyy/MM/dd") + "', Customer_Email = N'" + txtEmail.Text + @"', Customer_Phone = N'" + txtSDT.Text + @"' Where (Customer_Id = N'" + txtMaKhachHang.Text + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
-            hienthi();
-            clear();
+                MessageBox.Show("Không được để rỗng !");
+;            }
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -203,30 +201,18 @@ namespace DoAn
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            DatabaseConnection dc = new DatabaseConnection();
             DialogResult dialog = MessageBox.Show("Bạn có muốn xóa khách hàng " + txtHoTen.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 listView1.Enabled = true;
-                string repair = (String)txtMaKhachHang.Text;
-                string repairID = repair.Substring(2);
-                ketnoi.Open();
-                sql = @"DELETE FROM Detail_Inf_Repair where(Repair_Id = N'RP" + repairID + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                thuchien.ExecuteNonQuery();
-                sql = @"DELETE FROM Inf_Repair where(Customer_Id = N'" + txtMaKhachHang.Text + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                thuchien.ExecuteNonQuery();
-                sql = @"DELETE FROM Inf_Customers where(Customer_Id = N'" + txtMaKhachHang.Text + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                docdulieu = thuchien.ExecuteReader();
-                ketnoi.Close();
+                dc.Delete_KH(txtMaKhachHang.Text);
                 clear();
                 hienthi();
                 btnThem.Enabled = true;
             }
             else
             {
-                ketnoi.Close();
                 hienthi();
             }
         }

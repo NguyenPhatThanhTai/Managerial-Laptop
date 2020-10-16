@@ -43,33 +43,24 @@ namespace DoAn
 
         public void hienthi()
         {
-            ketnoi.Close();
+            DatabaseConnection dc = new DatabaseConnection();
             listView2.Items.Clear();
-            ketnoi.Open();
-            sql = @"Select Inf_Repair.Repair_Id, Inf_Customers.Customer_Name, Inf_Repair.Laptop_Name, Inf_Repair.Laptop_Status, Inf_repair.Staff_Id, Detail_Inf_Repair.Repair_Reason, Detail_Inf_Repair.Repair_Note, Detail_Inf_Repair.Repair_Appointment, Detail_Inf_Repair.Repair_Money  
-                        from Inf_Customers 
-                                inner join Inf_Repair
-                                        on Inf_Customers.Customer_Id = Inf_Repair.Customer_Id
-                                inner join Detail_Inf_Repair
-                                        on Inf_Repair.Repair_Id = Detail_Inf_Repair.Repair_Id";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
+            DataTable dtb = dc.Load_RP(); 
             i = 0;
-            while (docdulieu.Read())
+            foreach (DataRow row in dtb.Rows)
             {
                 listView2.Items.Add((i + 1).ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[0].ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[1].ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[2].ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[3].ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[4].ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[5].ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[6].ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[7].ToString());
-                listView2.Items[i].SubItems.Add(docdulieu[8].ToString());
+                listView2.Items[i].SubItems.Add(row[0].ToString());
+                listView2.Items[i].SubItems.Add(row[1].ToString());
+                listView2.Items[i].SubItems.Add(row[2].ToString());
+                listView2.Items[i].SubItems.Add(row[3].ToString());
+                listView2.Items[i].SubItems.Add(row[4].ToString());
+                listView2.Items[i].SubItems.Add(row[5].ToString());
+                listView2.Items[i].SubItems.Add(row[6].ToString());
+                listView2.Items[i].SubItems.Add(row[7].ToString());
+                listView2.Items[i].SubItems.Add(row[8].ToString());
                 i++;
             }
-            ketnoi.Close();
         }
 
         private void listView2_Click(object sender, EventArgs e)
@@ -110,20 +101,12 @@ namespace DoAn
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            DatabaseConnection dc = new DatabaseConnection();
             DialogResult dialog = MessageBox.Show("Cập nhật ?", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 btnDone.Enabled = true;
-                ketnoi.Open();
-                sql = @"UPDATE Inf_Repair set Laptop_Name = N'" + txtTenMay.Text + @"', Laptop_Status = N'" + txtTinhTrang.Text + @"'
-                    Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                thuchien.ExecuteNonQuery();
-                sql = @"UPDATE Detail_Inf_Repair set Repair_Reason = N'" + txtCanSua.Text + @"', Repair_Note = N'" + txtHenSua.Text + @"', 
-                    Repair_Appointment = '" + txtDateHen.Value.ToString("yyyy/MM/dd") + @"', Repair_Money = N'" + txtSoTien.Text + @"' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                thuchien.ExecuteNonQuery();
-                ketnoi.Close();
+                dc.Update_RP(txtTenMay.Text, txtTinhTrang.Text, txtCanSua.Text, txtHenSua.Text, txtDateHen.Value.ToString("yyyy/MM/dd"), txtSoTien.Text, txtMaSuaChua.Text);
                 hienthi();
             }
             else
@@ -134,6 +117,7 @@ namespace DoAn
 
         private void btnNhanDon_Click(object sender, EventArgs e)
         {
+            DatabaseConnection dc = new DatabaseConnection();
             if(listView2.SelectedItems[0].SubItems[5].Text == Name)
             {
                 Enable(true);
@@ -155,11 +139,7 @@ namespace DoAn
                         btnNhanDon.Enabled = false;
                         Enable(true);
                         listView2.Enabled = false;
-                        ketnoi.Open();
-                        sql = @"UPDATE Inf_Repair set Staff_Id = N'" + Name + "' Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        ketnoi.Close();
+                        dc.Update_NhanDon(Name, txtMaSuaChua.Text);
                         hienthi();
                         txtNVTN.Text = Name;
                     }
@@ -191,6 +171,7 @@ namespace DoAn
 
         private void btnDone_Click(object sender, EventArgs e)
         {
+            DatabaseConnection dc = new DatabaseConnection();
             //Sửa lấy ngay
             //Hẹn ngày lấy
             DialogResult dialog = MessageBox.Show("Xác nhận hoàn thành đơn này?", "Xác nhận", MessageBoxButtons.YesNo);
@@ -200,98 +181,12 @@ namespace DoAn
             }
             else
             {
-                string Id = (txtMaSuaChua.Text).Substring(2);
-                ketnoi.Open();
-                sql = @"Insert into Inf_LichSu (Customer_Id, Repair_Time_End) VALUES(N'KH" + Id + @"', N'" + time + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                thuchien.ExecuteNonQuery();
-                docdulieu.Close();
-                sql = @"SELECT * from Inf_Customers Where (Customer_Id = N'KH" + Id + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    docdulieu = thuchien.ExecuteReader();
-                    while (docdulieu.Read())
-                    {
-                    if(txtHenSua.Text == "Hẹn ngày lấy")
-                        {
-                            sendMail(docdulieu[1].ToString(), docdulieu[4].ToString(), docdulieu[5].ToString());
-                        }
-                        sql = @"UPDATE Inf_LichSu set Customer_Name = N'" + docdulieu[1].ToString() + @"', Customer_Sex = N'" + docdulieu[2].ToString() + @"', Customer_Birth = N'" + docdulieu[3].ToString() + @"', 
-                                    Customer_Email = '" + docdulieu[4].ToString() + @"', Customer_Phone = N'" + docdulieu[5].ToString() + @"', Customer_TimeAdd = N'" + docdulieu[6].ToString() + @"'
-                                            Where (Customer_Id = N'KH" + Id + @"')";
-                            docdulieu.Dispose();
-                            thuchien = new SqlCommand(sql, ketnoi);
-                            thuchien.ExecuteNonQuery();
-                            docdulieu = thuchien.ExecuteReader();
-                    }
-                    docdulieu.Close();
-                    sql = @"SELECT Repair_Id, Laptop_Name, Laptop_Status, Staff_Id from Inf_Repair Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    docdulieu = thuchien.ExecuteReader();
-                    while (docdulieu.Read())
-                    {
-                        sql = @"UPDATE Inf_LichSu set Repair_Id = N'" + docdulieu[0].ToString() + @"', Laptop_Name = N'" + docdulieu[1].ToString() + @"', Laptop_Status = N'" + docdulieu[2].ToString() + @"', 
-                                    Staff_Id = '" + docdulieu[3].ToString() + @"' Where (Customer_Id = N'KH" + Id + @"')";
-                        docdulieu.Dispose();
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        docdulieu = thuchien.ExecuteReader();
-                    }
-                    docdulieu.Close();
-                    sql = @"SELECT Repair_Reason, Repair_Note, Repair_Appointment, Repair_Money from Detail_Inf_Repair Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    docdulieu = thuchien.ExecuteReader();
-                    while (docdulieu.Read())
-                    {
-                        sql = @"UPDATE Inf_LichSu set Repair_Reason = N'" + docdulieu[0].ToString() + @"', Repair_Note = N'" + docdulieu[1].ToString() + @"', 
-                                        Repair_Appointment = '" + docdulieu[2].ToString() + @"', Repair_Money = N'" + docdulieu[3].ToString() + @"' Where (Customer_Id = N'KH" + Id + @"')";
-                        docdulieu.Dispose();
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        docdulieu = thuchien.ExecuteReader();
-                    }
-                    ketnoi.Close();
-                    ketnoi.Open();
-                    sql = @"DELETE from Detail_Inf_Repair Where (Repair_Id = N'" + txtMaSuaChua.Text + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    sql = @"DELETE from Inf_Repair Where (Customer_Id = N'KH" + Id + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    sql = @"DELETE from Inf_Customers Where (Customer_Id = N'KH" + Id + @"')";
-                    thuchien = new SqlCommand(sql, ketnoi);
-                    thuchien.ExecuteNonQuery();
-                    ketnoi.Close();
-                    hienthi();
-                    listView2.Enabled = true;
-                    Enable(false);
-                    Clear();
-            }
-        }
-
-        public void sendMail(string NameTo, string EmailTo, string SDTTo)
-        {
-            try
-            {
-                SmtpClient mailclient = new SmtpClient("smtp.gmail.com", 587);
-                mailclient.EnableSsl = true;
-                mailclient.Credentials = new NetworkCredential("herroseven@gmail.com", "@#Taitutoi952000@#");
-                MailMessage message = new MailMessage("herroseven@gmail.com", EmailTo);
-                message.Subject = "Thông báo hoàn tất việc sửa laptop !";
-                message.Body = "<h3><b>Trân trọng gửi đến quý khách hàng thông báo: </b>"+ NameTo + "</h3>" +
-                    "           <h5><b>Số điện thoại</b>: " + SDTTo + "</h5>" +
-                    "           <h5><b>Tên laptop</b>: " + txtTenMay.Text + "</h5>" +
-                    "           <h5><b>Chi tiết sửa</b>: "+ txtCanSua.Text + "</h5>" +
-                    "           <h5><b>Số tiền</b>: " + String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</h5>" +
-                    "           <h5><strong>Lưu ý: </strong> <i>Khi đến quý khách vui lòng đem đúng số tiền là <b>"+ String.Format("{0:#,###} VND", int.Parse(txtSoTien.Text)) + "</b> để thanh toán</i><h5> <br>" +
-                    "           <h3><b>Trân trọng thông báo cho quý khách !<b><h3>";
-                message.BodyEncoding = System.Text.Encoding.UTF8;
-                message.IsBodyHtml = true;
-                mailclient.Send(message);
-                MessageBox.Show("Mail hẹn nhận máy đã được gửi đi cho khách hàng: " + Name+ "", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi gửi mail");
+                //string Repair_Id, string Laptop_Name, string Repair_Reason, string Repair_Money, string Repair_Appoinment
+                dc.Done_RP(txtMaSuaChua.Text, txtTenMay.Text, txtCanSua.Text, txtSoTien.Text, txtHenSua.Text);
+                hienthi();
+                listView2.Enabled = true;
+                Enable(false);
+                Clear();
             }
         }
     }
