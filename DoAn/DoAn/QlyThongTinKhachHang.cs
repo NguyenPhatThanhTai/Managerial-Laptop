@@ -48,19 +48,17 @@ namespace DoAn
 
         public void hienthi()
         {
+            DatabaseConnection dc = new DatabaseConnection();
             listView1.Items.Clear();
-            ketnoi.Open();
-            sql = @"Select * from Inf_Customers";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
+            DataTable dtb = new DataTable();
             i = 0;
-            while (docdulieu.Read())
+            foreach (DataRow row in dtb.Rows)
             {
-                if (docdulieu[2].ToString() == "1")
+                if (row[2].ToString() == "1")
                 {
                     Sex = "Nam";
                 }
-                else if (docdulieu[2].ToString() == "2")
+                else if (row[2].ToString() == "2")
                 {
                     Sex = "Nữ";
                 }
@@ -69,23 +67,20 @@ namespace DoAn
                     Sex = "Khác";
                 }
                 listView1.Items.Add((i + 1).ToString());
-                listView1.Items[i].SubItems.Add(docdulieu[0].ToString());
-                listView1.Items[i].SubItems.Add(docdulieu[1].ToString());
+                listView1.Items[i].SubItems.Add(row[0].ToString());
+                listView1.Items[i].SubItems.Add(row[1].ToString());
                 listView1.Items[i].SubItems.Add(Sex);
-                listView1.Items[i].SubItems.Add(docdulieu[3].ToString());
-                listView1.Items[i].SubItems.Add(docdulieu[4].ToString());
-                listView1.Items[i].SubItems.Add(docdulieu[5].ToString());
-                listView1.Items[i].SubItems.Add(docdulieu[6].ToString());
+                listView1.Items[i].SubItems.Add(row[3].ToString());
+                listView1.Items[i].SubItems.Add(row[4].ToString());
+                listView1.Items[i].SubItems.Add(row[5].ToString());
+                listView1.Items[i].SubItems.Add(row[6].ToString());
                 i++;
             }
-            ketnoi.Close();
         }
 
         private void listView1_Click(object sender, EventArgs e)
         {
             listView1.Enabled = false;
-            if(txtMaKhachHang.Text != "")
-            {
                 txtMaKhachHang.Enabled = false;
                 txtThoiGian.Enabled = false;
                 btnSua.Enabled = true;
@@ -98,85 +93,20 @@ namespace DoAn
                 txtEmail.Text = listView1.SelectedItems[0].SubItems[5].Text;
                 txtSDT.Text = listView1.SelectedItems[0].SubItems[6].Text;
                 txtThoiGian.Text = listView1.SelectedItems[0].SubItems[7].Text;
-            }
-            else
-            {
-                txtMaKhachHang.Enabled = false;
-                txtThoiGian.Enabled = false;
-                btnSua.Enabled = true;
-                btnDelete.Enabled = true;
-                btnThem.Enabled = false;
-                txtMaKhachHang.Text = listView1.SelectedItems[0].SubItems[1].Text;
-                txtHoTen.Text = listView1.SelectedItems[0].SubItems[2].Text;
-                txtGioiTinh.Text = listView1.SelectedItems[0].SubItems[3].Text;
-                txtBirth.Text = listView1.SelectedItems[0].SubItems[4].Text;
-                txtEmail.Text = listView1.SelectedItems[0].SubItems[5].Text;
-                txtSDT.Text = listView1.SelectedItems[0].SubItems[6].Text;
-                txtThoiGian.Text = listView1.SelectedItems[0].SubItems[7].Text;
-            }
-        }
-
-        public bool CheckUser(string id)
-        {
-            ketnoi.Open();
-            sql = @"Select * from Inf_Customers where (Customer_Id = N'" + id + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-            if (docdulieu.Read())
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public void deleteUser(string id)
-        {
-            ketnoi.Open();
-            sql = @"Delete from Inf_Customers where (name = N'" + id + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            DatabaseConnection dc = new DatabaseConnection();
             if (txtHoTen.Text != "" && txtEmail.Text != "" && txtSDT.Text != "" && txtGioiTinh.Text != "" && txtBirth.Text != "" && txtEmail.Text != ""
                                 && txtSDT.Text != "") 
             {
                 DialogResult dialog = MessageBox.Show("Xác nhận thêm khách hàng " + txtHoTen.Text + " ?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
-                    if (txtGioiTinh.Text == "Nam")
+                    if (dc.Check_KH(txtHoTen.Text))
                     {
-                        Sex = "1";
-                    }
-                    else
-                    {
-                        Sex = "2";
-                    }
-                    listView1.Items.Clear();
-                    if (CheckUser(txtHoTen.Text))
-                    {
-                        ketnoi.Close();
-                        ketnoi.Open();
-                        sql = @"Insert into Inf_Customers (Customer_Id, Customer_Name, Customer_Sex, Customer_Birth, Customer_Email, Customer_Phone, Customer_TimeAdd)
-                                                VALUES(N'KH" + day + "" + Min + "" + sec + "" + @"',N'" + txtHoTen.Text + @"',N'" + Sex + @"', N'" + txtBirth.Value.ToString("yyyy/MM/dd") + "',N'" + txtEmail.Text + @"',N'"
-                                + txtSDT.Text + @"', N'" + time + @"')";
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        sql = @"Insert into Inf_Repair (Repair_Id, Customer_Id, Laptop_Name, Laptop_Status, Staff_Id)
-                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"',N'KH" + day + "" + Min + "" + sec + "" + @"', N'Chưa biết', N'Chưa biết', N'Chưa biết')";
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        sql = @"Insert into Detail_Inf_Repair (Repair_Id, Repair_Reason, Repair_Note, Repair_Appointment, Repair_Money)
-                                                    VALUES(N'RP" + day + "" + Min + "" + sec + "" + @"', N'Chưa biết', N'Sửa lấy ngay', '09/05/2000', 0)";
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        ketnoi.Close();
-                        hienthi();
-                        time = DateTime.Now.ToString();
-                        day = DateTime.Now.ToString("dd");
-                        Min = DateTime.Now.ToString("mm");
-                        sec = DateTime.Now.ToString("ss");
+                        dc.Insert_KH(txtHoTen.Text, txtGioiTinh.Text, txtBirth.Value.ToString("yyyy/MM/dd"), txtEmail.Text, txtSDT.Text);
                         i++;
                     }
                     else

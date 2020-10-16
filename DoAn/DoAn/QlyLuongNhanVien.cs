@@ -42,20 +42,17 @@ namespace DoAn
         public void hienthi()
         {
             lsvLuong.Items.Clear();
-            ketnoi.Close();
-            ketnoi.Open();
-            sql = @"Select * from Salary_Staff";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
+            DatabaseConnection dc = new DatabaseConnection();
+            DataTable dtb = dc.Load_Salary();
             i = 0;
-            while (docdulieu.Read())
+            foreach (DataRow row in dtb.Rows)
             {
                 lsvLuong.Items.Add((i + 1).ToString());
-                lsvLuong.Items[i].SubItems.Add(docdulieu[0].ToString());
-                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[1].ToString()));   
-                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[2].ToString()));
-                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[3].ToString()));
-                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", docdulieu[4].ToString()));
+                lsvLuong.Items[i].SubItems.Add(row[0].ToString());
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", row[1].ToString()));   
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", row[2].ToString()));
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", row[3].ToString()));
+                lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", row[4].ToString()));
                 i++;
             }
             ketnoi.Close();
@@ -137,11 +134,8 @@ namespace DoAn
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            ketnoi.Open();
-            sql = @"UPDATE Salary_Staff set Staff_Default_Salary = N'" + txtLuongCoBan.Text + @"', Staff_Salary_Per_Hour = N'" + txtLuongTheoGio.Text + @"', Staff_OT = N'" + txtLamNgoaiGio.Text + @"', Staff_Reward = N'" + txtTienThuong.Text + @"' Where (Staff_Id = N'" + txtMaNV.Text + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
+            DatabaseConnection dc = new DatabaseConnection();
+            dc.Update_Salary(txtLuongCoBan.Text, txtLuongTheoGio.Text, txtLamNgoaiGio.Text, txtTienThuong.Text, txtMaNV.Text);
             hienthi();
         }
 

@@ -18,20 +18,13 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
-        string sql;
-        SqlConnection ketnoi;
-        SqlCommand thuchien;
-        SqlDataReader docdulieu;
+        string Quyen;
         int i = 0;
         int Role;
-        int quyen;
         string Name;
-        string Quyen;
 
         private void QlyTaiKhoanNhanVien_Load(object sender, EventArgs e)
         {
-            ketnoi = new SqlConnection(chuoiketnoi);
             hienthi();
         }
 
@@ -43,15 +36,13 @@ namespace DoAn
 
         public void hienthi()
         {
+            DatabaseConnection dc = new DatabaseConnection();
             lsvAccount.Items.Clear();
-            ketnoi.Open();
-            sql = @"Select * from Account_Staff";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
+            DataTable dtb = dc.Load_TK();
             i = 0;
-            while (docdulieu.Read())
+            foreach (DataRow row in dtb.Rows)
             {
-                if(docdulieu[3].ToString() == "1")
+                if(row[3].ToString() == "1")
                 {
                     Quyen = "Admin";
                 }
@@ -60,13 +51,12 @@ namespace DoAn
                     Quyen = "Nhân Viên";
                 }
                 lsvAccount.Items.Add((i + 1).ToString());
-                lsvAccount.Items[i].SubItems.Add(docdulieu[0].ToString());
-                lsvAccount.Items[i].SubItems.Add(docdulieu[1].ToString());
-                lsvAccount.Items[i].SubItems.Add(docdulieu[2].ToString());
+                lsvAccount.Items[i].SubItems.Add(row[0].ToString());
+                lsvAccount.Items[i].SubItems.Add(row[1].ToString());
+                lsvAccount.Items[i].SubItems.Add(row[2].ToString());
                 lsvAccount.Items[i].SubItems.Add(Quyen);
                 i++;
             }
-            ketnoi.Close();
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -110,19 +100,8 @@ namespace DoAn
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            ketnoi.Open();
-            if (txtRole.Text == "Admin")
-            {
-                quyen = 1;
-            }
-            else
-            {
-                quyen = 2;
-            }
-            sql = @"UPDATE Account_Staff set Staff_Password = N'" + txtPassword.Text + @"', Staff_Role = N'" + quyen + @"' Where (Staff_Id = N'" + txtMaNv.Text + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
+            DatabaseConnection dc = new DatabaseConnection();
+            dc.Update_TK(txtPassword.Text, txtRole.Text, txtMaNv.Text);
             hienthi();
         }
 

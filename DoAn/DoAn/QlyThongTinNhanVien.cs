@@ -18,15 +18,6 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
-        string sql;
-        SqlConnection ketnoi;
-        SqlCommand thuchien;
-        SqlDataReader docdulieu;
-        string time = DateTime.Now.ToString("ddd/MM/yyyy");
-        string day = DateTime.Now.ToString("dd");
-        string Min = DateTime.Now.ToString("mm");
-        string sec = DateTime.Now.ToString("ss");
         int Role;
         string Name;
         string PhongBan;
@@ -35,7 +26,6 @@ namespace DoAn
 
         private void ThongTinNhanVien_Load(object sender, EventArgs e)
         {
-            ketnoi = new SqlConnection(chuoiketnoi);
             hienthi();
         }
 
@@ -47,19 +37,17 @@ namespace DoAn
 
         public void hienthi()
         {
+            DatabaseConnection dc = new DatabaseConnection();
             listView4.Items.Clear();
-            ketnoi.Open();
-            sql = @"Select * from Inf_Staff";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
+            DataTable dtb = dc.Load_NV();
             i = 0;
-            while (docdulieu.Read())
+            foreach (DataRow row in dtb.Rows)
             {
-                if(docdulieu[2].ToString() == "1")
+                if(row[2].ToString() == "1")
                 {
                     Sex = "Nam";
                 }
-                else if(docdulieu[2].ToString() == "2")
+                else if(row[2].ToString() == "2")
                 {
                     Sex = "Nữ";
                 }
@@ -68,11 +56,11 @@ namespace DoAn
                     Sex = "Khác";
                 }
 
-                if(docdulieu[6].ToString() == "1")
+                if(row[6].ToString() == "1")
                 {
                     PhongBan = "Quản lý";       
                 }
-                else if(docdulieu[6].ToString() == "2")
+                else if(row[6].ToString() == "2")
                 {
                     PhongBan = "Kỹ Thuật";
                 }
@@ -81,54 +69,15 @@ namespace DoAn
                     PhongBan = "Kế Toán";
                 }
                 listView4.Items.Add((i + 1).ToString());
-                listView4.Items[i].SubItems.Add(docdulieu[0].ToString());
-                listView4.Items[i].SubItems.Add(docdulieu[1].ToString());
+                listView4.Items[i].SubItems.Add(row[0].ToString());
+                listView4.Items[i].SubItems.Add(row[1].ToString());
                 listView4.Items[i].SubItems.Add(Sex.ToString());
-                listView4.Items[i].SubItems.Add(docdulieu[3].ToString());
-                listView4.Items[i].SubItems.Add(docdulieu[4].ToString());
-                listView4.Items[i].SubItems.Add(docdulieu[5].ToString());
+                listView4.Items[i].SubItems.Add(row[3].ToString());
+                listView4.Items[i].SubItems.Add(row[4].ToString());
+                listView4.Items[i].SubItems.Add(row[5].ToString());
                 listView4.Items[i].SubItems.Add(PhongBan.ToString());
-                listView4.Items[i].SubItems.Add(docdulieu[7].ToString());
+                listView4.Items[i].SubItems.Add(row[7].ToString());
                 i++;
-            }
-            ketnoi.Close();
-        }
-
-        public bool CheckUser(string User)
-        {
-            ketnoi.Open();
-            sql = @"Select * from Inf_Staff where (Staff_Name = N'" + User + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-            if (docdulieu.Read())
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public void deleteUser(string User)
-        {
-            DialogResult dialog = MessageBox.Show("Bạn có muốn xóa nhân viên " + txtHoTen.Text + " ở phòng ban:" + txtDepartment.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
-            {
-                ketnoi.Open();
-                sql = @"DELETE FROM Account_Staff where(Staff_Id = N'" + User + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                thuchien.ExecuteNonQuery();
-                sql = @"DELETE FROM Salary_Staff where(Staff_Id = N'" + User + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                thuchien.ExecuteNonQuery();
-                sql = @"DELETE FROM Inf_Staff where(Staff_Id = N'" + User + @"')";
-                thuchien = new SqlCommand(sql, ketnoi);
-                docdulieu = thuchien.ExecuteReader();
-                ketnoi.Close();
-                clear();
-            }
-            else
-            {
-                ketnoi.Close();
-                hienthi();
             }
         }
 
@@ -152,63 +101,28 @@ namespace DoAn
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            DatabaseConnection dc = new DatabaseConnection();
             if (txtHoTen.Text != "" && txtGioiTinh.Text != "" && txtDate.Text != "" && txtDiaChi.Text != "" && txtSDT.Text != "")
             {
                 listView4.Items.Clear();
-                if (CheckUser(txtHoTen.Text))
+                if (dc.Check_NV(txtHoTen.Text))
                 {
                     DialogResult dialog = MessageBox.Show("Bạn có muốn thêm nhân viên: " + txtHoTen.Text + " ở phòng ban: "+ txtDepartment.Text +"  không !", "Xác nhận", MessageBoxButtons.YesNo);
                     if (dialog == DialogResult.Yes)
                     {
-                        if(txtGioiTinh.Text == "Nam")
-                        {
-                            Sex = "1";
-                        }
-                        else
-                        {
-                            Sex = "2";
-                        }
-                        if(txtDepartment.Text == "Quản Lý")
-                        {
-                            PhongBan = "1";
-                        }
-                        else if(txtDepartment.Text == "Kỹ Thuật")
-                        {
-                            PhongBan = "2";
-                        }
-                        else
-                        {
-                            PhongBan = "3";
-                        }
-                        ketnoi.Close();
-                        ketnoi.Open();
-                        sql = @"Insert into Inf_Staff (Staff_Id, Staff_Name, Staff_Sex, Staff_Birth, Staff_Address, Staff_Phone, Staff_Deparment, Staff_TimeAdd) VALUES(N'NV"+day+""+Min+""+sec+""+ @"',N'" + txtHoTen.Text + @"',N'"
-                                + Sex + @"', N'" + txtDate.Value.ToString("yyyy/MM/dd") + @"', N'" + txtDiaChi.Text + @"', N'" + txtSDT.Text + @"' , N'" + PhongBan + @"' ,  N'" + time + @"')";
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        sql = @"Insert into Account_Staff(Staff_Id, Staff_Account, Staff_Password, Staff_Role) VALUES (N'NV" + day + "" + Min + "" + sec + "" + @"', N'NV" + day + "" + Min + "" + sec + "" + @"', 1, N'" + PhongBan + @"')";
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        sql = @"Insert into Salary_Staff(Staff_Id, Staff_Default_Salary, Staff_Salary_Per_Hour, Staff_OT, Staff_Reward) VALUES (N'NV" + day + "" + Min + "" + sec + "" + @"',0, 0, 0, 0)";
-                        thuchien = new SqlCommand(sql, ketnoi);
-                        thuchien.ExecuteNonQuery();
-                        ketnoi.Close();
+                        dc.Insert_NV(txtHoTen.Text, txtGioiTinh.Text, txtDate.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtDepartment.Text);
+                        listView4.Items.Clear();
                         hienthi();
-                        time = DateTime.Now.ToString("ddd/MM/yyyy");
-                        day = DateTime.Now.ToString("dd");
-                        Min = DateTime.Now.ToString("mm");
-                        sec = DateTime.Now.ToString("ss");
                     }
                     else
                     {
-                        ketnoi.Close();
+                        listView4.Items.Clear();
                         hienthi();
                     }
                 }
                 else
                 {
                     MessageBox.Show("Đã tồn tại nhân viên này rồi, vui lòng cập nhật hoặc xóa đi !");
-                    ketnoi.Close();
                     hienthi();
                 }
             }
@@ -221,33 +135,10 @@ namespace DoAn
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            DatabaseConnection dc = new DatabaseConnection();
             listView4.Items.Clear();
-            ketnoi.Open();
-            if (txtGioiTinh.Text == "Nam")
-            {
-                Sex = "1";
-            }
-            else
-            {
-                Sex = "2";
-            }
-            if (txtDepartment.Text == "Quản Lý")
-            {
-                PhongBan = "1";
-            }
-            else if (txtDepartment.Text == "Kỹ Thuật")
-            {
-                PhongBan = "2";
-            }
-            else
-            {
-                PhongBan = "3";
-            }
-            sql = @"UPDATE Inf_Staff set Staff_Name = N'" + txtHoTen.Text + @"', Staff_Sex = N'" + Sex + @"', 
-                    Staff_Birth = N'" + txtDate.Value.ToString("yyyy/MM/dd") + "', Staff_Address = N'" + txtDiaChi.Text + @"', Staff_Phone = N'" + txtSDT.Text + @"', Staff_Deparment = N'" + PhongBan + @"' Where (Staff_Id = N'" + txtMaNv.Text + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
+            dc.Update_NV(txtHoTen.Text, txtGioiTinh.Text, txtDate.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtDepartment.Text, txtMaNv.Text);
+            listView4.Items.Clear();
             hienthi();
         }
 
@@ -297,8 +188,16 @@ namespace DoAn
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            deleteUser(txtMaNv.Text);
+            DatabaseConnection dc = new DatabaseConnection();
+            DialogResult dialog = MessageBox.Show("Bạn có muốn xóa nhân viên " + txtHoTen.Text + " ở phòng ban:" + txtDepartment.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                dc.Delete_NV(txtMaNv.Text);
+                listView4.Items.Clear();
+                clear();
+            }
             listView4.Enabled = true;
+            listView4.Items.Clear();
             hienthi();
         }
 
