@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
+using System.Data.SqlClient;
 using System.Net;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace DoAn
@@ -25,135 +21,10 @@ namespace DoAn
         string Min = DateTime.Now.ToString("mm");
         string sec = DateTime.Now.ToString("ss");
 
-                                               ////////////////////////// QUẢN LÝ NHÂN VIÊN //////////////////////////
-                                               
-                                                                      ///PHẦN THÔNG TIN NHÂN VIÊN
-                            
-        // LOAD THÔNG TIN NHÂN VIÊN LÊN LIST VIEW
-        public DataTable Load_NV()
-        {
-            using (SqlConnection connection = new SqlConnection(chuoiketnoi))
-            {
-                connection.Open();
-                sql = @"Select * from Inf_Staff";
-                SqlDataAdapter da = new SqlDataAdapter(sql, chuoiketnoi);
-                da.Fill(data);
-                connection.Close();
-                return data;
-            }
-        }
+        ////////////////////////// QUẢN LÝ NHÂN VIÊN //////////////////////////
 
-        // KIỂM TRA TỒN TẠI NHÂN VIÊN
-        public bool Check_NV(string Staff_Name)
-        {
-            ketnoi = new SqlConnection(chuoiketnoi);
-            ketnoi.Open();
-            sql = @"Select * from Inf_Staff where (Staff_Name = N'" + Staff_Name + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-            if (docdulieu.Read())
-            {
-                ketnoi.Close();
-                return false;
-            }
-            ketnoi.Close();
-            return true;
+        ///PHẦN TÀI KHOẢN NHÂN VIÊN
 
-        }
-
-        // THÊM MỚI MỘT NHÂN VIÊN
-        public void Insert_NV(string Staff_Name, string Staff_Sex, string Staff_Birth, string Staff_Address, string Staff_Phone, string Staff_Department)
-        {
-            ketnoi = new SqlConnection(chuoiketnoi);
-            ketnoi.Open();
-            if (Staff_Sex == "Nam")
-            {
-                Sex = "1";
-            }
-            else
-            {
-                Sex = "2";
-            }
-            if (Staff_Department == "Quản Lý")
-            {
-                PhongBan = "1";
-            }
-            else if (Staff_Department == "Kỹ Thuật")
-            {
-                PhongBan = "2";
-            }
-            else
-            {
-                PhongBan = "3";
-            }
-            sql = @"Insert into Inf_Staff (Staff_Id, Staff_Name, Staff_Sex, Staff_Birth, Staff_Address, Staff_Phone, Staff_Deparment, Staff_TimeAdd) VALUES(N'NV" + day + "" + Min + "" + sec + "" + @"',N'" + Staff_Name + @"',N'"
-                    + Sex + @"', N'" + Staff_Birth + @"', N'" + Staff_Address + @"', N'" + Staff_Phone + @"' , N'" + PhongBan + @"' ,  N'" + time + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            sql = @"Insert into Account_Staff(Staff_Id, Staff_Account, Staff_Password, Staff_Role) VALUES (N'NV" + day + "" + Min + "" + sec + "" + @"', N'NV" + day + "" + Min + "" + sec + "" + @"', 1, N'" + PhongBan + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            sql = @"Insert into Salary_Staff(Staff_Id, Staff_Default_Salary, Staff_Salary_Per_Hour, Staff_OT, Staff_Reward) VALUES (N'NV" + day + "" + Min + "" + sec + "" + @"',0, 0, 0, 0)";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            time = DateTime.Now.ToString("dd/MM/yyyy");
-            day = DateTime.Now.ToString("dd");
-            Min = DateTime.Now.ToString("mm");
-            sec = DateTime.Now.ToString("ss");
-            ketnoi.Close();
-        }
-
-        // CẬP NHẬT THÔNG TIN NHÂN VIÊN
-        public void Update_NV(string Staff_Name, string Staff_Sex, string Staff_Birth, string Staff_Address, string Staff_Phone, string  Staff_Deparment, string Staff_Id)
-        {
-            ketnoi = new SqlConnection(chuoiketnoi);
-            ketnoi.Open();
-            if (Staff_Sex == "Nam")
-            {
-                Sex = "1";
-            }
-            else
-            {
-                Sex = "2";
-            }
-            if (Staff_Deparment == "Quản Lý")
-            {
-                PhongBan = "1";
-            }
-            else if (Staff_Deparment == "Kỹ Thuật")
-            {
-                PhongBan = "2";
-            }
-            else
-            {
-                PhongBan = "3";
-            }
-            sql = @"UPDATE Inf_Staff set Staff_Name = N'" + Staff_Name + @"', Staff_Sex = N'" + Sex + @"', 
-                    Staff_Birth = N'" + Staff_Birth + "', Staff_Address = N'" + Staff_Address + @"', Staff_Phone = N'" + Staff_Phone + @"', Staff_Deparment = N'" + PhongBan + @"' Where (Staff_Id = N'" + Staff_Id + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
-        }
-
-        // XÓA 1 NHÂN VIÊN
-        public void Delete_NV(string Staff_ID)
-        {
-            ketnoi = new SqlConnection(chuoiketnoi);
-            ketnoi.Open();
-            sql = @"DELETE FROM Account_Staff where(Staff_Id = N'" + Staff_ID + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            sql = @"DELETE FROM Salary_Staff where(Staff_Id = N'" + Staff_ID + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            sql = @"DELETE FROM Inf_Staff where(Staff_Id = N'" + Staff_ID + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
-        }
-
-                                                                         ///PHẦN TÀI KHOẢN NHÂN VIÊN
-         
         // LOAD THÔNG TIN TÀI KHOẢN LÊN LIST VIEW
 
         public DataTable Load_TK()
@@ -189,8 +60,8 @@ namespace DoAn
             ketnoi.Close();
         }
 
-                                                                          ///PHẦN LƯƠNG NHÂN VIÊN
-        
+        ///PHẦN LƯƠNG NHÂN VIÊN
+
         // LOAD LƯƠNG NHÂN VIÊN LÊN LIST VIEW
 
         public DataTable Load_Salary()
@@ -218,10 +89,10 @@ namespace DoAn
             ketnoi.Close();
         }
 
-                                                ////////////////////////// QUẢN LÝ SỬA CHỮA //////////////////////////
-                                                
-                                                                /// PHẦN QUẢN LÝ THÔNG TIN KHÁCH HÀNG ///
-                                                            
+        ////////////////////////// QUẢN LÝ SỬA CHỮA //////////////////////////
+
+        /// PHẦN QUẢN LÝ THÔNG TIN KHÁCH HÀNG ///
+
         // LOAD THÔNG TIN KHÁCH HÀNG LÊN LIST VIEW
 
         public DataTable Load_KH()
@@ -289,7 +160,7 @@ namespace DoAn
 
         // CẬP NHẬT NHÂN VIÊN
 
-        public void Update_KH(string Customer_Name, String Customer_Sex, string Customer_Birth, String Customer_Email,string Customer_Phone ,string Customer_Id)
+        public void Update_KH(string Customer_Name, String Customer_Sex, string Customer_Birth, String Customer_Email, string Customer_Phone, string Customer_Id)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
             ketnoi.Open();
@@ -309,7 +180,7 @@ namespace DoAn
         }
 
         // XÓA NHÂN VIÊN
-        
+
         public void Delete_KH(string Customer_Id)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
@@ -328,7 +199,7 @@ namespace DoAn
             ketnoi.Close();
         }
 
-                                                                      /// PHẦN QUẢN LÝ THÔNG TIN SỮA CHỮA ///
+        /// PHẦN QUẢN LÝ THÔNG TIN SỮA CHỮA ///
         public DataTable Load_RP()
         {
             using (SqlConnection connection = new SqlConnection(chuoiketnoi))
@@ -346,7 +217,7 @@ namespace DoAn
                 return data;
             }
         }
-        
+
         public void Update_RP(string Laptop_Name, string Laptop_Status, string Repair_Reason, string Repair_Note, string Repair_Appointment, string Repair_Money, string Repair_Id)
         {
             ketnoi = new SqlConnection(chuoiketnoi);
@@ -386,9 +257,9 @@ namespace DoAn
             while (docdulieu.Read())
             {
                 if (Repair_Appoinment == "Hẹn ngày lấy")
-                    {
-                        sendMail(docdulieu[1].ToString(), docdulieu[4].ToString(), docdulieu[5].ToString(), Laptop_Name, Repair_Reason, Repair_Money);
-                    }
+                {
+                    sendMail(docdulieu[1].ToString(), docdulieu[4].ToString(), docdulieu[5].ToString(), Laptop_Name, Repair_Reason, Repair_Money);
+                }
                 sql = @"UPDATE Inf_LichSu set Customer_Name = N'" + docdulieu[1].ToString() + @"', Customer_Sex = N'" + docdulieu[2].ToString() + @"', Customer_Birth = N'" + docdulieu[3].ToString() + @"', 
                                     Customer_Email = '" + docdulieu[4].ToString() + @"', Customer_Phone = N'" + docdulieu[5].ToString() + @"', Customer_TimeAdd = N'" + docdulieu[6].ToString() + @"'
                                             Where (Customer_Id = N'KH" + Id + @"')";

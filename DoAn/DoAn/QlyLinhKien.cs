@@ -67,7 +67,6 @@ namespace DoAn
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
             if (txtTenLinhKien.Text != "" && txtSoLuong.Text != "" && txtNhaSanXuat.Text != "" && txtPrice.Text != "")
             {
                 DialogResult dialog = MessageBox.Show("Bạn có muốn thêm linh kiện " + txtTenLinhKien.Text + " của nhà sản xuất: " + txtNhaSanXuat.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);

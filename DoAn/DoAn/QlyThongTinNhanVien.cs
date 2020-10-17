@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using DevExpress.XtraEditors.Filtering.Templates;
 
 namespace DoAn
 {
@@ -18,14 +19,14 @@ namespace DoAn
             InitializeComponent();
         }
 
+        Data_NV DNV;
         int Role;
-        string Name;
-        string PhongBan;
-        string Sex;
+        string Name, PhongBan, Sex;
         int i = 0;
 
         private void ThongTinNhanVien_Load(object sender, EventArgs e)
         {
+            DNV = new Data_NV();
             hienthi();
         }
 
@@ -37,9 +38,8 @@ namespace DoAn
 
         public void hienthi()
         {
-            DatabaseConnection dc = new DatabaseConnection();
             listView4.Items.Clear();
-            DataTable dtb = dc.Load_NV();
+            DataTable dtb = DNV.Load_NV();
             i = 0;
             foreach (DataRow row in dtb.Rows)
             {
@@ -68,6 +68,7 @@ namespace DoAn
                 {
                     PhongBan = "Kế Toán";
                 }
+
                 listView4.Items.Add((i + 1).ToString());
                 listView4.Items[i].SubItems.Add(row[0].ToString());
                 listView4.Items[i].SubItems.Add(row[1].ToString());
@@ -84,8 +85,10 @@ namespace DoAn
         private void listView4_Click(object sender, EventArgs e)
         {
             listView4.Enabled = false;
+            btnThem.Enabled = false;
             btnSua.Enabled = true;
             btnDelete.Enabled = true;
+            listView4.Enabled = false;
             if (listView4.SelectedItems[0].SubItems[2].Text == "Nguyễn Phát Thành Tài")
             {
                 btnDelete.Enabled = false;
@@ -101,28 +104,31 @@ namespace DoAn
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
+            btnThem.Enabled = false;
             if (txtHoTen.Text != "" && txtGioiTinh.Text != "" && txtDate.Text != "" && txtDiaChi.Text != "" && txtSDT.Text != "")
             {
                 listView4.Items.Clear();
-                if (dc.Check_NV(txtHoTen.Text))
+                if (DNV.Check_NV(txtHoTen.Text))
                 {
                     DialogResult dialog = MessageBox.Show("Bạn có muốn thêm nhân viên: " + txtHoTen.Text + " ở phòng ban: "+ txtDepartment.Text +"  không !", "Xác nhận", MessageBoxButtons.YesNo);
                     if (dialog == DialogResult.Yes)
                     {
-                        dc.Insert_NV(txtHoTen.Text, txtGioiTinh.Text, txtDate.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtDepartment.Text);
+                        DNV.Insert_NV(txtHoTen.Text, txtGioiTinh.Text, txtDate.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtDepartment.Text);
                         listView4.Items.Clear();
+                        listView4.Enabled = true;
                         hienthi();
                     }
                     else
                     {
                         listView4.Items.Clear();
+                        listView4.Enabled = true;
                         hienthi();
                     }
                 }
                 else
                 {
                     MessageBox.Show("Đã tồn tại nhân viên này rồi, vui lòng cập nhật hoặc xóa đi !");
+                    listView4.Enabled = true;
                     hienthi();
                 }
             }
@@ -135,11 +141,14 @@ namespace DoAn
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
-            listView4.Items.Clear();
-            dc.Update_NV(txtHoTen.Text, txtGioiTinh.Text, txtDate.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtDepartment.Text, txtMaNv.Text);
+            DNV.Update_NV(txtHoTen.Text, txtGioiTinh.Text, txtDate.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtDepartment.Text, txtMaNv.Text);
             listView4.Items.Clear();
             hienthi();
+            listView4.Enabled = true;
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnDelete.Enabled = false;
+            clear();
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -174,9 +183,6 @@ namespace DoAn
 
         private void clear()
         {
-            btnDelete.Enabled = false;
-            btnSua.Enabled = false;
-            txtHoTen.Enabled = true;
             txtMaNv.Text = "";
             txtHoTen.Text = "";
             txtGioiTinh.Text = "Nam";
@@ -192,11 +198,15 @@ namespace DoAn
             DialogResult dialog = MessageBox.Show("Bạn có muốn xóa nhân viên " + txtHoTen.Text + " ở phòng ban:" + txtDepartment.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                dc.Delete_NV(txtMaNv.Text);
+                DNV.Delete_NV(txtMaNv.Text);
                 listView4.Items.Clear();
                 clear();
             }
             listView4.Enabled = true;
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnDelete.Enabled = false;
+            clear();
             listView4.Items.Clear();
             hienthi();
         }
