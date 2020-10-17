@@ -86,7 +86,7 @@
             this.listView3.GridLines = true;
             this.listView3.HideSelection = false;
             this.listView3.Location = new System.Drawing.Point(31, 312);
-            this.listView3.Margin = new System.Windows.Forms.Padding(4);
+            this.listView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(1204, 411);
             this.listView3.TabIndex = 0;
@@ -205,7 +205,7 @@
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(686, 147);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(216, 22);
             this.txtPrice.TabIndex = 12;
@@ -237,7 +237,7 @@
             // txtNhaSanXuat
             // 
             this.txtNhaSanXuat.Location = new System.Drawing.Point(686, 80);
-            this.txtNhaSanXuat.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNhaSanXuat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNhaSanXuat.Name = "txtNhaSanXuat";
             this.txtNhaSanXuat.Size = new System.Drawing.Size(216, 22);
             this.txtNhaSanXuat.TabIndex = 35;
@@ -246,7 +246,7 @@
             // 
             this.txtLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLoc.Location = new System.Drawing.Point(213, 22);
-            this.txtLoc.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLoc.Name = "txtLoc";
             this.txtLoc.Size = new System.Drawing.Size(129, 27);
             this.txtLoc.TabIndex = 33;
@@ -254,7 +254,7 @@
             // txtTenLinhKien
             // 
             this.txtTenLinhKien.Location = new System.Drawing.Point(215, 80);
-            this.txtTenLinhKien.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTenLinhKien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTenLinhKien.Name = "txtTenLinhKien";
             this.txtTenLinhKien.Size = new System.Drawing.Size(216, 22);
             this.txtTenLinhKien.TabIndex = 3;
@@ -274,7 +274,7 @@
             // txtSoLuong
             // 
             this.txtSoLuong.Location = new System.Drawing.Point(215, 144);
-            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSoLuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(216, 22);
             this.txtSoLuong.TabIndex = 10;
@@ -379,7 +379,7 @@
             this.btnClear.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.Location = new System.Drawing.Point(619, 212);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(93, 75);
             this.btnClear.TabIndex = 62;
@@ -458,7 +458,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(853, 271);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(184, 22);
             this.txtSearch.TabIndex = 68;
@@ -468,7 +468,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1335, 736);
+            this.ClientSize = new System.Drawing.Size(1259, 736);
             this.Controls.Add(this.btnFeresh);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.label1);

@@ -141,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1623, 739);
+            this.ClientSize = new System.Drawing.Size(1627, 738);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.GboxContain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

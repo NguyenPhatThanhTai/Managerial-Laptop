@@ -13,6 +13,7 @@ namespace DoAn
 {
     public partial class QlyLinhKien : Form
     {
+        Data_LK dlk;
         public QlyLinhKien()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace DoAn
 
         private void QlyLinhKien_Load(object sender, EventArgs e)
         {
+            dlk = new Data_LK();
             txtLoc.Text = "Acer";
             hienthi();
         }
@@ -37,8 +39,7 @@ namespace DoAn
         {
             listView3.Items.Clear();
             i = 0;
-            DatabaseConnection dc = new DatabaseConnection();
-            DataTable dtb = dc.Load_LK();
+            DataTable dtb = dlk.Load_LK();
             foreach (DataRow row in dtb.Rows)
             {
                 listView3.Items.Add((i + 1).ToString());
@@ -54,6 +55,7 @@ namespace DoAn
 
         private void listView3_Click(object sender, EventArgs e)
         {
+            btnThem.Enabled = false;
             btnSua.Enabled = true;
             btnDelete.Enabled = true;
             listView3.Enabled = false;
@@ -72,9 +74,9 @@ namespace DoAn
                 if (dialog == DialogResult.Yes)
                 {
                     listView3.Items.Clear();
-                    if (dc.Check_LK(txtTenLinhKien.Text, txtNhaSanXuat.Text))
+                    if (dlk.Check_LK(txtTenLinhKien.Text, txtNhaSanXuat.Text))
                     {
-                        dc.Insert_LK(txtTenLinhKien.Text, txtSoLuong.Text, txtNhaSanXuat.Text, txtPrice.Text);
+                        dlk.Insert_LK(txtTenLinhKien.Text, txtSoLuong.Text, txtNhaSanXuat.Text, txtPrice.Text);
                         txtNhaSanXuat.Text = "";
                         txtTenLinhKien.Text = "";
                         txtPrice.Text = "";
@@ -134,7 +136,6 @@ namespace DoAn
 
         private void btnFeresh_Click(object sender, EventArgs e)
         {
-            listView3.Items.Clear();
             hienthi();
         }
 
@@ -146,9 +147,8 @@ namespace DoAn
             }
             listView3.Items.Clear();
             i = 0;
-            DatabaseConnection dc = new DatabaseConnection();
-            DataTable dtb = dc.Classify_LK(txtLoc.Text);
-            if (dtb.Rows != null)
+            DataTable dtb = dlk.Classify_LK(txtLoc.Text);
+            if (dtb.Rows.Count != 0)
             {
                 foreach (DataRow row in dtb.Rows)
                 {
@@ -175,31 +175,40 @@ namespace DoAn
             DialogResult dialog = MessageBox.Show("Bạn có muốn xóa linh kiện " + txtTenLinhKien.Text + " của nhà sản xuất: " + txtNhaSanXuat.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                DatabaseConnection dc = new DatabaseConnection();
-                dc.Delete_LK(listView3.SelectedItems[0].SubItems[1].Text);
+                dlk.Delete_LK(listView3.SelectedItems[0].SubItems[1].Text);
                 listView3.Enabled = true;
                 listView3.Items.Clear();
-                txtNhaSanXuat.Text = "";
-                txtTenLinhKien.Text = "";
-                txtPrice.Text = "";
-                txtSoLuong.Text = "";
+                btnThem.Enabled = true;
+                clear();
             }
             hienthi();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            string LK_ID = listView3.SelectedItems[0].SubItems[1].Text;
             DialogResult dialog = MessageBox.Show("Bạn có muốn cập nhật không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                DatabaseConnection dc = new DatabaseConnection();
-                dc.Update_LK(txtTenLinhKien.Text, txtSoLuong.Text, txtNhaSanXuat.Text, txtPrice.Text, listView3.SelectedItems[0].SubItems[1].Text);
-                txtNhaSanXuat.Text = "";
-                txtTenLinhKien.Text = "";
-                txtPrice.Text = "";
-                txtSoLuong.Text = "";
-                listView3.Items.Clear();
-                listView3.Enabled = true;
+                if (dlk.Check_LK(txtTenLinhKien.Text, txtNhaSanXuat.Text))
+                {
+                    dlk.Update_LK(txtTenLinhKien.Text, txtSoLuong.Text, txtNhaSanXuat.Text, txtPrice.Text, LK_ID);
+                    clear();
+                    listView3.Items.Clear();
+                    listView3.Enabled = true;
+                    btnThem.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Đã tồn tại linh kiện " + txtTenLinhKien.Text + " của nhà sản xuất " + txtNhaSanXuat.Text + ", vui lòng kiểm tra lại !");
+                    btnThem.Enabled = true;
+                    btnSua.Enabled = false;
+                    btnDelete.Enabled = false;
+                    btnClear.Enabled = true;
+                    listView3.Enabled = true;
+                    clear();
+                    hienthi();
+                }
             }
             hienthi();
         }
@@ -209,7 +218,14 @@ namespace DoAn
             listView3.Items.Clear();
             hienthi();
         }
-        
+
+        private void clear()
+        {
+            txtNhaSanXuat.Text = "";
+            txtTenLinhKien.Text = "";
+            txtPrice.Text = "";
+            txtSoLuong.Text = "";
+        }
     }
 
 }
