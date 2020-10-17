@@ -42,13 +42,14 @@ namespace DoAn
             DataTable dtb = dlk.Load_LK();
             foreach (DataRow row in dtb.Rows)
             {
+                var date = DateTime.Parse(row[5].ToString());
                 listView3.Items.Add((i + 1).ToString());
                 listView3.Items[i].SubItems.Add(row[0].ToString());
                 listView3.Items[i].SubItems.Add(row[1].ToString());
                 listView3.Items[i].SubItems.Add(row[2].ToString());
                 listView3.Items[i].SubItems.Add(row[3].ToString());
                 listView3.Items[i].SubItems.Add(row[4].ToString());
-                listView3.Items[i].SubItems.Add(row[5].ToString());
+                listView3.Items[i].SubItems.Add(date.ToString("dd/MM/yyyy"));
                 i++;
             }
         }

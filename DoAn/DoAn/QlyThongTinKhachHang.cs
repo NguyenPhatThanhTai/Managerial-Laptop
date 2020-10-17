@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net;
+using Microsoft.SqlServer.Server;
 
 namespace DoAn
 {
@@ -20,15 +21,7 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
-        string sql;
-        SqlConnection ketnoi;
-        SqlCommand thuchien;
-        SqlDataReader docdulieu;
-        string time = DateTime.Now.ToString();
-        string day = DateTime.Now.ToString("dd");
-        string Min = DateTime.Now.ToString("mm");
-        string sec = DateTime.Now.ToString("ss");
+        Data_KH dkh;
         int Role;
         string Sex;
         string Name;
@@ -42,15 +35,14 @@ namespace DoAn
 
         private void QlySuaChua_Load(object sender, EventArgs e)
         {
-            ketnoi = new SqlConnection(chuoiketnoi);
+            dkh = new Data_KH();
             hienthi();
         }
 
         public void hienthi()
         {
-            DatabaseConnection dc = new DatabaseConnection();
             listView1.Items.Clear();
-            DataTable dtb = dc.Load_KH();
+            DataTable dtb = dkh.Load_KH();
             i = 0;
             foreach (DataRow row in dtb.Rows)
             {
@@ -66,21 +58,25 @@ namespace DoAn
                 {
                     Sex = "Khác";
                 }
+
+                var date = DateTime.Parse(row[3].ToString());
+                var date2 = DateTime.Parse(row[6].ToString());
+
                 listView1.Items.Add((i + 1).ToString());
                 listView1.Items[i].SubItems.Add(row[0].ToString());
                 listView1.Items[i].SubItems.Add(row[1].ToString());
                 listView1.Items[i].SubItems.Add(Sex);
-                listView1.Items[i].SubItems.Add(row[3].ToString());
+                listView1.Items[i].SubItems.Add(date.ToString("dd/MM/yyyy"));
                 listView1.Items[i].SubItems.Add(row[4].ToString());
                 listView1.Items[i].SubItems.Add(row[5].ToString());
-                listView1.Items[i].SubItems.Add(row[6].ToString());
+                listView1.Items[i].SubItems.Add(date2.ToString("dd/MM/yyyy"));
                 i++;
             }
         }
 
         private void listView1_Click(object sender, EventArgs e)
         {
-            listView1.Enabled = false;
+                listView1.Enabled = false;
                 txtMaKhachHang.Enabled = false;
                 txtThoiGian.Enabled = false;
                 btnSua.Enabled = true;
@@ -97,23 +93,21 @@ namespace DoAn
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
             if (txtHoTen.Text != "" && txtEmail.Text != "" && txtSDT.Text != "" && txtGioiTinh.Text != "" && txtBirth.Text != "" && txtEmail.Text != ""
                                 && txtSDT.Text != "") 
             {
                 DialogResult dialog = MessageBox.Show("Xác nhận thêm khách hàng " + txtHoTen.Text + " ?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
-                    if (dc.Check_KH(txtHoTen.Text))
+                    if (dkh.Check_KH(txtHoTen.Text))
                     {
-                        dc.Insert_KH(txtHoTen.Text, txtGioiTinh.Text, txtBirth.Value.ToString("yyyy/MM/dd"), txtEmail.Text, txtSDT.Text);
+                        dkh.Insert_KH(txtHoTen.Text, txtGioiTinh.Text, txtBirth.Value.ToString("yyyy/MM/dd"), txtEmail.Text, txtSDT.Text);
                         hienthi();
                         i++;
                     }
                     else
                     {
                         MessageBox.Show("Đã tồn tại khách hàng này rồi, vui lòng cập nhật hoặc xóa đi !");
-                        ketnoi.Close();
                         hienthi();
                     }
                 }
@@ -130,12 +124,11 @@ namespace DoAn
             if (txtHoTen.Text != "" && txtEmail.Text != "" && txtSDT.Text != "" && txtGioiTinh.Text != "" && txtBirth.Text != "" && txtEmail.Text != ""
                     && txtSDT.Text != "")
             {
-                DatabaseConnection dc = new DatabaseConnection();
                 btnSua.Enabled = false;
                 btnDelete.Enabled = false;
                 btnThem.Enabled = true;
                 listView1.Items.Clear();
-                dc.Update_KH(txtHoTen.Text, txtGioiTinh.Text, txtBirth.Value.ToString("yyyy/MM/dd"), txtEmail.Text, txtSDT.Text, txtMaKhachHang.Text);
+                dkh.Update_KH(txtHoTen.Text, txtGioiTinh.Text, txtBirth.Value.ToString("yyyy/MM/dd"), txtEmail.Text, txtSDT.Text, txtMaKhachHang.Text);
                 hienthi();
                 listView1.Enabled = true;
                 clear();
@@ -201,12 +194,11 @@ namespace DoAn
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
             DialogResult dialog = MessageBox.Show("Bạn có muốn xóa khách hàng " + txtHoTen.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 listView1.Enabled = true;
-                dc.Delete_KH(txtMaKhachHang.Text);
+                dkh.Delete_KH(txtMaKhachHang.Text);
                 clear();
                 hienthi();
                 btnThem.Enabled = true;

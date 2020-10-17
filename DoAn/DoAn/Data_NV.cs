@@ -116,10 +116,39 @@ namespace DoAn
 
         // PHẦN LƯƠNG NHÂN VIÊN
 
+        public DataTable Load_Salary()
+        {
+            sql = @"Select * from Salary_Staff";
+            return db.Excute(sql);
+        }
+
+        public void Update_Salary(string Staff_Default_Salary, string Staff_Salary_Per_Hour, string Staff_OT, string Staff_Reward, string Staff_Id)
+        {
+            sql = @"UPDATE Salary_Staff set Staff_Default_Salary = N'" + Staff_Default_Salary + @"', Staff_Salary_Per_Hour = N'" + Staff_Salary_Per_Hour + @"', Staff_OT = N'" + Staff_OT + @"', Staff_Reward = N'" + Staff_Reward + @"' Where (Staff_Id = N'" + Staff_Id + @"')";
+            db.ExecuteNonQuery(sql);
+        }
+
+        // PHẦN TÀI KHOẢN NHÂN VIÊN
+
         public DataTable Load_TK()
         {
             sql = @"Select * from Account_Staff";
             return db.Excute(sql);
+        }
+
+        public void Update_TK(string Staff_Password, string Staff_Role, string Staff_Id)
+        {
+            if (Staff_Role == "Admin")
+            {
+                Quyen = "1";
+            }
+            else
+            {
+                Quyen = "2";
+            }
+            sql = @"UPDATE Account_Staff set Staff_Password = N'" + Staff_Password + @"', Staff_Role = N'" + Quyen + @"' Where (Staff_Id = N'" + Staff_Id + @"')";
+            db.ExecuteNonQuery(sql);
+            
         }
     }
 }

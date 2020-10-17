@@ -56,8 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseExcute.cs" />
+    <Compile Include="Data_KH.cs" />
     <Compile Include="Data_LK.cs" />
     <Compile Include="Data_NV.cs" />
     <Compile Include="Form_QlySuaChua.cs">

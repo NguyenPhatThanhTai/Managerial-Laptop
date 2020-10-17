@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace DoAn
 {
@@ -18,12 +17,7 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
-        string sql;
-        SqlConnection ketnoi;
-        SqlCommand thuchien;
-        SqlDataReader docdulieu;
-        string time = DateTime.Now.ToString();
+        Data_NV dnv;
         int Role;
         string name;
         int i = 0;
@@ -31,19 +25,19 @@ namespace DoAn
         public QlyLuongNhanVien(int Role, string name) : this()
         {
             this.Role = Role;
+            this.name = name;
         }
 
         private void LuongNhanVien_Load(object sender, EventArgs e)
         {
-            ketnoi = new SqlConnection(chuoiketnoi);
+            dnv = new Data_NV();
             hienthi();
         }
 
         public void hienthi()
         {
             lsvLuong.Items.Clear();
-            DatabaseConnection dc = new DatabaseConnection();
-            DataTable dtb = dc.Load_Salary();
+            DataTable dtb = dnv.Load_Salary();
             i = 0;
             foreach (DataRow row in dtb.Rows)
             {
@@ -55,12 +49,12 @@ namespace DoAn
                 lsvLuong.Items[i].SubItems.Add(string.Format("{0:#,###}", row[4].ToString()));
                 i++;
             }
-            ketnoi.Close();
         }
 
         private void lsvLuong_Click(object sender, EventArgs e)
         {
-            ClearAll(true);
+            Clear(true);
+            lsvLuong.Enabled = false;
             txtMaNV.Text = lsvLuong.SelectedItems[0].SubItems[1].Text;
             txtLuongCoBan.Text = lsvLuong.SelectedItems[0].SubItems[2].Text;
             txtLuongTheoGio.Text = lsvLuong.SelectedItems[0].SubItems[3].Text;
@@ -77,13 +71,14 @@ namespace DoAn
                 int TienCoBan = int.Parse(lsvLuong.SelectedItems[0].SubItems[2].Text);
                 int TienThuong = int.Parse(lsvLuong.SelectedItems[0].SubItems[4].Text);
                 int LamNgoaiGio = int.Parse(lsvLuong.SelectedItems[0].SubItems[5].Text);
-                txtTongLuong.Text = string.Format("{0:#,###}VND", ((TienCoBan + TienThuong + LamNgoaiGio).ToString()));
+                int TongLuong = TienCoBan + TienThuong + LamNgoaiGio;
+                txtTongLuong.Text = string.Format("{0:#,###}VND", TongLuong.ToString());
             }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearAll(false);
+            Clear(false);
             txtMaNV.Text = "";
             txtLuongCoBan.Text = "";
             txtLuongTheoGio.Text = "";
@@ -134,13 +129,22 @@ namespace DoAn
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
-            dc.Update_Salary(txtLuongCoBan.Text, txtLuongTheoGio.Text, txtLamNgoaiGio.Text, txtTienThuong.Text, txtMaNV.Text);
-            hienthi();
+            DialogResult dialog = MessageBox.Show("Bạn có muốn cập nhật không !", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                lsvLuong.Enabled = true;
+                dnv.Update_Salary(txtLuongCoBan.Text, txtLuongTheoGio.Text, txtLamNgoaiGio.Text, txtTienThuong.Text, txtMaNV.Text);
+                hienthi();
+            }
+            else
+            {
+                hienthi();
+            }
         }
 
-        private void ClearAll(bool Bool)
+        private void Clear(bool Bool)
         {
+            lsvLuong.Enabled = true;
             btnUpdate.Enabled = Bool;
             btnClear.Enabled = Bool;
             txtLuongCoBan.Enabled = Bool;

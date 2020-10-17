@@ -69,15 +69,18 @@ namespace DoAn
                     PhongBan = "Kế Toán";
                 }
 
+                var date = DateTime.Parse(row[3].ToString());
+                var date2 = DateTime.Parse(row[7].ToString());
+
                 listView4.Items.Add((i + 1).ToString());
                 listView4.Items[i].SubItems.Add(row[0].ToString());
                 listView4.Items[i].SubItems.Add(row[1].ToString());
                 listView4.Items[i].SubItems.Add(Sex.ToString());
-                listView4.Items[i].SubItems.Add(row[3].ToString());
+                listView4.Items[i].SubItems.Add(date.ToString("dd/MM/yyyy"));
                 listView4.Items[i].SubItems.Add(row[4].ToString());
                 listView4.Items[i].SubItems.Add(row[5].ToString());
                 listView4.Items[i].SubItems.Add(PhongBan.ToString());
-                listView4.Items[i].SubItems.Add(row[7].ToString());
+                listView4.Items[i].SubItems.Add(date2.ToString("dd/MM/yyyy"));
                 i++;
             }
         }
@@ -141,14 +144,18 @@ namespace DoAn
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            DNV.Update_NV(txtHoTen.Text, txtGioiTinh.Text, txtDate.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtDepartment.Text, txtMaNv.Text);
-            listView4.Items.Clear();
-            hienthi();
-            listView4.Enabled = true;
-            btnThem.Enabled = true;
-            btnSua.Enabled = false;
-            btnDelete.Enabled = false;
-            clear();
+            DialogResult dialog = MessageBox.Show("Bạn muốn cập nhật à?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                DNV.Update_NV(txtHoTen.Text, txtGioiTinh.Text, txtDate.Value.ToString("yyyy/MM/dd"), txtDiaChi.Text, txtSDT.Text, txtDepartment.Text, txtMaNv.Text);
+                listView4.Items.Clear();
+                hienthi();
+                listView4.Enabled = true;
+                btnThem.Enabled = true;
+                btnSua.Enabled = false;
+                btnDelete.Enabled = false;
+                clear();
+            }
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -194,7 +201,6 @@ namespace DoAn
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
             DialogResult dialog = MessageBox.Show("Bạn có muốn xóa nhân viên " + txtHoTen.Text + " ở phòng ban:" + txtDepartment.Text + " không !", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {

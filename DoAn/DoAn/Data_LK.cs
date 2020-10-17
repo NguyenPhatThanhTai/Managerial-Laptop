@@ -13,7 +13,7 @@ namespace DoAn
         DatabaseExcute db;
         string sql;
         string Sex, PhongBan, Quyen;
-        string time = DateTime.Now.ToString("dd/MM/yyyy");
+        string time = DateTime.Now.ToString("yyyy/MM/dd");
         string day = DateTime.Now.ToString("dd");
         string Min = DateTime.Now.ToString("mm");
         string sec = DateTime.Now.ToString("ss");
@@ -45,6 +45,10 @@ namespace DoAn
             sql = @"Insert into Inf_LK (LK_Id, LK_Name, LK_Number, LK_Producer, LK_Price, LK_Time_Add) VALUES(N'LK" + day + "" + Min + "" + sec + @"',N'" + LK_Name + @"',N'"
                                 + LK_Number + @"', N'" + LK_Producer + @"', N'" + LK_Price + @"', N'" + time + @"')";
             db.ExecuteNonQuery(sql);
+            time = DateTime.Now.ToString("dd/MM/yyyy");
+            day = DateTime.Now.ToString("dd");
+            Min = DateTime.Now.ToString("mm");
+            sec = DateTime.Now.ToString("ss");
         }
 
         public DataTable Classify_LK(string LK_Name)

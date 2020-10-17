@@ -18,6 +18,7 @@ namespace DoAn
             InitializeComponent();
         }
 
+        Data_NV dnv;
         string Quyen;
         int i = 0;
         int Role;
@@ -25,6 +26,7 @@ namespace DoAn
 
         private void QlyTaiKhoanNhanVien_Load(object sender, EventArgs e)
         {
+            dnv = new Data_NV();
             hienthi();
         }
 
@@ -36,9 +38,8 @@ namespace DoAn
 
         public void hienthi()
         {
-            DatabaseConnection dc = new DatabaseConnection();
             lsvAccount.Items.Clear();
-            DataTable dtb = dc.Load_TK();
+            DataTable dtb = dnv.Load_TK();
             i = 0;
             foreach (DataRow row in dtb.Rows)
             {
@@ -100,8 +101,13 @@ namespace DoAn
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
-            dc.Update_TK(txtPassword.Text, txtRole.Text, txtMaNv.Text);
+            Clear(false);
+            lsvAccount.Enabled = true;
+            DialogResult dialog = MessageBox.Show("Bạn muốn cập nhật à?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                dnv.Update_TK(txtPassword.Text, txtRole.Text, txtMaNv.Text);
+            }
             hienthi();
         }
 
@@ -121,21 +127,17 @@ namespace DoAn
         private void btnClear_Click(object sender, EventArgs e)
         {
             lsvAccount.Enabled = true;
-            ClearAll(false);
+            Clear(false);
             hienthi();
         }
 
-        private void ClearAll(bool Bool)
+        private void Clear(bool Bool)
         {
             btnClear.Enabled = Bool;
             btnSua.Enabled = Bool;
             txtRole.Enabled = Bool;
             txtPassword.Enabled = Bool;
             txtAccount.Enabled = Bool;
-            txtMaNv.Text = "";
-            txtAccount.Text = "";
-            txtPassword.Text = "";
-            txtRole.Text = "";
         }
     }
 }

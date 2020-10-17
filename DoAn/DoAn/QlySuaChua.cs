@@ -20,11 +20,7 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
-        string sql;
-        SqlConnection ketnoi;
-        SqlCommand thuchien;
-        SqlDataReader docdulieu;
+        Data_KH dkh;
         int i = 0;
         string Name;
         string time = DateTime.Now.ToString("yyyy/MM/dd");
@@ -37,18 +33,19 @@ namespace DoAn
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            ketnoi = new SqlConnection(chuoiketnoi);
+            dkh = new Data_KH();
             hienthi();
         }
 
         public void hienthi()
         {
-            DatabaseConnection dc = new DatabaseConnection();
             listView2.Items.Clear();
-            DataTable dtb = dc.Load_RP(); 
+            DataTable dtb = dkh.Load_RP(); 
             i = 0;
             foreach (DataRow row in dtb.Rows)
             {
+                var date = DateTime.Parse(row[7].ToString());
+
                 listView2.Items.Add((i + 1).ToString());
                 listView2.Items[i].SubItems.Add(row[0].ToString());
                 listView2.Items[i].SubItems.Add(row[1].ToString());
@@ -57,7 +54,7 @@ namespace DoAn
                 listView2.Items[i].SubItems.Add(row[4].ToString());
                 listView2.Items[i].SubItems.Add(row[5].ToString());
                 listView2.Items[i].SubItems.Add(row[6].ToString());
-                listView2.Items[i].SubItems.Add(row[7].ToString());
+                listView2.Items[i].SubItems.Add(date.ToString("dd/MM/yyyy"));
                 listView2.Items[i].SubItems.Add(row[8].ToString());
                 i++;
             }
@@ -101,12 +98,11 @@ namespace DoAn
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
             DialogResult dialog = MessageBox.Show("Cập nhật ?", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 btnDone.Enabled = true;
-                dc.Update_RP(txtTenMay.Text, txtTinhTrang.Text, txtCanSua.Text, txtHenSua.Text, txtDateHen.Value.ToString("yyyy/MM/dd"), txtSoTien.Text, txtMaSuaChua.Text);
+                dkh.Update_RP(txtTenMay.Text, txtTinhTrang.Text, txtCanSua.Text, txtHenSua.Text, txtDateHen.Text, txtSoTien.Text, txtMaSuaChua.Text);
                 hienthi();
             }
             else
@@ -117,7 +113,6 @@ namespace DoAn
 
         private void btnNhanDon_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
             if(listView2.SelectedItems[0].SubItems[5].Text == Name)
             {
                 Enable(true);
@@ -139,7 +134,7 @@ namespace DoAn
                         btnNhanDon.Enabled = false;
                         Enable(true);
                         listView2.Enabled = false;
-                        dc.Update_NhanDon(Name, txtMaSuaChua.Text);
+                        dkh.Update_NhanDon(Name, txtMaSuaChua.Text);
                         hienthi();
                         txtNVTN.Text = Name;
                     }
@@ -171,7 +166,6 @@ namespace DoAn
 
         private void btnDone_Click(object sender, EventArgs e)
         {
-            DatabaseConnection dc = new DatabaseConnection();
             //Sửa lấy ngay
             //Hẹn ngày lấy
             DialogResult dialog = MessageBox.Show("Xác nhận hoàn thành đơn này?", "Xác nhận", MessageBoxButtons.YesNo);
@@ -181,8 +175,7 @@ namespace DoAn
             }
             else
             {
-                //string Repair_Id, string Laptop_Name, string Repair_Reason, string Repair_Money, string Repair_Appoinment
-                dc.Done_RP(txtMaSuaChua.Text, txtTenMay.Text, txtCanSua.Text, txtSoTien.Text, txtHenSua.Text);
+                dkh.Done_RP(txtMaSuaChua.Text, txtTenMay.Text, txtCanSua.Text, txtSoTien.Text, txtHenSua.Text);
                 hienthi();
                 listView2.Enabled = true;
                 Enable(false);
