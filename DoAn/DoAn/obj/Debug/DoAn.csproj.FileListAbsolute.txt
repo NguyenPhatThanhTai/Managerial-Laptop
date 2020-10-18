@@ -142,3 +142,4 @@ C:\Users\ngtha\Documents\GitHub\Managerial-Laptop\DoAn\DoAn\obj\Debug\DoAn.cspro
 C:\Users\ngtha\Documents\GitHub\Managerial-Laptop\DoAn\DoAn\obj\Debug\DoAn.csproj.CopyComplete
 C:\Users\ngtha\Documents\GitHub\Managerial-Laptop\DoAn\DoAn\obj\Debug\DoAn.exe
 C:\Users\ngtha\Documents\GitHub\Managerial-Laptop\DoAn\DoAn\obj\Debug\DoAn.pdb
+D:\QuanLySuaChuaLaptop\DoAn\DoAn\obj\Debug\DoAn.Check.resources

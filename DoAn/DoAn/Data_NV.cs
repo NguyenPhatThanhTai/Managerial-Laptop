@@ -150,5 +150,57 @@ namespace DoAn
             db.ExecuteNonQuery(sql);
             
         }
+
+        //PHẦN ĐĂNG NHẬP
+
+        public bool DangNhap(string Account, string password)
+        {
+            bool check = false;
+            sql = @"select * from Account_Staff where Staff_Account = '" + Account + "' and Staff_Password = '" + password + "'";
+            DataTable dtb = db.Excute(sql);
+            if (dtb.Rows.Count != 0)
+            {
+                check = true;
+            }
+            return check;
+        }
+
+        public string CheckRole(string Account)
+        {
+            string Quyen = null;
+            sql = @"select Staff_Role from Account_Staff where Staff_Id = '" + Account + "'";
+            DataTable dtb = db.Excute(sql);
+            if (dtb.Rows.Count > 0)
+            {
+                foreach (DataRow row in dtb.Rows)
+                {
+                    Quyen = row[0].ToString();
+                }
+            }
+            else
+            {
+                Quyen = null;
+            }
+            return Quyen;
+        }
+
+        public string GetUserName(string Account)
+        {
+            string name = null;
+            sql = @"select Staff_Name from Inf_Staff where Staff_Id = '" + Account + "'";
+            DataTable dtb = db.Excute(sql);
+            if (dtb.Rows.Count > 0)
+            {
+                foreach(DataRow row in dtb.Rows)
+                {
+                    name = row[0].ToString();
+                }
+            }
+            else
+            {
+                name = null;
+            }
+            return name;
+        }
     }
 }

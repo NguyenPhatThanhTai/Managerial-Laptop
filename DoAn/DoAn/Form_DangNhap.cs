@@ -19,82 +19,27 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
-        string sql;
-        SqlConnection ketnoi;
-        SqlCommand thuchien;
-        SqlDataReader docdulieu;
-
-
+        Data_NV dnv;
         private void DangNhap_Load(object sender, EventArgs e)
         {
-            ketnoi = new SqlConnection(chuoiketnoi);
-            if (Properties.Settings.Default.userName != string.Empty)
+            dnv = new Data_NV();
+            if (Properties.Settings.Default.userName != "")
             {
                 txtAccount.Text = Properties.Settings.Default.userName;
                 txtPassword.Text = Properties.Settings.Default.passUser;
-            }
-        }
-        public Boolean Login(string Account, string password)
-        {
-            ketnoi.Open();
-            sql = @"select * from Account_Staff where Staff_Account = '"+Account+"' and Staff_Password = '"+password+"'";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-            if (docdulieu.Read() == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public string CheckRole(string Account)
-        {
-            ketnoi.Close();
-            ketnoi.Open();
-            sql = @"select Staff_Role from Account_Staff where Staff_Id = '" + Account + "'";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-            if (docdulieu.Read() == true)
-            {
-                return docdulieu[0].ToString();
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public string GetUserName(string Account)
-        {
-            ketnoi.Close();
-            ketnoi.Open();
-            sql = @"select Staff_Name from Inf_Staff where Staff_Id = '" + Account + "'";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-            if (docdulieu.Read() == true)
-            {
-                return docdulieu[0].ToString();
-            }
-            else
-            {
-                return null;
+                this.btnDangNhap_Click(null, null);
             }
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            ketnoi.Close();
             string Account = txtAccount.Text;
             string Password = txtPassword.Text;
-            if(Account != "" && Password != "")
+            if (Account != "" && Password != "")
             {
-                if (Login(Account, Password))
+                if (dnv.DangNhap(Account, Password))
                 {
-                    DanhSachChucNang DSCN = new DanhSachChucNang(int.Parse(CheckRole(Account)), GetUserName(Account));
+                    DanhSachChucNang DSCN = new DanhSachChucNang(int.Parse(dnv.CheckRole(Account)), dnv.GetUserName(Account));
                     DSCN.Show();
                     this.Hide();
                     if (Ckb_SaveMyPass.Checked)
@@ -122,15 +67,16 @@ namespace DoAn
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Bạn muốn thoát à?", "Xác nhận", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                Environment.Exit(1);
-            }
+           
+                DialogResult dialog = MessageBox.Show("Bạn muốn thoát à?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Environment.Exit(1);
+                }
         }
 
         private void Minimize_Click(object sender, EventArgs e)
