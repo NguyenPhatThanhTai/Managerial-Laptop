@@ -28,45 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pb1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::DoAn.Properties.Resources.wp1892090;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Controls.Add(this.pb1);
-            this.panel1.Location = new System.Drawing.Point(-21, -20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(683, 383);
-            this.panel1.TabIndex = 0;
             // 
             // pb1
             // 
             this.pb1.BackColor = System.Drawing.Color.Transparent;
             this.pb1.Image = global::DoAn.Properties.Resources.progressbar_5;
-            this.pb1.Location = new System.Drawing.Point(20, 308);
+            this.pb1.Location = new System.Drawing.Point(-2, 289);
             this.pb1.Name = "pb1";
             this.pb1.Size = new System.Drawing.Size(646, 60);
             this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb1.TabIndex = 1;
             this.pb1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::DoAn.Properties.Resources._737400;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(-21, -20);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(683, 394);
+            this.panel1.TabIndex = 0;
+            // 
             // Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 347);
+            this.Controls.Add(this.pb1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Check";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Check";
             this.Load += new System.EventHandler(this.Check_Load);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
             this.ResumeLayout(false);
 

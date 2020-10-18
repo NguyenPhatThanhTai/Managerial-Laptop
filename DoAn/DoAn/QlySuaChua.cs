@@ -66,6 +66,10 @@ namespace DoAn
             {
                 btnNhanDon.Text = "Tiếp tục đơn";
             }
+            else
+            {
+                btnNhanDon.Text = "Nhận đơn này";
+            }
             btnNhanDon.Enabled = true;
             txtMaSuaChua.Text = listView2.SelectedItems[0].SubItems[1].Text;
             txtTenKhachHang.Text = listView2.SelectedItems[0].SubItems[2].Text;
@@ -122,6 +126,7 @@ namespace DoAn
                 Enable(true);
                 listView2.Enabled = false;
                 MessageBox.Show("Đã tiếp tục đơn !");
+                btnNhanDon.Enabled = false;
             }
             else
             {
@@ -180,6 +185,7 @@ namespace DoAn
             }
             else
             {
+                btnNhanDon.Enabled = true;
                 dkh.Done_RP(txtMaSuaChua.Text, txtTenMay.Text, txtCanSua.Text, txtSoTien.Text, txtHenSua.Text);
                 hienthi();
                 listView2.Enabled = true;
