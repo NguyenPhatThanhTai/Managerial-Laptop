@@ -209,5 +209,19 @@ namespace DoAn
                 MessageBox.Show("Lỗi gửi mail");
             }
         }
+
+        // PHẦN LỊCH SỬ SỮA CHỮA
+
+        public DataTable Load_LS()
+        {
+            sql = @"Select * from Inf_LichSu";
+            return db.Excute(sql);
+        }
+
+        public void delete(string id)
+        {
+            sql = @"DELETE from Inf_LichSu where (Customer_Id =N'" + id + @"')"; ;
+            db.ExecuteNonQuery(sql);
+        }
     }
 }

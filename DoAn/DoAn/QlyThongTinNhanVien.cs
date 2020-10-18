@@ -70,7 +70,6 @@ namespace DoAn
                 }
 
                 var date = DateTime.Parse(row[3].ToString());
-                var date2 = DateTime.Parse(row[7].ToString());
 
                 listView4.Items.Add((i + 1).ToString());
                 listView4.Items[i].SubItems.Add(row[0].ToString());
@@ -80,7 +79,7 @@ namespace DoAn
                 listView4.Items[i].SubItems.Add(row[4].ToString());
                 listView4.Items[i].SubItems.Add(row[5].ToString());
                 listView4.Items[i].SubItems.Add(PhongBan.ToString());
-                listView4.Items[i].SubItems.Add(date2.ToString("dd/MM/yyyy"));
+                listView4.Items[i].SubItems.Add(row[7].ToString());
                 i++;
             }
         }

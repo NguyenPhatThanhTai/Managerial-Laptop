@@ -45,9 +45,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnFeresh = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -73,21 +71,22 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(520, 528);
+            this.label13.Location = new System.Drawing.Point(732, 238);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(54, 20);
             this.label13.TabIndex = 40;
@@ -99,9 +98,9 @@
             this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnClear.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.Location = new System.Drawing.Point(420, 504);
+            this.btnClear.Location = new System.Drawing.Point(632, 214);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(93, 75);
@@ -112,8 +111,9 @@
             // 
             // pictureBox13
             // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox13.Image = global::DoAn.Properties.Resources.time;
-            this.pictureBox13.Location = new System.Drawing.Point(26, 562);
+            this.pictureBox13.Location = new System.Drawing.Point(863, 140);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(22, 19);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -134,10 +134,10 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(617, 131);
+            this.listView1.Location = new System.Drawing.Point(31, 318);
             this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(861, 454);
+            this.listView1.Size = new System.Drawing.Size(1204, 408);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -186,7 +186,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(517, 329);
+            this.label10.Location = new System.Drawing.Point(329, 240);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 20);
             this.label10.TabIndex = 36;
@@ -194,8 +194,9 @@
             // 
             // pictureBox7
             // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(26, 508);
+            this.pictureBox7.Location = new System.Drawing.Point(863, 78);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(22, 19);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -207,7 +208,7 @@
             this.btnFeresh.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnFeresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFeresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFeresh.Location = new System.Drawing.Point(1373, 91);
+            this.btnFeresh.Location = new System.Drawing.Point(1130, 278);
             this.btnFeresh.Name = "btnFeresh";
             this.btnFeresh.Size = new System.Drawing.Size(105, 33);
             this.btnFeresh.TabIndex = 20;
@@ -220,7 +221,7 @@
             this.btnFind.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.Location = new System.Drawing.Point(1292, 91);
+            this.btnFind.Location = new System.Drawing.Point(1049, 278);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(75, 33);
             this.btnFind.TabIndex = 19;
@@ -228,41 +229,21 @@
             this.btnFind.UseVisualStyleBackColor = false;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(112, 42);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(462, 46);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Quản lý thông tin khách";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(517, 212);
+            this.label9.Location = new System.Drawing.Point(150, 240);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 20);
             this.label9.TabIndex = 35;
             this.label9.Text = "Thêm";
             // 
-            // pictureBox14
-            // 
-            this.pictureBox14.ErrorImage = null;
-            this.pictureBox14.Image = global::DoAn.Properties.Resources.fix;
-            this.pictureBox14.Location = new System.Drawing.Point(617, 42);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(89, 48);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 16;
-            this.pictureBox14.TabStop = false;
-            // 
             // pictureBox6
             // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::DoAn.Properties.Resources.email;
-            this.pictureBox6.Location = new System.Drawing.Point(26, 457);
+            this.pictureBox6.Location = new System.Drawing.Point(454, 137);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(22, 19);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -275,9 +256,9 @@
             this.btnSua.Enabled = false;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnSua.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.Location = new System.Drawing.Point(420, 300);
+            this.btnSua.Location = new System.Drawing.Point(232, 214);
             this.btnSua.Margin = new System.Windows.Forms.Padding(0);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(94, 81);
@@ -291,9 +272,9 @@
             this.btnThem.BackColor = System.Drawing.Color.Transparent;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnThem.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.Location = new System.Drawing.Point(418, 182);
+            this.btnThem.Location = new System.Drawing.Point(52, 210);
             this.btnThem.Margin = new System.Windows.Forms.Padding(0);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(95, 83);
@@ -304,8 +285,9 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(26, 297);
+            this.pictureBox5.Location = new System.Drawing.Point(43, 76);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(22, 19);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -315,7 +297,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(55, 562);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(892, 140);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 17);
@@ -325,7 +309,7 @@
             // txtThoiGian
             // 
             this.txtThoiGian.Enabled = false;
-            this.txtThoiGian.Location = new System.Drawing.Point(168, 559);
+            this.txtThoiGian.Location = new System.Drawing.Point(1005, 137);
             this.txtThoiGian.Margin = new System.Windows.Forms.Padding(4);
             this.txtThoiGian.Name = "txtThoiGian";
             this.txtThoiGian.Size = new System.Drawing.Size(216, 22);
@@ -333,7 +317,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(168, 457);
+            this.txtEmail.Location = new System.Drawing.Point(596, 137);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(216, 22);
@@ -342,7 +326,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 460);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(483, 140);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 17);
@@ -351,7 +337,7 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(168, 508);
+            this.txtSDT.Location = new System.Drawing.Point(1005, 78);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(216, 22);
@@ -359,7 +345,7 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(168, 294);
+            this.txtHoTen.Location = new System.Drawing.Point(190, 73);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(4);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(216, 22);
@@ -368,7 +354,9 @@
             // NumPhone
             // 
             this.NumPhone.AutoSize = true;
-            this.NumPhone.Location = new System.Drawing.Point(61, 511);
+            this.NumPhone.BackColor = System.Drawing.Color.Transparent;
+            this.NumPhone.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.NumPhone.Location = new System.Drawing.Point(898, 81);
             this.NumPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NumPhone.Name = "NumPhone";
             this.NumPhone.Size = new System.Drawing.Size(36, 17);
@@ -378,7 +366,9 @@
             // HoTen
             // 
             this.HoTen.AutoSize = true;
-            this.HoTen.Location = new System.Drawing.Point(55, 297);
+            this.HoTen.BackColor = System.Drawing.Color.Transparent;
+            this.HoTen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.HoTen.Location = new System.Drawing.Point(77, 76);
             this.HoTen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HoTen.Name = "HoTen";
             this.HoTen.Size = new System.Drawing.Size(69, 17);
@@ -387,7 +377,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(1101, 97);
+            this.txtSearch.Location = new System.Drawing.Point(858, 284);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(184, 22);
@@ -396,7 +386,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1027, 100);
+            this.label1.Location = new System.Drawing.Point(784, 287);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 17);
@@ -406,7 +396,9 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(55, 147);
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.Location = new System.Drawing.Point(72, 16);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 17);
@@ -416,7 +408,7 @@
             // txtMaKhachHang
             // 
             this.txtMaKhachHang.Enabled = false;
-            this.txtMaKhachHang.Location = new System.Drawing.Point(168, 144);
+            this.txtMaKhachHang.Location = new System.Drawing.Point(190, 13);
             this.txtMaKhachHang.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaKhachHang.Name = "txtMaKhachHang";
             this.txtMaKhachHang.Size = new System.Drawing.Size(216, 22);
@@ -424,8 +416,9 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(26, 147);
+            this.pictureBox1.Location = new System.Drawing.Point(43, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(22, 19);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -435,7 +428,9 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(55, 352);
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(77, 135);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 17);
@@ -449,7 +444,7 @@
             "Nam",
             "Nữ",
             "Khác"});
-            this.txtGioiTinh.Location = new System.Drawing.Point(168, 349);
+            this.txtGioiTinh.Location = new System.Drawing.Point(190, 132);
             this.txtGioiTinh.Name = "txtGioiTinh";
             this.txtGioiTinh.Size = new System.Drawing.Size(216, 24);
             this.txtGioiTinh.TabIndex = 46;
@@ -457,8 +452,9 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(26, 348);
+            this.pictureBox2.Location = new System.Drawing.Point(43, 137);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(22, 19);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -467,7 +463,7 @@
             // 
             // txtBirth
             // 
-            this.txtBirth.Location = new System.Drawing.Point(168, 405);
+            this.txtBirth.Location = new System.Drawing.Point(596, 76);
             this.txtBirth.Name = "txtBirth";
             this.txtBirth.Size = new System.Drawing.Size(216, 22);
             this.txtBirth.TabIndex = 57;
@@ -476,7 +472,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 410);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(483, 81);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 17);
@@ -485,8 +483,9 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(26, 408);
+            this.pictureBox3.Location = new System.Drawing.Point(454, 79);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(22, 19);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -497,7 +496,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(517, 428);
+            this.label6.Location = new System.Drawing.Point(526, 240);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 20);
             this.label6.TabIndex = 59;
@@ -510,9 +509,9 @@
             this.btnDelete.Enabled = false;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(420, 390);
+            this.btnDelete.Location = new System.Drawing.Point(429, 202);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 98);
@@ -521,48 +520,57 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::DoAn.Properties.Resources.beautiful_color_gradients_backgrounds_070_aqua_splash;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.txtHoTen);
+            this.panel1.Controls.Add(this.pictureBox5);
+            this.panel1.Controls.Add(this.HoTen);
+            this.panel1.Controls.Add(this.txtBirth);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox13);
+            this.panel1.Controls.Add(this.txtMaKhachHang);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.txtGioiTinh);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.txtThoiGian);
+            this.panel1.Controls.Add(this.NumPhone);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.pictureBox7);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.txtSDT);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1337, 189);
+            this.panel1.TabIndex = 60;
+            // 
             // QlyThongTinKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1487, 622);
+            this.BackColor = System.Drawing.SystemColors.Menu;
+            this.ClientSize = new System.Drawing.Size(1334, 740);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.txtBirth);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtGioiTinh);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtMaKhachHang);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnFeresh);
-            this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.btnFind);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.HoTen);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.NumPhone);
-            this.Controls.Add(this.txtHoTen);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.txtSDT);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtThoiGian);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QlyThongTinKhachHang";
             this.Text = "QlySuaChua";
@@ -570,12 +578,13 @@
             this.Load += new System.EventHandler(this.QlySuaChua_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -591,9 +600,7 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button btnFeresh;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
@@ -627,5 +634,6 @@
         private System.Windows.Forms.ColumnHeader Time_Add;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Panel panel1;
     }
 }

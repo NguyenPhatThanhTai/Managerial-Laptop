@@ -18,36 +18,28 @@ namespace DoAn
             InitializeComponent();
         }
 
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
-        string sql;
-        SqlConnection ketnoi;
-        SqlCommand thuchien;
-        SqlDataReader docdulieu;
+        Data_KH DKH;
         int i = 0;
         string Sex;
         string id;
 
         private void QlyLichSuSuaChua_Load(object sender, EventArgs e)
         {
-            ketnoi = new SqlConnection(chuoiketnoi);
+            DKH = new Data_KH();
             hienthi();
         }
 
-        private void hienthi()
+        public void hienthi()
         {
             lsvLichSu.Items.Clear();
-            ketnoi.Open();
-            sql = @"Select * from Inf_LichSu";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-            i = 0;
-            while (docdulieu.Read())
+            DataTable dtb = DKH.Load_LS();
+            foreach (DataRow row in dtb.Rows)
             {
-                if (docdulieu[2].ToString() == "1")
+                if (row[2].ToString() == "1")
                 {
                     Sex = "Nam";
                 }
-                else if (docdulieu[2].ToString() == "2")
+                else if (row[2].ToString() == "2")
                 {
                     Sex = "Nữ";
                 }
@@ -56,26 +48,26 @@ namespace DoAn
                     Sex = "Khác";
                 }
 
+                var date = DateTime.Parse(row[3].ToString());
                 lsvLichSu.Items.Add((i + 1).ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[0].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[1].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[0].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[1].ToString());
                 lsvLichSu.Items[i].SubItems.Add(Sex);
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[3].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[4].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[5].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[6].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[7].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[8].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[9].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[10].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[11].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[12].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[13].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[14].ToString());
-                lsvLichSu.Items[i].SubItems.Add(docdulieu[15].ToString());
+                lsvLichSu.Items[i].SubItems.Add(date.ToString("dd/MM/yyyy"));
+                lsvLichSu.Items[i].SubItems.Add(row[4].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[5].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[6].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[7].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[8].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[9].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[10].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[11].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[12].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[13].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[14].ToString());
+                lsvLichSu.Items[i].SubItems.Add(row[15].ToString());
                 i++;
             }
-            ketnoi.Close();
         }
 
         private void lsvLichSu_Click(object sender, EventArgs e)
@@ -89,7 +81,7 @@ namespace DoAn
             DialogResult dialog = MessageBox.Show("Bạn muốn xóa à?", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                delete(lsvLichSu.SelectedItems[0].SubItems[1].Text);
+                DKH.delete(lsvLichSu.SelectedItems[0].SubItems[1].Text);
                 hienthi();
             }
             else
@@ -97,15 +89,6 @@ namespace DoAn
                 btnXoa.Enabled = false;
                 hienthi();
             }
-        }
-        
-        private void delete(string id)
-        {
-            ketnoi.Open();
-            sql = @"DELETE from Inf_LichSu where (Customer_Id =N'" + id + @"')";
-            thuchien = new SqlCommand(sql, ketnoi);
-            thuchien.ExecuteNonQuery();
-            ketnoi.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

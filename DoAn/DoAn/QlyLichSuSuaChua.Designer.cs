@@ -46,13 +46,13 @@
             this.Repair_Appoinment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Repair_Money = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Repair_Time_End = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lsvLichSu
@@ -78,9 +78,9 @@
             this.lsvLichSu.FullRowSelect = true;
             this.lsvLichSu.GridLines = true;
             this.lsvLichSu.HideSelection = false;
-            this.lsvLichSu.Location = new System.Drawing.Point(25, 152);
+            this.lsvLichSu.Location = new System.Drawing.Point(36, 207);
             this.lsvLichSu.Name = "lsvLichSu";
-            this.lsvLichSu.Size = new System.Drawing.Size(1420, 361);
+            this.lsvLichSu.Size = new System.Drawing.Size(1184, 503);
             this.lsvLichSu.TabIndex = 0;
             this.lsvLichSu.UseCompatibleStateImageBehavior = false;
             this.lsvLichSu.View = System.Windows.Forms.View.Details;
@@ -169,32 +169,12 @@
             this.Repair_Time_End.Text = "Thời gian kết thúc";
             this.Repair_Time_End.Width = 132;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::DoAn.Properties.Resources.fix;
-            this.pictureBox2.Location = new System.Drawing.Point(485, 32);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 66);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 51;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(398, 38);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Quản lý lịch sử sữa chữa";
-            // 
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnXoa.Enabled = false;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Location = new System.Drawing.Point(1347, 77);
+            this.btnXoa.Location = new System.Drawing.Point(1123, 138);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(98, 40);
             this.btnXoa.TabIndex = 52;
@@ -205,7 +185,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DoAn.Properties.Resources.remove;
-            this.pictureBox1.Location = new System.Drawing.Point(1294, 79);
+            this.pictureBox1.Location = new System.Drawing.Point(1070, 140);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(47, 38);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -216,7 +196,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(25, 106);
+            this.button1.Location = new System.Drawing.Point(37, 138);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 40);
             this.button1.TabIndex = 54;
@@ -224,34 +204,53 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::DoAn.Properties.Resources.beautiful_color_gradients_backgrounds_070_aqua_splash;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnXoa);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.ForeColor = System.Drawing.Color.Transparent;
+            this.panel1.Location = new System.Drawing.Point(-1, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1338, 191);
+            this.panel1.TabIndex = 77;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(391, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 44);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Thông tin lịch sử";
+            // 
             // QlyLichSuSuaChua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1468, 580);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1337, 737);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lsvLichSu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QlyLichSuSuaChua";
             this.Text = "QlyLichSuSuaChua";
             this.Load += new System.EventHandler(this.QlyLichSuSuaChua_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ListView lsvLichSu;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader STT;
         private System.Windows.Forms.ColumnHeader Customer_Id;
         private System.Windows.Forms.ColumnHeader Customer_Name;
@@ -272,5 +271,7 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }

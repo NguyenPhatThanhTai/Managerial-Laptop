@@ -62,6 +62,10 @@ namespace DoAn
 
         private void listView2_Click(object sender, EventArgs e)
         {
+            if (listView2.SelectedItems[0].SubItems[5].Text == Name)
+            {
+                btnNhanDon.Text = "Tiếp tục đơn";
+            }
             btnNhanDon.Enabled = true;
             txtMaSuaChua.Text = listView2.SelectedItems[0].SubItems[1].Text;
             txtTenKhachHang.Text = listView2.SelectedItems[0].SubItems[2].Text;
@@ -144,6 +148,7 @@ namespace DoAn
 
         private void Enable(bool a)
         {
+            btnDone.Enabled = a;
             btnUpdate.Enabled = a;
             txtCanSua.Enabled = a;
             txtDateHen.Enabled = a;

@@ -54,9 +54,7 @@ namespace DoAn
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DangNhap dangnhap = new DangNhap();
-            dangnhap.Show();
+            this.Close();
         }
 
         private void btnChucNangQuanLyNV_Click(object sender, EventArgs e)
@@ -75,15 +73,27 @@ namespace DoAn
             }
             else
             {
-                DangNhap dangNhap = new DangNhap();
-                dangNhap.Show();
-                this.Hide();
+                Environment.Exit(1);
             }
         }
 
         private void Minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn muốn đăng xuất à?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                Properties.Settings.Default.userName = "";
+                Properties.Settings.Default.passUser = "";
+                Properties.Settings.Default.Save();
+                this.Hide();
+                DangNhap dn = new DangNhap();
+                dn.Show();
+            }
         }
     }
 }

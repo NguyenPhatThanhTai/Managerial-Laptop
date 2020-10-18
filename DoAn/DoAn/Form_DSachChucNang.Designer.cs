@@ -39,7 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.HelloNV = new System.Windows.Forms.Label();
             this.Minimize = new System.Windows.Forms.PictureBox();
-            this.panel4.SuspendLayout();
+            this.btnLogout = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnThoat)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChucNangQuanLyNV)).BeginInit();
@@ -48,22 +48,22 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChucNangSuaChua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
             this.panel4.BackgroundImage = global::DoAn.Properties.Resources.beautiful_color_gradients_backgrounds_075_clean_mirror;
-            this.panel4.Controls.Add(this.btnThoat);
             this.panel4.Location = new System.Drawing.Point(253, 316);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(264, 188);
+            this.panel4.Size = new System.Drawing.Size(264, 181);
             this.panel4.TabIndex = 12;
             // 
             // btnThoat
             // 
             this.btnThoat.BackColor = System.Drawing.Color.Transparent;
             this.btnThoat.Image = global::DoAn.Properties.Resources.remove;
-            this.btnThoat.Location = new System.Drawing.Point(81, 62);
+            this.btnThoat.Location = new System.Drawing.Point(334, 528);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(108, 69);
             this.btnThoat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -169,13 +169,27 @@
             this.Minimize.TabStop = false;
             this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Image = global::DoAn.Properties.Resources.log_out;
+            this.btnLogout.Location = new System.Drawing.Point(68, 528);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(108, 69);
+            this.btnLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnLogout.TabIndex = 19;
+            this.btnLogout.TabStop = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // DanhSachChucNang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BackgroundImage = global::DoAn.Properties.Resources.beautiful_color_gradients_backgrounds_010_winter_neva;
-            this.ClientSize = new System.Drawing.Size(516, 493);
+            this.ClientSize = new System.Drawing.Size(516, 618);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.HelloNV);
             this.Controls.Add(this.panel4);
@@ -189,7 +203,6 @@
             this.Text = "Form4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DanhSachChucNang_FormClosing);
             this.Load += new System.EventHandler(this.DanhSachChucNang_Load);
-            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnThoat)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnChucNangQuanLyNV)).EndInit();
@@ -198,6 +211,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnChucNangSuaChua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +229,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label HelloNV;
         private System.Windows.Forms.PictureBox Minimize;
+        private System.Windows.Forms.PictureBox btnLogout;
     }
 }

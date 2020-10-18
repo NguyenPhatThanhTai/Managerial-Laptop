@@ -49,8 +49,8 @@ namespace DoAn
             }
             else
             {
-                DangNhap dangNhap = new DangNhap();
-                dangNhap.Show();
+                DanhSachChucNang dscn = new DanhSachChucNang();
+                dscn.Show();
                 this.Hide();
             }
         }

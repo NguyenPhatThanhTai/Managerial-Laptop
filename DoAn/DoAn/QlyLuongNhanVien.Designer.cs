@@ -268,7 +268,7 @@
             this.btnUpdate.Enabled = false;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnUpdate.Image = global::DoAn.Properties.Resources.refresh__1_;
             this.btnUpdate.Location = new System.Drawing.Point(228, 211);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(0);
@@ -286,7 +286,7 @@
             this.btnClear.Enabled = false;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnClear.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.Location = new System.Drawing.Point(622, 211);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
