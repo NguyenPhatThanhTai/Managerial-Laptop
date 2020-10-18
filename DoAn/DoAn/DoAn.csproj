@@ -420,5 +420,23 @@
   <ItemGroup>
     <None Include="Resources\wp1892090.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\best-loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a804c33cb5bb1565-html-css-overlay-covering-whole-page-with-centered-elements-stack.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7802b3a-newprogress.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\progressbar-5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\progress.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,7 +19,10 @@ namespace DoAn
 
         private async void Check_Load(object sender, EventArgs e)
         {
-            await Task.Delay(3000);
+            pb1.Hide();
+            await Task.Delay(2000);
+            pb1.Show();
+            await Task.Delay(11000);
             WhenStartedcs ws = new WhenStartedcs();
             ws.check();
             this.Hide();
