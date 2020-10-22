@@ -23,6 +23,8 @@ namespace DoAn
         private void DangNhap_Load(object sender, EventArgs e)
         {
             dnv = new Data_NV();
+            pbCheck.Hide();
+            lbCheck.Hide();
             if (Properties.Settings.Default.userName != "")
             {
                 txtAccount.Text = Properties.Settings.Default.userName;
@@ -31,12 +33,15 @@ namespace DoAn
             }
         }
 
-        private void btnDangNhap_Click(object sender, EventArgs e)
+        private async void btnDangNhap_Click(object sender, EventArgs e)
         {
             string Account = txtAccount.Text;
             string Password = txtPassword.Text;
             if (Account != "" && Password != "")
             {
+                pbCheck.Show();
+                lbCheck.Show();
+                await Task.Delay(2000);
                 if (dnv.DangNhap(Account, Password))
                 {
                     DanhSachChucNang DSCN = new DanhSachChucNang(int.Parse(dnv.CheckRole(Account)), dnv.GetUserName(Account));
@@ -51,6 +56,8 @@ namespace DoAn
                 }
                 else
                 {
+                    pbCheck.Hide();
+                    lbCheck.Hide();
                     MessageBox.Show("Sai tài khoản hoặc mật khẩu vui lòng kiểm tra lại !");
                 }
             }
