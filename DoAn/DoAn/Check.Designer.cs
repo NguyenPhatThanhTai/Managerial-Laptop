@@ -46,7 +46,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::DoAn.Properties.Resources._737400;
+            this.panel1.BackgroundImage = global::DoAn.Properties.Resources.wp2301577_anime_4k_wallpapers;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Location = new System.Drawing.Point(-21, -20);
             this.panel1.Name = "panel1";

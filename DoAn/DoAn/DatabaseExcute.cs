@@ -10,7 +10,7 @@ namespace DoAn
 {
     class DatabaseExcute
     {
-        string chuoiketnoi = @"Data Source=DESKTOP-G2HJKI8\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
+        string chuoiketnoi = @"Data Source=TAEITAEI\SQLEXPRESS;Initial Catalog=ProjectOne;Integrated Security=True";
         SqlConnection ketnoi;
         SqlCommand thuchien;
         SqlDataReader docdulieu;

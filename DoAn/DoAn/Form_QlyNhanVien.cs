@@ -23,7 +23,7 @@ namespace DoAn
 
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
-            QlyThongTinNhanVien f = new QlyThongTinNhanVien();
+            QlyThongTinNhanVien f = new QlyThongTinNhanVien(Role, Name);
             AddToForm(f);
         }
 
@@ -70,7 +70,7 @@ namespace DoAn
             }
             else
             {
-                DanhSachChucNang dscn = new DanhSachChucNang();
+                DanhSachChucNang dscn = new DanhSachChucNang(Role, Name);
                 dscn.Show();
                 this.Hide();
             }

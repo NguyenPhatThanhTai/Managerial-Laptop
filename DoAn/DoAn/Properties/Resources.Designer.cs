@@ -154,6 +154,26 @@ namespace DoAn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anime_girl_alone_sitting_p0_3840x2160 {
+            get {
+                object obj = ResourceManager.GetObject("anime-girl-alone-sitting-p0-3840x2160", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap anime_scenery_field_4k_9j_3840x2160 {
+            get {
+                object obj = ResourceManager.GetObject("anime-scenery-field-4k-9j-3840x2160", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow {
             get {
                 object obj = ResourceManager.GetObject("arrow", resourceCulture);
@@ -257,6 +277,16 @@ namespace DoAn.Properties {
         internal static System.Drawing.Bitmap board_games_with_roles {
             get {
                 object obj = ResourceManager.GetObject("board-games-with-roles", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check {
+            get {
+                object obj = ResourceManager.GetObject("check", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -507,6 +537,16 @@ namespace DoAn.Properties {
         internal static System.Drawing.Bitmap laptop {
             get {
                 object obj = ResourceManager.GetObject("laptop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loaddonegif {
+            get {
+                object obj = ResourceManager.GetObject("loaddonegif", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -857,6 +897,16 @@ namespace DoAn.Properties {
         internal static System.Drawing.Bitmap wp1892090 {
             get {
                 object obj = ResourceManager.GetObject("wp1892090", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wp2301577_anime_4k_wallpapers {
+            get {
+                object obj = ResourceManager.GetObject("wp2301577-anime-4k-wallpapers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

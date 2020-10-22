@@ -91,7 +91,7 @@ namespace DoAn
             btnSua.Enabled = true;
             btnDelete.Enabled = true;
             listView4.Enabled = false;
-            if (listView4.SelectedItems[0].SubItems[2].Text == "Nguyễn Phát Thành Tài")
+            if (listView4.SelectedItems[0].SubItems[2].Text == Name)
             {
                 btnDelete.Enabled = false;
             }

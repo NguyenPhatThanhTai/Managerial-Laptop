@@ -16,7 +16,8 @@ namespace DoAn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Check());
+            //Application.Run(new Check());
+            Application.Run(new QuanLySuaChua());
         }
     }
 }

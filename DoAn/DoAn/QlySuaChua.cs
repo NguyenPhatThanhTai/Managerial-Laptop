@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net;
+using System.Threading;
 
 namespace DoAn
 {
@@ -33,6 +34,8 @@ namespace DoAn
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            PanDone.Hide();
+            Panload.Hide();
             dkh = new Data_KH();
             hienthi();
         }
@@ -174,7 +177,7 @@ namespace DoAn
             txtTinhTrang.Text = "";
         }
 
-        private void btnDone_Click(object sender, EventArgs e)
+        private async void btnDone_Click(object sender, EventArgs e)
         {
             //Sửa lấy ngay
             //Hẹn ngày lấy
@@ -185,8 +188,15 @@ namespace DoAn
             }
             else
             {
-                btnNhanDon.Enabled = true;
+                Panload.Show();
+                Enable(false);
                 dkh.Done_RP(txtMaSuaChua.Text, txtTenMay.Text, txtCanSua.Text, txtSoTien.Text, txtHenSua.Text);
+                await Task.Delay (5000);
+                Panload.Hide();
+                PanDone.Show();
+                await Task.Delay(3000);
+                PanDone.Hide();
+                btnNhanDon.Enabled = true;
                 hienthi();
                 listView2.Enabled = true;
                 Enable(false);

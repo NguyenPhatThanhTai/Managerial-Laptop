@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -142,7 +143,8 @@ namespace DoAn
                 {
                     if (Repair_Appoinment == "Hẹn ngày lấy")
                     {
-                        sendMail(row[1].ToString(), row[4].ToString(), row[5].ToString(), Laptop_Name, Repair_Reason, Repair_Money);
+                        var thread = new Thread(() => sendMail(row[1].ToString(), row[4].ToString(), row[5].ToString(), Laptop_Name, Repair_Reason, Repair_Money));
+                        thread.Start();
                     }
                     var date = DateTime.Parse(row[3].ToString());
                     var date2 = DateTime.Parse(row[6].ToString());
@@ -183,7 +185,7 @@ namespace DoAn
             db.ExecuteNonQuery(sql);
         }
 
-        public void sendMail(string NameTo, string EmailTo, string SDTTo, string Laptop_Name, string Repair_Reason, string Repair_Money)
+        private static void sendMail(string NameTo, string EmailTo, string SDTTo, string Laptop_Name, string Repair_Reason, string Repair_Money)
         {
             try
             {

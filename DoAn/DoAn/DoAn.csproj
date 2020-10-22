@@ -441,5 +441,20 @@
   <ItemGroup>
     <None Include="Resources\737400.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anime-girl-alone-sitting-p0-3840x2160.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anime-scenery-field-4k-9j-3840x2160.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wp2301577-anime-4k-wallpapers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loaddonegif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

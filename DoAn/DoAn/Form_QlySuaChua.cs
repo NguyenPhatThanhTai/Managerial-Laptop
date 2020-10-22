@@ -28,7 +28,7 @@ namespace DoAn
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            QlyThongTinKhachHang f = new QlyThongTinKhachHang();
+            QlyThongTinKhachHang f = new QlyThongTinKhachHang(Role, Name);
             AddToForm(f);
         }
 
@@ -41,7 +41,7 @@ namespace DoAn
             }
             else
             {
-                DanhSachChucNang dscn = new DanhSachChucNang();
+                DanhSachChucNang dscn = new DanhSachChucNang(Role, Name);
                 dscn.Show();
                 this.Hide();
             }

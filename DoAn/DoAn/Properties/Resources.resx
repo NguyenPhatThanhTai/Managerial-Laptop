@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="project" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\project.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,14 +202,14 @@
   <data name="add (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="7802b3a-newprogress" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\7802b3a-newprogress.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loaddonegif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loaddonegif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="repair" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\repair.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,6 +223,9 @@
   <data name="beautiful-color-gradients-backgrounds-070-aqua-splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\beautiful-color-gradients-backgrounds-070-aqua-splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="shrink (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shrink (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="wp1892090" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wp1892090.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -228,9 +234,6 @@
   </data>
   <data name="beautiful-color-gradients-backgrounds-010-winter-neva" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\beautiful-color-gradients-backgrounds-010-winter-neva.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,11 +259,11 @@
   <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="help (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\help (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="board-games-with-roles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\board-games-with-roles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="completed-task" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\completed-task.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="give-money" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\give-money.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,6 +304,9 @@
   <data name="salary" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\salary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="anime-girl-alone-sitting-p0-3840x2160" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\anime-girl-alone-sitting-p0-3840x2160.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="phone-number" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phone-number.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -310,8 +316,14 @@
   <data name="png-transparent-sound-wave-wave-blue-effect-photography" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-transparent-sound-wave-wave-blue-effect-photography.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shrink (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shrink (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wp2301577-anime-4k-wallpapers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wp2301577-anime-4k-wallpapers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="anime-scenery-field-4k-9j-3840x2160" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\anime-scenery-field-4k-9j-3840x2160.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="7802b3a-newprogress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7802b3a-newprogress.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\remove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -343,8 +355,11 @@
   <data name="login (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="completed-task" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\completed-task.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="help (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="737400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\737400.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="webpage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\webpage1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -361,7 +376,7 @@
   <data name="minimize1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="737400" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\737400.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
