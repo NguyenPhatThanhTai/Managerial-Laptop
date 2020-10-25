@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -37,16 +38,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbCheck = new System.Windows.Forms.Label();
             this.Minimize = new System.Windows.Forms.PictureBox();
+            this.pbCheck = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lbCheck = new System.Windows.Forms.Label();
-            this.pbCheck = new System.Windows.Forms.PictureBox();
             this.Ckb_SaveMyPass = new System.Windows.Forms.CheckBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDangNhap
@@ -152,6 +154,17 @@
             this.panel3.Size = new System.Drawing.Size(432, 229);
             this.panel3.TabIndex = 16;
             // 
+            // lbCheck
+            // 
+            this.lbCheck.AutoSize = true;
+            this.lbCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lbCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCheck.Location = new System.Drawing.Point(174, 177);
+            this.lbCheck.Name = "lbCheck";
+            this.lbCheck.Size = new System.Drawing.Size(170, 20);
+            this.lbCheck.TabIndex = 78;
+            this.lbCheck.Text = "Đang kiểm tra, xin đợi";
+            // 
             // Minimize
             // 
             this.Minimize.BackColor = System.Drawing.Color.Transparent;
@@ -163,6 +176,17 @@
             this.Minimize.TabIndex = 17;
             this.Minimize.TabStop = false;
             this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
+            // 
+            // pbCheck
+            // 
+            this.pbCheck.BackColor = System.Drawing.Color.Transparent;
+            this.pbCheck.Image = global::DoAn.Properties.Resources.loaddonegif;
+            this.pbCheck.Location = new System.Drawing.Point(71, 163);
+            this.pbCheck.Name = "pbCheck";
+            this.pbCheck.Size = new System.Drawing.Size(97, 50);
+            this.pbCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCheck.TabIndex = 77;
+            this.pbCheck.TabStop = false;
             // 
             // label1
             // 
@@ -188,28 +212,6 @@
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
             // 
-            // lbCheck
-            // 
-            this.lbCheck.AutoSize = true;
-            this.lbCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lbCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck.Location = new System.Drawing.Point(174, 177);
-            this.lbCheck.Name = "lbCheck";
-            this.lbCheck.Size = new System.Drawing.Size(170, 20);
-            this.lbCheck.TabIndex = 78;
-            this.lbCheck.Text = "Đang kiểm tra, xin đợi";
-            // 
-            // pbCheck
-            // 
-            this.pbCheck.BackColor = System.Drawing.Color.Transparent;
-            this.pbCheck.Image = global::DoAn.Properties.Resources.loaddonegif;
-            this.pbCheck.Location = new System.Drawing.Point(71, 163);
-            this.pbCheck.Name = "pbCheck";
-            this.pbCheck.Size = new System.Drawing.Size(97, 50);
-            this.pbCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbCheck.TabIndex = 77;
-            this.pbCheck.TabStop = false;
-            // 
             // Ckb_SaveMyPass
             // 
             this.Ckb_SaveMyPass.AutoSize = true;
@@ -220,6 +222,10 @@
             this.Ckb_SaveMyPass.TabIndex = 17;
             this.Ckb_SaveMyPass.Text = "Giữ đăng nhập";
             this.Ckb_SaveMyPass.UseVisualStyleBackColor = true;
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // DangNhap
             // 
@@ -248,8 +254,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +277,6 @@
         private System.Windows.Forms.CheckBox Ckb_SaveMyPass;
         private System.Windows.Forms.Label lbCheck;
         private System.Windows.Forms.PictureBox pbCheck;
+        private System.Windows.Forms.Timer timer2;
     }
 }

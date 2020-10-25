@@ -22,6 +22,8 @@ namespace DoAn
         Data_NV dnv;
         private void DangNhap_Load(object sender, EventArgs e)
         {
+            // Cần sửa
+            timer2.Start();
             dnv = new Data_NV();
             pbCheck.Hide();
             lbCheck.Hide();
@@ -74,21 +76,29 @@ namespace DoAn
 
         private void DangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-           
-                DialogResult dialog = MessageBox.Show("Bạn muốn thoát à?", "Xác nhận", MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Bạn muốn thoát à?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.No)
                 {
                     e.Cancel = true;
                 }
                 else
                 {
-                    Environment.Exit(1);
+                Environment.Exit(1);
                 }
         }
 
         private void Minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        // Cần sửa
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity < 5.0)
+            {
+                this.Opacity += 0.75;
+            }
         }
     }
 }

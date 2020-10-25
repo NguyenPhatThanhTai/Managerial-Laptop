@@ -58,7 +58,7 @@
             // 
             this.GboxContain.Location = new System.Drawing.Point(305, 0);
             this.GboxContain.Name = "GboxContain";
-            this.GboxContain.Size = new System.Drawing.Size(1339, 737);
+            this.GboxContain.Size = new System.Drawing.Size(1339, 740);
             this.GboxContain.TabIndex = 19;
             // 
             // panel1

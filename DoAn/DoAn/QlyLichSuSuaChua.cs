@@ -31,6 +31,7 @@ namespace DoAn
 
         public void hienthi()
         {
+            i = 0;
             lsvLichSu.Items.Clear();
             DataTable dtb = DKH.Load_LS();
             foreach (DataRow row in dtb.Rows)
@@ -82,6 +83,7 @@ namespace DoAn
             if (dialog == DialogResult.Yes)
             {
                 DKH.delete(lsvLichSu.SelectedItems[0].SubItems[1].Text);
+                btnXoa.Enabled = false;
                 hienthi();
             }
             else
