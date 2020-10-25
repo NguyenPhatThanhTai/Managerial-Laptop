@@ -54,5 +54,10 @@ namespace DoAn
             this.Hide();
 
         }
+
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

@@ -117,6 +117,7 @@
             this.Minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Minimize.TabIndex = 23;
             this.Minimize.TabStop = false;
+            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
             // pictureBox1
             // 
@@ -146,6 +147,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QuanLyKeToan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_KeToan";
             this.Load += new System.EventHandler(this.QuanLyKeToan_Load);
             this.panel1.ResumeLayout(false);

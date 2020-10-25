@@ -95,5 +95,12 @@ namespace DoAn
                 dn.Show();
             }
         }
+
+        private void btnChucNangKeToan_Click(object sender, EventArgs e)
+        {
+            QuanLyKeToan qlkt = new QuanLyKeToan();
+            qlkt.Show();
+            this.Hide();
+        }
     }
 }

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbTongTien = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtp2 = new System.Windows.Forms.DateTimePicker();
+            this.dtp1 = new System.Windows.Forms.DateTimePicker();
             this.lsvKeToan = new System.Windows.Forms.ListView();
             this.STT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RepairID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CusTimeAdd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CusTimeEnd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RepairMoney = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dtp1 = new System.Windows.Forms.DateTimePicker();
-            this.dtp2 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,18 @@
             this.panel1.Size = new System.Drawing.Size(1339, 196);
             this.panel1.TabIndex = 74;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(312, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(206, 20);
+            this.label3.TabIndex = 79;
+            this.label3.Text = "Lọc theo thời gian kết thúc";
+            // 
             // lbTongTien
             // 
             this.lbTongTien.AutoSize = true;
@@ -72,6 +84,18 @@
             this.lbTongTien.TabIndex = 1;
             this.lbTongTien.Text = "000000000000";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(397, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 20);
+            this.label2.TabIndex = 78;
+            this.label2.Text = ">>>";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -84,6 +108,22 @@
             this.label1.Size = new System.Drawing.Size(161, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tổng tiền";
+            // 
+            // dtp2
+            // 
+            this.dtp2.Location = new System.Drawing.Point(460, 112);
+            this.dtp2.Name = "dtp2";
+            this.dtp2.Size = new System.Drawing.Size(200, 22);
+            this.dtp2.TabIndex = 77;
+            this.dtp2.ValueChanged += new System.EventHandler(this.dtp2_ValueChanged);
+            // 
+            // dtp1
+            // 
+            this.dtp1.Location = new System.Drawing.Point(163, 112);
+            this.dtp1.Name = "dtp1";
+            this.dtp1.Size = new System.Drawing.Size(200, 22);
+            this.dtp1.TabIndex = 76;
+            this.dtp1.ValueChanged += new System.EventHandler(this.dtp1_ValueChanged);
             // 
             // lsvKeToan
             // 
@@ -99,7 +139,7 @@
             this.lsvKeToan.Location = new System.Drawing.Point(36, 263);
             this.lsvKeToan.Margin = new System.Windows.Forms.Padding(4);
             this.lsvKeToan.Name = "lsvKeToan";
-            this.lsvKeToan.Size = new System.Drawing.Size(1168, 431);
+            this.lsvKeToan.Size = new System.Drawing.Size(1168, 459);
             this.lsvKeToan.TabIndex = 75;
             this.lsvKeToan.UseCompatibleStateImageBehavior = false;
             this.lsvKeToan.View = System.Windows.Forms.View.Details;
@@ -128,51 +168,11 @@
             this.RepairMoney.Text = "Số tiền";
             this.RepairMoney.Width = 131;
             // 
-            // dtp1
-            // 
-            this.dtp1.Location = new System.Drawing.Point(163, 112);
-            this.dtp1.Name = "dtp1";
-            this.dtp1.Size = new System.Drawing.Size(200, 22);
-            this.dtp1.TabIndex = 76;
-            this.dtp1.ValueChanged += new System.EventHandler(this.dtp1_ValueChanged);
-            // 
-            // dtp2
-            // 
-            this.dtp2.Location = new System.Drawing.Point(460, 112);
-            this.dtp2.Name = "dtp2";
-            this.dtp2.Size = new System.Drawing.Size(200, 22);
-            this.dtp2.TabIndex = 77;
-            this.dtp2.ValueChanged += new System.EventHandler(this.dtp2_ValueChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(397, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 20);
-            this.label2.TabIndex = 78;
-            this.label2.Text = ">>>";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(312, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 20);
-            this.label3.TabIndex = 79;
-            this.label3.Text = "Lọc theo thời gian kết thúc";
-            // 
             // QlyKeToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1334, 682);
+            this.ClientSize = new System.Drawing.Size(1334, 754);
             this.Controls.Add(this.lsvKeToan);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

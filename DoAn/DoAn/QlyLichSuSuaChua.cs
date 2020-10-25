@@ -49,24 +49,27 @@ namespace DoAn
                     Sex = "Khác";
                 }
 
-                var date = DateTime.Parse(row[3].ToString());
+                var date1 = DateTime.Parse(row[3].ToString());
+                var date2 = DateTime.Parse(row[6].ToString());
+                var date3 = DateTime.Parse(row[13].ToString());
+                var date4 = DateTime.Parse(row[15].ToString());
                 lsvLichSu.Items.Add((i + 1).ToString());
                 lsvLichSu.Items[i].SubItems.Add(row[0].ToString());
                 lsvLichSu.Items[i].SubItems.Add(row[1].ToString());
                 lsvLichSu.Items[i].SubItems.Add(Sex);
-                lsvLichSu.Items[i].SubItems.Add(date.ToString("dd/MM/yyyy"));
+                lsvLichSu.Items[i].SubItems.Add(date1.ToString("dd/MM/yyyy"));
                 lsvLichSu.Items[i].SubItems.Add(row[4].ToString());
                 lsvLichSu.Items[i].SubItems.Add(row[5].ToString());
-                lsvLichSu.Items[i].SubItems.Add(row[6].ToString());
+                lsvLichSu.Items[i].SubItems.Add(date2.ToString("dd/MM/yyyy"));
                 lsvLichSu.Items[i].SubItems.Add(row[7].ToString());
                 lsvLichSu.Items[i].SubItems.Add(row[8].ToString());
                 lsvLichSu.Items[i].SubItems.Add(row[9].ToString());
                 lsvLichSu.Items[i].SubItems.Add(row[10].ToString());
                 lsvLichSu.Items[i].SubItems.Add(row[11].ToString());
                 lsvLichSu.Items[i].SubItems.Add(row[12].ToString());
-                lsvLichSu.Items[i].SubItems.Add(row[13].ToString());
+                lsvLichSu.Items[i].SubItems.Add(date3.ToString("dd/MM/yyyy"));
                 lsvLichSu.Items[i].SubItems.Add(row[14].ToString());
-                lsvLichSu.Items[i].SubItems.Add(row[15].ToString());
+                lsvLichSu.Items[i].SubItems.Add(date4.ToString("dd/MM/yyyy"));
                 i++;
             }
         }

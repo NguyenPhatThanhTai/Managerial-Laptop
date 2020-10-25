@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnChucNangKeToan = new System.Windows.Forms.PictureBox();
             this.btnThoat = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnChucNangQuanLyNV = new System.Windows.Forms.PictureBox();
@@ -40,8 +41,8 @@
             this.HelloNV = new System.Windows.Forms.Label();
             this.Minimize = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChucNangKeToan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThoat)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChucNangQuanLyNV)).BeginInit();
@@ -51,17 +52,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnChucNangSuaChua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
             this.panel4.BackgroundImage = global::DoAn.Properties.Resources.beautiful_color_gradients_backgrounds_075_clean_mirror;
-            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.btnChucNangKeToan);
             this.panel4.Location = new System.Drawing.Point(253, 316);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(264, 181);
             this.panel4.TabIndex = 12;
+            this.panel4.Click += new System.EventHandler(this.btnChucNangKeToan_Click);
+            // 
+            // btnChucNangKeToan
+            // 
+            this.btnChucNangKeToan.BackColor = System.Drawing.Color.Transparent;
+            this.btnChucNangKeToan.Image = global::DoAn.Properties.Resources.accounting;
+            this.btnChucNangKeToan.Location = new System.Drawing.Point(81, 62);
+            this.btnChucNangKeToan.Name = "btnChucNangKeToan";
+            this.btnChucNangKeToan.Size = new System.Drawing.Size(108, 69);
+            this.btnChucNangKeToan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnChucNangKeToan.TabIndex = 3;
+            this.btnChucNangKeToan.TabStop = false;
+            this.btnChucNangKeToan.Click += new System.EventHandler(this.btnChucNangKeToan_Click);
             // 
             // btnThoat
             // 
@@ -188,17 +201,6 @@
             this.btnLogout.TabStop = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::DoAn.Properties.Resources.accounting;
-            this.pictureBox1.Location = new System.Drawing.Point(81, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 69);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // DanhSachChucNang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,6 +224,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DanhSachChucNang_FormClosing);
             this.Load += new System.EventHandler(this.DanhSachChucNang_Load);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnChucNangKeToan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThoat)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnChucNangQuanLyNV)).EndInit();
@@ -231,7 +234,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnChucNangSuaChua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,6 +252,6 @@
         private System.Windows.Forms.Label HelloNV;
         private System.Windows.Forms.PictureBox Minimize;
         private System.Windows.Forms.PictureBox btnLogout;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnChucNangKeToan;
     }
 }
